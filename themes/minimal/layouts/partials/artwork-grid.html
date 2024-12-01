@@ -5,26 +5,30 @@
             {{ $ext := path.Ext .image }}
             {{ $mime := cond (eq $ext ".png") "png" "jpeg" }}
             {{ $basename := strings.TrimSuffix $ext .image }}
+            {{ $fallback := printf "%s-400%s" $basename $ext }}
             <source 
                 media="(min-width: 1200px)"
                 srcset="{{ $basename }}-1200{{ $ext }} 1200w"
-                type="image/{{ $mime }}">
+                type="image/{{ $mime }}"
+                onerror="this.srcset='{{ $fallback }}'">
             <source 
                 media="(min-width: 800px)"
                 srcset="{{ $basename }}-800{{ $ext }} 800w"
-                type="image/{{ $mime }}">
+                type="image/{{ $mime }}"
+                onerror="this.srcset='{{ $fallback }}'">
             <source 
                 media="(min-width: 400px)"
                 srcset="{{ $basename }}-400{{ $ext }} 400w"
-                type="image/{{ $mime }}">
+                type="image/{{ $mime }}"
+                onerror="this.srcset='{{ $fallback }}'">
             <img
-                src="{{ $basename }}-400{{ $ext }}"
+                src="{{ $fallback }}"
                 alt="{{ .alt }}"
                 loading="lazy"
                 decoding="async"
                 data-src="{{ .image }}"
                 class="lazy"
-                onload="this.classList.add('loaded')"
+                onerror="this.src='{{ .image }}'"
                 sizes="(max-width: 400px) 100vw, (max-width: 800px) 50vw, 33vw">
         </picture>
         <figcaption>{{ .title }}{{ if .dimensions }} | {{ .dimensions }}{{ end }}{{ if .medium }} | {{ .medium }}{{ end }}</figcaption>

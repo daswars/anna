@@ -77,13 +77,18 @@ function initImageObserver() {
             if (entry.isIntersecting) {
                 const img = entry.target;
                 if (!img.src || img.src.includes('data:image')) {
-                    img.src = img.dataset.src;
+                    const src = img.dataset.src;
+                    img.onerror = () => {
+                        console.warn(`Failed to load image: ${src}`);
+                        img.src = src; // Fallback to original
+                    };
+                    img.src = src.replace(/\.(jpg|jpeg|png)$/, '-400.$1');
                 }
                 observer.unobserve(img);
             }
         });
     }, {
-        rootMargin: '50px 0px',
+        rootMargin: '100px 0px',
         threshold: 0.01
     });
 
