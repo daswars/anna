@@ -90,13 +90,21 @@ function initSmoothScrolling() {
             }
             
             if (section) {
-                // Ensure all images in the section are loaded
+                // Load all lazy images in the target section
+                const lazyImages = section.querySelectorAll('img.lazy');
+                lazyImages.forEach(img => {
+                    if (!img.src || img.src.includes('data:image')) {
+                        img.src = img.dataset.src;
+                    }
+                });
+
+                // Wait for all images to load
                 const images = section.getElementsByTagName('img');
                 const imagePromises = Array.from(images).map(img => {
                     if (img.complete) return Promise.resolve();
                     return new Promise(resolve => {
                         img.onload = resolve;
-                        img.onerror = resolve; // Handle error case too
+                        img.onerror = resolve;
                     });
                 });
 

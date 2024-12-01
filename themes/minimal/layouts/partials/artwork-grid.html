@@ -3,8 +3,10 @@
     <figure class="artwork" data-title="{{ .title }}" data-dimensions="{{ .dimensions }}" data-medium="{{ .medium }}">
         <img src="{{ .image }}" 
              alt="{{ .alt }}" 
-             loading="eager"
+             loading="lazy"
              decoding="async"
+             data-src="{{ .image }}"
+             class="lazy"
              onload="this.classList.add('loaded')">
         <figcaption>{{ .title }}{{ if .dimensions }} | {{ .dimensions }}{{ end }}{{ if .medium }} | {{ .medium }}{{ end }}</figcaption>
     </figure>
