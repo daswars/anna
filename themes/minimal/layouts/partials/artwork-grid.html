@@ -1,13 +1,32 @@
 {{/* artwork-grid.html - Reusable artwork components */}}
 {{ define "artwork-item" }}
     <figure class="artwork" data-title="{{ .title }}" data-dimensions="{{ .dimensions }}" data-medium="{{ .medium }}">
-        <img src="{{ .image }}" 
-             alt="{{ .alt }}" 
-             loading="lazy"
-             decoding="async"
-             data-src="{{ .image }}"
-             class="lazy"
-             onload="this.classList.add('loaded')">
+        <picture>
+            {{ $ext := path.Ext .image }}
+            {{ $mime := cond (eq $ext ".png") "png" "jpeg" }}
+            {{ $basename := strings.TrimSuffix $ext .image }}
+            <source 
+                media="(min-width: 1200px)"
+                srcset="{{ $basename }}-1200{{ $ext }} 1200w"
+                type="image/{{ $mime }}">
+            <source 
+                media="(min-width: 800px)"
+                srcset="{{ $basename }}-800{{ $ext }} 800w"
+                type="image/{{ $mime }}">
+            <source 
+                media="(min-width: 400px)"
+                srcset="{{ $basename }}-400{{ $ext }} 400w"
+                type="image/{{ $mime }}">
+            <img
+                src="{{ $basename }}-400{{ $ext }}"
+                alt="{{ .alt }}"
+                loading="lazy"
+                decoding="async"
+                data-src="{{ .image }}"
+                class="lazy"
+                onload="this.classList.add('loaded')"
+                sizes="(max-width: 400px) 100vw, (max-width: 800px) 50vw, 33vw">
+        </picture>
         <figcaption>{{ .title }}{{ if .dimensions }} | {{ .dimensions }}{{ end }}{{ if .medium }} | {{ .medium }}{{ end }}</figcaption>
     </figure>
 {{ end }}
