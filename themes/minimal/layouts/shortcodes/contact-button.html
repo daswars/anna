@@ -1,0 +1,10 @@
+{{/* contact-button.html - Reusable contact button shortcode */}}
+{{ $href := .Get "href" }}
+{{ $icon := .Get "icon" }}
+{{ $text := .Get "text" }}
+
+<div class="button-wrapper">
+    <a href="{{ $href }}" target="_blank" class="contact-button">
+        <i class="{{ $icon }} icon"></i> {{ $text }}
+    </a>
+</div>

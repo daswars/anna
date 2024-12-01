@@ -1,0 +1,123 @@
+baseURL = "https://annaliviaweber.de/"
+languageCode = "de-DE"
+defaultContentLanguage = "de"
+title = "Anna Livia Weber"
+theme = "minimal"
+enableRobotsTXT = true
+canonifyURLs = true
+enableGitInfo = true
+enableEmoji = true
+[pagination]
+  pagerSize = 10
+summaryLength = 70
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
+[params]
+  author = "Anna Livia Weber"
+  authorInstagram = "anna_livia_weber"
+  description = "Zeitgenössische Künstlerin aus Deutschland - Malerei und Skulpturen"
+  jobTitle = "Künstlerin"
+  summaryLength = 70
+  images = ["assets/images/titelbild-1400x424.jpg"]
+  keywords = ["Anna Livia Weber", "Kunst", "Malerei", "Skulpturen", "Ausstellungen", "zeitgenössische Kunst", "Künstlerin", "deutsche Kunst", "Kunstgalerie"]
+  paintingYears = ["2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015"]
+  
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  medium = "mediums"
+  author = "Anna Weber"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+    
+  [[menu.main]]
+    identifier = "paintings"
+    name = "Malerei"
+    weight = 2
+    
+  [[menu.main]]
+    parent = "paintings"
+    name = "2022"
+    url = "/paintings/2022/"
+    weight = 1
+  [[menu.main]]
+    parent = "paintings" 
+    name = "2021"
+    url = "/paintings/2021/"
+    weight = 2
+  [[menu.main]]
+    parent = "paintings"
+    name = "2020" 
+    url = "/paintings/2020/"
+    weight = 3
+  [[menu.main]]
+    parent = "paintings"
+    name = "2019"
+    url = "/paintings/2019/"
+    weight = 4
+  [[menu.main]]
+    parent = "paintings"
+    name = "2018"
+    url = "/paintings/2018/"
+    weight = 5
+  [[menu.main]]
+    parent = "paintings"
+    name = "2017"
+    url = "/paintings/2017/"
+    weight = 6
+  [[menu.main]]
+    parent = "paintings"
+    name = "2016"
+    url = "/paintings/2016/"
+    weight = 7
+  [[menu.main]]
+    parent = "paintings"
+    name = "2015"
+    url = "/paintings/2015/"
+    weight = 8
+
+  [[menu.main]]
+    identifier = "sculptures"
+    name = "Skulpturen"
+    url = "/#sculptures"
+    weight = 3
+    
+  [[menu.main]]
+    identifier = "texts"
+    name = "Texte"
+    url = "/#texts"
+    weight = 4
+    
+  [[menu.main]]
+    identifier = "biography"
+    name = "Biografie"
+    url = "/#biography"
+    weight = 5
+    
+  [[menu.main]]
+    identifier = "exhibitions"
+    name = "Ausstellungen" 
+    url = "/#exhibitions"
+    weight = 6
+    
+  [[menu.main]]
+    identifier = "contact"
+    name = "Kontakt"
+    url = "/#contact"
+    weight = 7
+
+[build]
+  writeStats = true

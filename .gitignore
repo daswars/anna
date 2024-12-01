@@ -1,0 +1,5 @@
+.aider*
+.env
+public
+.hugo_build.lock
+hugo_stats.json

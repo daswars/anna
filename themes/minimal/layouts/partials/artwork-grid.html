@@ -1,0 +1,22 @@
+{{/* artwork-grid.html - Reusable artwork components */}}
+{{ define "artwork-item" }}
+    <figure class="artwork" data-title="{{ .title }}" data-dimensions="{{ .dimensions }}" data-medium="{{ .medium }}">
+        <img src="{{ .image }}" 
+             alt="{{ .alt }}" 
+             loading="eager"
+             decoding="async"
+             onload="this.classList.add('loaded')">
+        <figcaption>{{ .title }}{{ if .dimensions }} | {{ .dimensions }}{{ end }}{{ if .medium }} | {{ .medium }}{{ end }}</figcaption>
+    </figure>
+{{ end }}
+
+<section id="{{ .id | urlize }}" aria-labelledby="heading-{{ .id | urlize }}">
+    <h2 id="heading-{{ .id | urlize }}">{{ .title }}</h2>
+    <div class="artwork-grid">
+        {{ with .content }}
+            {{ range .Params.artworks }}
+                {{ template "artwork-item" . }}
+            {{ end }}
+        {{ end }}
+    </div>
+</section>

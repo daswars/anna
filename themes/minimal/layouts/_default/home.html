@@ -1,0 +1,66 @@
+{{ define "main" }}
+<article class="home-content" role="main">
+    {{/* Home Content */}}
+    {{ if .IsHome }}
+        {{ with .Site.GetPage "/" }}{{ .Content }}{{ end }}
+    {{ end }}
+
+    {{/* Paintings Sections */}}
+    {{ $paintingsSection := .Site.GetPage "/paintings" }}
+    {{ range .Site.Params.paintingYears }}
+        {{ $year := . }}
+        {{ with $paintingsSection.GetPage . }}
+            {{ partial "artwork-grid" (dict
+                "id" (printf "paintings-%s" $year)
+                "title" (printf "Malerei %s" $year)
+                "content" .
+            ) }}
+        {{ end }}
+    {{ end }}
+
+    <!-- Sculptures -->
+    {{ with .Site.GetPage "/sculptures/works" }}
+    <section id="sculptures" aria-labelledby="heading-sculptures">
+        <h2 id="heading-sculptures">{{ .Title }}</h2>
+        <div class="artwork-grid">
+            {{ range .Params.artworks }}
+                {{ template "artwork-item" . }}
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+    <!-- Text Sections -->
+    {{ with .Site.GetPage "/texts" }}
+        <section id="texts" aria-labelledby="heading-texts">
+            <h2 id="heading-texts">{{ .Title }}</h2>
+            <div class="text-wrapper">
+                {{ range (.Pages.ByParam "year").Reverse }}
+                    <article class="text-entry">
+                        <h3>{{ .Title }}</h3>
+                        {{ .Content }}
+                    </article>
+                {{ end }}
+            </div>
+        </section>
+    {{ end }}
+
+    {{ range slice "biography" "exhibitions" }}
+        {{ with $.Site.GetPage . }}
+            {{ partial "text-section" (dict
+                "id" .File.ContentBaseName
+                "title" .Title
+                "content" .
+            ) }}
+        {{ end }}
+    {{ end }}
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="heading-contact" class="text-content">
+        <h2 id="heading-contact">Kontakt</h2>
+        <div class="contact-wrapper">
+            {{ with .Site.GetPage "/contact" }}{{ .Content }}{{ end }}
+        </div>
+    </section>
+</article>
+{{ end }}

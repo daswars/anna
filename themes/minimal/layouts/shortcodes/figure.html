@@ -1,0 +1,11 @@
+{{ $class := .Get "class" | default "figure" }}
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" | default (.Get "caption" | default $src) }}
+{{ $caption := .Get "caption" }}
+
+{{ partial "artwork" (dict 
+    "image" $src
+    "title" $caption
+    "alt" $alt
+    "class" $class
+) }}

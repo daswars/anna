@@ -1,0 +1,19 @@
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "@id": "{{ .Site.BaseURL }}#artist",
+    "name": "{{ .Site.Author.name }}",
+    "jobTitle": "{{ .Site.Params.jobTitle }}",
+    "url": "{{ .Site.BaseURL }}",
+    "sameAs": [
+        "https://www.instagram.com/{{ .Site.Author.instagram }}/"
+    ],
+    "image": "{{ index .Site.Params.images 0 | absURL }}",
+    "description": "{{ .Site.Params.description }}",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ .Permalink }}"
+    }
+}
+</script>

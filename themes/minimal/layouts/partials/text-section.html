@@ -1,0 +1,7 @@
+{{/* text-section.html - Reusable text section component */}}
+<section id="{{ .id }}" aria-labelledby="heading-{{ .id }}">
+    <h2 id="heading-{{ .id }}">{{ .title }}</h2>
+    <div class="text-wrapper">
+        {{ with .content }}{{ .Content }}{{ end }}
+    </div>
+</section>

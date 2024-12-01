@@ -1,0 +1,16 @@
+<div class="contact-buttons">
+  <div class="button-wrapper">
+    <script>
+    (function(){
+        var chars = [
+            105, 110, 102, 111, 64, 97, 110, 110, 97,
+            108, 105, 118, 105, 97, 119, 101, 98, 101,
+            114, 46, 99, 111, 109
+        ];
+        var email = String.fromCharCode.apply(null, chars);
+        var parts = email.split('@');
+        document.write('<a href="mailto:' + parts[0] + '@' + parts[1] + '" target="_blank" class="contact-button"><i class="fa-regular fa-envelope icon"></i> E-Mail senden</a>');
+    })();
+    </script>
+  </div>
+</div>

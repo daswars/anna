@@ -1,0 +1,14 @@
+name = 'Minimal'
+license = 'MIT'
+licenselink = 'https://github.com/annaliviaweber/theme/LICENSE'
+description = 'A minimal theme for artist portfolios'
+
+homepage = 'https://annaliviaweber.de'
+demosite = 'https://annaliviaweber.de'
+
+tags = ['portfolio', 'gallery', 'artist', 'minimal']
+features = ['responsive', 'gallery', 'artwork grid', 'mobile-first']
+
+[author]
+  name = 'Anna Livia Weber'
+  homepage = 'https://annaliviaweber.de'

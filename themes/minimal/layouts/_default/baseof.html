@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+    {{- with .Keywords | default .Site.Params.keywords -}}
+    {{- if . -}}
+    <meta name="keywords" content="{{ if reflect.IsSlice . }}{{ delimit . ", " }}{{ else }}{{ . }}{{ end }}">
+    {{- end -}}
+    {{- end -}}
+    <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}">
+    <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ .Permalink }}">
+    {{ with .Params.images }}{{ range first 1 . }}
+    <meta property="og:image" content="{{ . | absURL }}">
+    {{ end }}{{ end }}
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}">
+    <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+    {{ with .Params.images }}{{ range first 1 . }}
+    <meta name="twitter:image" content="{{ . | absURL }}">
+    {{ end }}{{ end }}
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ .Permalink }}">
+    {{ $style := resources.Get "css/main.css" | resources.Minify }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    {{ $contact := resources.Get "css/contact.css" | resources.Minify }}
+    <link rel="stylesheet" href="{{ $contact.RelPermalink }}">
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+</head>
+<body>
+    {{ with .Site.Params }}
+    <div class="social-links" role="navigation" aria-label="Social Media">
+        <a href="https://www.instagram.com/{{ .authorInstagram }}" class="instagram-link" aria-label="Instagram Profil von {{ .author }}" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+    </div>
+    {{ end }}
+
+    <header id="home" class="header-section" role="banner">
+        {{ if .IsHome }}
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="title-image">
+                        <img src="{{ .Params.image }}" alt="Anna Livia Weber - Künstlerische Arbeiten" loading="eager">
+                    </div>
+                </div>
+            </div>
+        {{ end }}
+    </header>
+
+    <nav class="main-nav" role="navigation" aria-label="Hauptnavigation" aria-expanded="false">
+        <div class="nav-container">
+            <div class="nav-items">
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.main }}
+                    {{ if .HasChildren }}
+                        <div class="nav-group">
+                            <button class="nav-group-toggle" aria-expanded="false" aria-controls="{{ .Identifier }}-menu">
+                                {{ .Name }}
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                            <div class="nav-group-content" id="{{ .Identifier }}-menu" hidden>
+                                {{ range .Children }}
+                                    <a href="#paintings-{{ .Name }}" 
+                                       {{ if eq ($currentPage.RelPermalink) (.URL | relURL) }}class="active" aria-current="page"{{ end }}
+                                       aria-label="{{ .Name }}"
+                                    >{{ .Name }}</a>
+                                {{ end }}
+                            </div>
+                        </div>
+                    {{ else }}
+                        <a href="{{ .URL | relURL }}" 
+                           {{ if eq (.URL | relURL) ($currentPage.RelPermalink) }}class="active" aria-current="page"{{ end }}
+                           aria-label="{{ .Name }}"
+                        >{{ .Name }}</a>
+                    {{ end }}
+                {{ end }}
+            </div>
+        </div>
+    </nav>
+
+    <main role="main">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <script type="module" src="/js/main.js"></script>
+    
+    {{ template "_internal/schema.html" . }}
+    
+    {{ partial "footer" . }}
+</body>
+</html>

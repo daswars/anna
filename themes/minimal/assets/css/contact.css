@@ -1,0 +1,62 @@
+.contact-text {
+    max-width: 800px;
+    margin: 0 auto 80px;
+    text-align: center;
+    line-height: 1.8;
+    color: #666;
+    font-size: 1.05em;
+    padding: 0 20px;
+}
+
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 80px;
+    padding: 0 20px;
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    padding: 18px 30px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    text-decoration: none;
+    color: #666;
+    transition: all 0.3s ease;
+    width: 100%;
+    justify-content: center;
+    font-size: 1em;
+    letter-spacing: 0.2px;
+}
+
+.contact-button:hover {
+    background: #f5f5f5;
+}
+
+.icon {
+    margin-right: 15px;
+    font-size: 1.5em;
+    opacity: 0.85;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+.contact-location {
+    text-align: center;
+    color: #666;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.contact-location p {
+    margin: 6px 0;
+}
+
+.button-wrapper {
+    width: 100%;
+    max-width: 320px;
+}
