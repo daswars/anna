@@ -1,0 +1,71 @@
+name: "Neuer Text"
+description: "Einen neuen Text oder Statement hinzufügen"
+title: "[Text] "
+labels: ["opencode", "content", "text"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fügen Sie einen neuen Text, ein Artist Statement oder einen Artikel hinzu.
+
+  - type: input
+    id: title_de
+    attributes:
+      label: Titel (Deutsch)
+      placeholder: "z.B. Über meine Arbeit"
+    validations:
+      required: true
+
+  - type: input
+    id: title_en
+    attributes:
+      label: Title (English)
+      placeholder: "e.g. About my Work"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Art des Textes
+      options:
+        - "statement"
+        - "article"
+        - "interview"
+        - "review"
+    validations:
+      required: true
+
+  - type: input
+    id: author
+    attributes:
+      label: Autor
+      placeholder: "Anna Weber"
+    validations:
+      required: true
+
+  - type: input
+    id: date
+    attributes:
+      label: Datum
+      placeholder: "2024-01-15"
+    validations:
+      required: true
+
+  - type: textarea
+    id: content_de
+    attributes:
+      label: Text (Deutsch)
+      description: "Der vollständige Text auf Deutsch"
+      placeholder: "Ihr Text auf Deutsch..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: content_en
+    attributes:
+      label: Text (English)
+      description: "Der vollständige Text auf Englisch"
+      placeholder: "Your text in English..."
+    validations:
+      required: true

@@ -1,0 +1,77 @@
+name: "Neues Gemälde"
+description: "Ein neues Gemälde zum Portfolio hinzufügen"
+title: "[Gemälde] "
+labels: ["opencode", "content", "painting"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fügen Sie ein neues Gemälde zum Portfolio hinzu. Nach dem Absenden wird OpenCode automatisch die Änderungen vornehmen.
+
+  - type: input
+    id: title_de
+    attributes:
+      label: Titel (Deutsch)
+      placeholder: "z.B. Sommerlandschaft"
+    validations:
+      required: true
+
+  - type: input
+    id: title_en
+    attributes:
+      label: Title (English)
+      placeholder: "e.g. Summer Landscape"
+    validations:
+      required: true
+
+  - type: input
+    id: year
+    attributes:
+      label: Jahr
+      placeholder: "2024"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: medium
+    attributes:
+      label: Technik / Medium
+      options:
+        - "Öl auf Leinwand / Oil on canvas"
+        - "Acryl auf Leinwand / Acrylic on canvas"
+        - "Mischtechnik / Mixed media"
+        - "Aquarell / Watercolor"
+        - "Andere / Other"
+    validations:
+      required: true
+
+  - type: input
+    id: medium_custom
+    attributes:
+      label: Technik (falls "Andere" gewählt)
+      description: "Format: Deutsch / English"
+      placeholder: "z.B. Tempera auf Holz / Tempera on wood"
+
+  - type: input
+    id: dimensions
+    attributes:
+      label: Maße
+      placeholder: "100 x 80 cm"
+    validations:
+      required: true
+
+  - type: textarea
+    id: images
+    attributes:
+      label: Bilder
+      description: "Ziehen Sie die Bilder hierher oder fügen Sie sie ein. Hauptbild zuerst."
+      placeholder: "Bilder hier einfügen..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anmerkungen
+      description: "Zusätzliche Informationen zum Gemälde"
+      placeholder: "Optional: Besondere Hinweise, Kontext, etc."

@@ -1,0 +1,65 @@
+name: "Neue Ausstellung"
+description: "Eine neue Ausstellung zur Biografie hinzufügen"
+title: "[Ausstellung] "
+labels: ["opencode", "content", "exhibition"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fügen Sie eine neue Ausstellung zur Ausstellungsliste hinzu.
+
+  - type: input
+    id: title
+    attributes:
+      label: Ausstellungstitel
+      placeholder: "z.B. Neue Perspektiven"
+    validations:
+      required: true
+
+  - type: input
+    id: venue
+    attributes:
+      label: Ort / Venue
+      placeholder: "z.B. Galerie Müller"
+    validations:
+      required: true
+
+  - type: input
+    id: city
+    attributes:
+      label: Stadt
+      placeholder: "z.B. Berlin"
+    validations:
+      required: true
+
+  - type: input
+    id: country
+    attributes:
+      label: Land
+      placeholder: "Deutschland"
+    validations:
+      required: true
+
+  - type: input
+    id: year
+    attributes:
+      label: Jahr
+      placeholder: "2024"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Art der Ausstellung
+      options:
+        - "Einzelausstellung (solo)"
+        - "Gruppenausstellung (group)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Zusätzliche Informationen
+      placeholder: "Optional: Kurator, beteiligte Künstler, besondere Hinweise..."
