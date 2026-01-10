@@ -20,5 +20,5 @@ hugo_stats.json
 # FewWord context plugin
 .fewword/scratch/
 .fewword/index/
-.fewword/
+.fewword/*
 .*
