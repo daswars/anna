@@ -1,0 +1,44 @@
+{{/*
+  Thumbnail Partial - optimized for gallery grids
+
+  Usage:
+    {{ partial "thumbnail.html" (dict
+      "src" "/images/paintings/2022/painting.jpg"
+      "alt" "Artwork title"
+      "class" "optional-css-classes"
+    ) }}
+
+  Generates a small, optimized WebP thumbnail (400px width)
+*/}}
+
+{{- $src := .src -}}
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+
+{{/* Convert /images/ path to assets path */}}
+{{- $assetPath := replace $src "/images/" "images/" -}}
+
+{{/* Get the image resource */}}
+{{- $image := resources.Get $assetPath -}}
+
+{{- if $image -}}
+  {{/* Generate thumbnail (400px width, WebP) */}}
+  {{- $thumb := $image.Resize "400x webp q80" -}}
+
+  {{/* Tiny placeholder for blur-up */}}
+  {{- $placeholder := $image.Resize "20x webp q20" -}}
+
+  <img
+    src="{{ $thumb.RelPermalink }}"
+    alt="{{ $alt }}"
+    width="{{ $thumb.Width }}"
+    height="{{ $thumb.Height }}"
+    loading="lazy"
+    decoding="async"
+    {{ with $class }}class="{{ . }}"{{ end }}
+    style="background-image: url('{{ $placeholder.RelPermalink }}'); background-size: cover;"
+  >
+{{- else -}}
+  {{/* Fallback if image not found */}}
+  <img src="{{ $src }}" alt="{{ $alt }}" {{ with $class }}class="{{ . }}"{{ end }} loading="lazy">
+{{- end -}}
