@@ -4,7 +4,7 @@ name: validate-images
 on:
   pull_request:
     paths:
-      - 'static/images/**'
+      - 'assets/images/**'
       - 'data/paintings.yaml'
       - 'data/sculptures.yaml'
 
@@ -30,12 +30,11 @@ jobs:
           errors=0
 
           # Paintings
-          for file in static/images/paintings/**/*.jpg; do
+          for file in assets/images/paintings/**/*.{jpg,jpeg,png}; do
             [[ -f "$file" ]] || continue
             basename=$(basename "$file")
-            [[ "$basename" == *-thumb.jpg ]] && continue
 
-            if [[ ! "$basename" =~ ^painting-[0-9]{4}-[0-9]{3}-[a-z0-9-]+\.jpg$ ]]; then
+            if [[ ! "$basename" =~ ^painting-[0-9]{4}-[0-9]{3}-[a-z0-9-]+\.(jpg|jpeg|png)$ ]]; then
               echo "❌ Ungültiger Dateiname: $basename"
               echo "   Erwartet: painting-YYYY-NNN-slug.jpg"
               ((errors++))
@@ -43,12 +42,11 @@ jobs:
           done
 
           # Sculptures
-          for file in static/images/sculptures/*.jpg; do
+          for file in assets/images/sculptures/*.{jpg,jpeg,png}; do
             [[ -f "$file" ]] || continue
             basename=$(basename "$file")
-            [[ "$basename" == *-thumb.jpg ]] && continue
 
-            if [[ ! "$basename" =~ ^sculpture-[0-9]{4}-[0-9]{3}-[a-z0-9-]+\.jpg$ ]]; then
+            if [[ ! "$basename" =~ ^sculpture-[0-9]{4}-[0-9]{3}-[a-z0-9-]+\.(jpg|jpeg|png)$ ]]; then
               echo "❌ Ungültiger Dateiname: $basename"
               echo "   Erwartet: sculpture-YYYY-NNN-slug.jpg"
               ((errors++))
@@ -63,90 +61,36 @@ jobs:
           fi
 
       # =========================================
-      # STEP 2: Thumbnail-Existenz prüfen
+      # STEP 2: Bildformat validieren
       # =========================================
-      - name: "Step 2: Check thumbnails exist"
-        id: check-thumbnails
-        run: |
-          echo "🔍 Prüfe Thumbnail-Existenz..."
-          missing=0
-
-          for file in static/images/paintings/**/*.jpg static/images/sculptures/*.jpg; do
-            [[ -f "$file" ]] || continue
-            basename=$(basename "$file")
-            [[ "$basename" == *-thumb.jpg ]] && continue
-
-            thumb="${file%.jpg}-thumb.jpg"
-            if [[ ! -f "$thumb" ]]; then
-              echo "❌ Thumbnail fehlt: $thumb"
-              ((missing++))
-            fi
-          done
-
-          if [[ $missing -eq 0 ]]; then
-            echo "✅ Alle Thumbnails vorhanden"
-          else
-            echo "::error::$missing fehlende Thumbnails"
-            exit 1
-          fi
-
-      # =========================================
-      # STEP 3: Bildformat validieren
-      # =========================================
-      - name: "Step 3: Validate image formats"
+      - name: "Step 2: Validate image formats"
         id: validate-formats
         run: |
           echo "🔍 Validiere Bildformate..."
           errors=0
 
-          for file in static/images/paintings/**/*.jpg static/images/sculptures/*.jpg; do
+          for file in assets/images/paintings/**/*.{jpg,jpeg,png} assets/images/sculptures/*.{jpg,jpeg,png}; do
             [[ -f "$file" ]] || continue
 
             format=$(identify -format "%m" "$file" 2>/dev/null || echo "UNKNOWN")
-            if [[ "$format" != "JPEG" ]]; then
-              echo "❌ Kein JPEG: $file ($format)"
+            if [[ "$format" != "JPEG" && "$format" != "PNG" ]]; then
+              echo "❌ Ungültiges Format: $file ($format)"
+              echo "   Erwartet: JPEG oder PNG"
               ((errors++))
             fi
           done
 
           if [[ $errors -eq 0 ]]; then
-            echo "✅ Alle Bilder sind JPEG"
+            echo "✅ Alle Bilder haben gültiges Format (JPEG/PNG)"
           else
             echo "::error::$errors Format-Fehler gefunden"
             exit 1
           fi
 
       # =========================================
-      # STEP 4: Thumbnail-Dimensionen prüfen
+      # STEP 3: YAML-Syntax validieren
       # =========================================
-      - name: "Step 4: Validate thumbnail dimensions"
-        id: validate-dimensions
-        run: |
-          echo "🔍 Validiere Thumbnail-Dimensionen..."
-          MAX_THUMB_WIDTH=450  # Etwas Toleranz über 400
-          warnings=0
-
-          for file in static/images/paintings/**/*-thumb.jpg static/images/sculptures/*-thumb.jpg; do
-            [[ -f "$file" ]] || continue
-
-            width=$(identify -format "%w" "$file" 2>/dev/null || echo "0")
-            if [[ $width -gt $MAX_THUMB_WIDTH ]]; then
-              echo "⚠️ Thumbnail zu breit: $file (${width}px > ${MAX_THUMB_WIDTH}px)"
-              ((warnings++))
-            fi
-          done
-
-          if [[ $warnings -eq 0 ]]; then
-            echo "✅ Alle Thumbnail-Dimensionen korrekt"
-          else
-            echo "::warning::$warnings Thumbnails sind größer als erwartet"
-            # Kein Fehler, nur Warnung für bestehende Bilder
-          fi
-
-      # =========================================
-      # STEP 5: YAML-Syntax validieren
-      # =========================================
-      - name: "Step 5: Validate YAML syntax"
+      - name: "Step 3: Validate YAML syntax"
         id: validate-yaml
         run: |
           echo "🔍 Validiere YAML-Syntax..."
@@ -173,9 +117,9 @@ jobs:
           EOF
 
       # =========================================
-      # STEP 6: Zweisprachigkeit prüfen
+      # STEP 4: Zweisprachigkeit prüfen
       # =========================================
-      - name: "Step 6: Validate bilingual fields"
+      - name: "Step 4: Validate bilingual fields"
         id: validate-bilingual
         run: |
           echo "🔍 Validiere Zweisprachigkeit..."
@@ -246,12 +190,13 @@ jobs:
           EOF
 
       # =========================================
-      # STEP 7: Bild-Referenzen in YAML prüfen
+      # STEP 5: Bild-Referenzen in YAML prüfen
       # =========================================
-      - name: "Step 7: Validate image references"
+      - name: "Step 5: Validate image references"
         id: validate-references
         run: |
           echo "🔍 Validiere Bild-Referenzen in YAML..."
+          echo "ℹ️  Hinweis: Thumbnails werden von Hugo automatisch generiert"
 
           python3 << 'EOF'
           import yaml
@@ -268,19 +213,18 @@ jobs:
               for item in data.get('paintings', []):
                   item_id = item.get('id', 'unknown')
                   image = item.get('image', '')
-                  thumbnail = item.get('thumbnail', '')
 
-                  # Konvertiere URL-Pfad zu Dateipfad
-                  image_path = 'static' + image
-                  thumb_path = 'static' + thumbnail
+                  # Konvertiere URL-Pfad zu assets-Pfad
+                  # /images/paintings/... -> assets/images/paintings/...
+                  if image:
+                      image_path = 'assets' + image
+                      if not os.path.exists(image_path):
+                          print(f"❌ {item_id}: Bild nicht gefunden: {image_path}")
+                          errors += 1
 
-                  if image and not os.path.exists(image_path):
-                      print(f"❌ {item_id}: Bild nicht gefunden: {image_path}")
-                      errors += 1
-
-                  if thumbnail and not os.path.exists(thumb_path):
-                      print(f"❌ {item_id}: Thumbnail nicht gefunden: {thumb_path}")
-                      errors += 1
+                  # Warnung wenn thumbnail-Feld noch existiert (veraltet)
+                  if 'thumbnail' in item:
+                      print(f"⚠️ {item_id}: thumbnail-Feld ist veraltet (Hugo generiert automatisch)")
 
           except Exception as e:
               print(f"❌ Fehler beim Prüfen von paintings.yaml: {e}")
@@ -294,18 +238,16 @@ jobs:
               for item in data.get('sculptures', []):
                   item_id = item.get('id', 'unknown')
                   image = item.get('image', '')
-                  thumbnail = item.get('thumbnail', '')
 
-                  image_path = 'static' + image
-                  thumb_path = 'static' + thumbnail
+                  if image:
+                      image_path = 'assets' + image
+                      if not os.path.exists(image_path):
+                          print(f"❌ {item_id}: Bild nicht gefunden: {image_path}")
+                          errors += 1
 
-                  if image and not os.path.exists(image_path):
-                      print(f"❌ {item_id}: Bild nicht gefunden: {image_path}")
-                      errors += 1
-
-                  if thumbnail and not os.path.exists(thumb_path):
-                      print(f"❌ {item_id}: Thumbnail nicht gefunden: {thumb_path}")
-                      errors += 1
+                  # Warnung wenn thumbnail-Feld noch existiert (veraltet)
+                  if 'thumbnail' in item:
+                      print(f"⚠️ {item_id}: thumbnail-Feld ist veraltet (Hugo generiert automatisch)")
 
           except Exception as e:
               print(f"❌ Fehler beim Prüfen von sculptures.yaml: {e}")
@@ -329,10 +271,14 @@ jobs:
           echo "       VALIDIERUNGS-ZUSAMMENFASSUNG"
           echo "========================================"
           echo "1. Dateinamen:        ${{ steps.validate-filenames.outcome }}"
-          echo "2. Thumbnails:        ${{ steps.check-thumbnails.outcome }}"
-          echo "3. Bildformate:       ${{ steps.validate-formats.outcome }}"
-          echo "4. Dimensionen:       ${{ steps.validate-dimensions.outcome }}"
-          echo "5. YAML-Syntax:       ${{ steps.validate-yaml.outcome }}"
-          echo "6. Zweisprachigkeit:  ${{ steps.validate-bilingual.outcome }}"
-          echo "7. Bild-Referenzen:   ${{ steps.validate-references.outcome }}"
+          echo "2. Bildformate:       ${{ steps.validate-formats.outcome }}"
+          echo "3. YAML-Syntax:       ${{ steps.validate-yaml.outcome }}"
+          echo "4. Zweisprachigkeit:  ${{ steps.validate-bilingual.outcome }}"
+          echo "5. Bild-Referenzen:   ${{ steps.validate-references.outcome }}"
+          echo "========================================"
+          echo ""
+          echo "ℹ️  Hugo Image Processing:"
+          echo "   - Thumbnails werden beim Build automatisch generiert"
+          echo "   - Bilder müssen in assets/images/ liegen"
+          echo "   - Kein manuelles thumbnail-Feld in YAML nötig"
           echo "========================================"

@@ -70,7 +70,7 @@ anna-hugo/
 │   ├── _default/      # Basis-Layouts
 │   ├── partials/      # Wiederverwendbare Komponenten
 │   └── ...
-├── static/images/     # Bilder der Kunstwerke
+├── assets/images/     # Original-Bilder (Hugo generiert Thumbnails)
 ├── i18n/              # Übersetzungen (DE/EN)
 ├── hugo.yaml          # Hugo-Konfiguration
 └── wrangler.toml      # Cloudflare-Konfiguration
@@ -83,6 +83,31 @@ anna-hugo/
 - **Lightbox-Galerie** - Großansicht mit Navigation
 - **Responsive Design** - Optimiert für alle Bildschirmgrößen
 - **SEO-optimiert** - Strukturierte Daten und Meta-Tags
+- **Hugo Image Processing** - Automatische Thumbnail-Generierung
+
+## Bildverarbeitung (Hugo Image Processing)
+
+Hugo generiert automatisch optimierte Bildversionen beim Build:
+
+| Verwendung | Größe | Format | Qualität |
+|------------|-------|--------|----------|
+| Galerie-Thumbnails | 400px | WebP | 80% |
+| Lightbox | 1600px | WebP | 90% |
+| Blur-up Placeholder | 20px | WebP | 20% |
+
+### Neues Bild hinzufügen
+
+1. Original-Bild in `assets/images/paintings/YYYY/` oder `assets/images/sculptures/` ablegen
+2. Nur das `image:` Feld in der YAML-Datei setzen (kein `thumbnail:` nötig)
+3. Hugo generiert alle Versionen automatisch beim Build
+
+### Technische Details
+
+- Responsive Images mit `srcset` für verschiedene Bildschirmgrößen
+- WebP-Format für optimale Kompression
+- Lazy Loading für schnellere Seitenladezeiten
+- Blur-up Placeholder während Bilder laden
+- Build-Zeit: ca. 2 Minuten für ~500 generierte Bilder
 
 ## Content-Management mit OpenCode GitHub
 
@@ -143,8 +168,8 @@ In `data/paintings.yaml`:
   medium_en: "Oil on canvas"
   dimensions: "100 x 80 cm"
   image: "/images/paintings/artwork.jpg"
-  thumbnail: "/images/paintings/artwork_thumb.jpg"
   weight: 1
+# Kein thumbnail-Feld nötig - Hugo generiert automatisch
 ```
 
 ## Lizenz

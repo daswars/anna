@@ -7,7 +7,6 @@ sculptures:
     medium_en: "38"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-001-38.jpg
-    thumbnail: /images/sculptures/sculpture-2020-001-38-thumb.jpg
     weight: 1
   - id: sculpture-2020-002-37
     title_de: "37"
@@ -17,7 +16,6 @@ sculptures:
     medium_en: "37"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-002-37.jpg
-    thumbnail: /images/sculptures/sculpture-2020-002-37-thumb.jpg
     weight: 2
   - id: sculpture-2020-003-36
     title_de: "36"
@@ -27,7 +25,6 @@ sculptures:
     medium_en: "36"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-003-36.jpg
-    thumbnail: /images/sculptures/sculpture-2020-003-36-thumb.jpg
     weight: 3
   - id: sculpture-2020-004-35
     title_de: "35"
@@ -37,7 +34,6 @@ sculptures:
     medium_en: "35"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-004-35.jpg
-    thumbnail: /images/sculptures/sculpture-2020-004-35-thumb.jpg
     weight: 4
   - id: sculpture-2020-005-34
     title_de: "34"
@@ -47,7 +43,6 @@ sculptures:
     medium_en: "34"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-005-34.jpg
-    thumbnail: /images/sculptures/sculpture-2020-005-34-thumb.jpg
     weight: 5
   - id: sculpture-2020-006-33
     title_de: "33"
@@ -57,7 +52,6 @@ sculptures:
     medium_en: "33"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-006-33.jpg
-    thumbnail: /images/sculptures/sculpture-2020-006-33-thumb.jpg
     weight: 6
   - id: sculpture-2020-007-32
     title_de: "32"
@@ -67,7 +61,6 @@ sculptures:
     medium_en: "32"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-007-32.jpg
-    thumbnail: /images/sculptures/sculpture-2020-007-32-thumb.jpg
     weight: 7
   - id: sculpture-2020-008-32
     title_de: "32"
@@ -77,7 +70,6 @@ sculptures:
     medium_en: "32"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-008-32.jpg
-    thumbnail: /images/sculptures/sculpture-2020-008-32-thumb.jpg
     weight: 8
   - id: sculpture-2020-009-31
     title_de: "31"
@@ -87,7 +79,6 @@ sculptures:
     medium_en: "31"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-009-31.jpg
-    thumbnail: /images/sculptures/sculpture-2020-009-31-thumb.jpg
     weight: 9
   - id: sculpture-2020-010-30
     title_de: "30"
@@ -97,7 +88,6 @@ sculptures:
     medium_en: "30"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-010-30.jpg
-    thumbnail: /images/sculptures/sculpture-2020-010-30-thumb.jpg
     weight: 10
   - id: sculpture-2020-011-29
     title_de: "29"
@@ -107,7 +97,6 @@ sculptures:
     medium_en: "29"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-011-29.jpg
-    thumbnail: /images/sculptures/sculpture-2020-011-29-thumb.jpg
     weight: 11
   - id: sculpture-2020-012-28
     title_de: "28"
@@ -117,7 +106,6 @@ sculptures:
     medium_en: "28"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-012-28.jpeg
-    thumbnail: /images/sculptures/sculpture-2020-012-28-thumb.jpeg
     weight: 12
   - id: sculpture-2020-013-27
     title_de: "27"
@@ -127,7 +115,6 @@ sculptures:
     medium_en: "27"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-013-27.jpg
-    thumbnail: /images/sculptures/sculpture-2020-013-27-thumb.jpg
     weight: 13
   - id: sculpture-2020-014-26
     title_de: "26"
@@ -137,7 +124,6 @@ sculptures:
     medium_en: "26"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-014-26.jpg
-    thumbnail: /images/sculptures/sculpture-2020-014-26-thumb.jpg
     weight: 14
   - id: sculpture-2020-015-25
     title_de: "25"
@@ -147,7 +133,6 @@ sculptures:
     medium_en: "25"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-015-25.jpg
-    thumbnail: /images/sculptures/sculpture-2020-015-25-thumb.jpg
     weight: 15
   - id: sculpture-2020-016-24
     title_de: "24"
@@ -157,7 +142,6 @@ sculptures:
     medium_en: "24"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-016-24.jpg
-    thumbnail: /images/sculptures/sculpture-2020-016-24-thumb.jpg
     weight: 16
   - id: sculpture-2020-017-23
     title_de: "23"
@@ -167,7 +151,6 @@ sculptures:
     medium_en: "23"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-017-23.jpg
-    thumbnail: /images/sculptures/sculpture-2020-017-23-thumb.jpg
     weight: 17
   - id: sculpture-2020-018-22
     title_de: "22"
@@ -177,7 +160,6 @@ sculptures:
     medium_en: "22"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-018-22.jpg
-    thumbnail: /images/sculptures/sculpture-2020-018-22-thumb.jpg
     weight: 18
   - id: sculpture-2020-019-21
     title_de: "21"
@@ -187,7 +169,6 @@ sculptures:
     medium_en: "21"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-019-21.jpg
-    thumbnail: /images/sculptures/sculpture-2020-019-21-thumb.jpg
     weight: 19
   - id: sculpture-2020-020-20
     title_de: "20"
@@ -197,7 +178,6 @@ sculptures:
     medium_en: "20"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-020-20.jpg
-    thumbnail: /images/sculptures/sculpture-2020-020-20-thumb.jpg
     weight: 20
   - id: sculpture-2020-021-19
     title_de: "19"
@@ -207,7 +187,6 @@ sculptures:
     medium_en: "19"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-021-19.jpg
-    thumbnail: /images/sculptures/sculpture-2020-021-19-thumb.jpg
     weight: 21
   - id: sculpture-2020-022-18
     title_de: "18"
@@ -217,7 +196,6 @@ sculptures:
     medium_en: "18"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-022-18.jpg
-    thumbnail: /images/sculptures/sculpture-2020-022-18-thumb.jpg
     weight: 22
   - id: sculpture-2020-023-17
     title_de: "17"
@@ -227,7 +205,6 @@ sculptures:
     medium_en: "17"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-023-17.jpg
-    thumbnail: /images/sculptures/sculpture-2020-023-17-thumb.jpg
     weight: 23
   - id: sculpture-2020-024-16
     title_de: "16"
@@ -237,7 +214,6 @@ sculptures:
     medium_en: "16"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-024-16.jpg
-    thumbnail: /images/sculptures/sculpture-2020-024-16-thumb.jpg
     weight: 24
   - id: sculpture-2020-025-15
     title_de: "15"
@@ -247,7 +223,6 @@ sculptures:
     medium_en: "15"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-025-15.jpg
-    thumbnail: /images/sculptures/sculpture-2020-025-15-thumb.jpg
     weight: 25
   - id: sculpture-2020-026-14
     title_de: "14"
@@ -257,7 +232,6 @@ sculptures:
     medium_en: "14"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-026-14.jpg
-    thumbnail: /images/sculptures/sculpture-2020-026-14-thumb.jpg
     weight: 26
   - id: sculpture-2020-027-13
     title_de: "13"
@@ -267,7 +241,6 @@ sculptures:
     medium_en: "13"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-027-13.jpg
-    thumbnail: /images/sculptures/sculpture-2020-027-13-thumb.jpg
     weight: 27
   - id: sculpture-2020-028-12
     title_de: "12"
@@ -277,7 +250,6 @@ sculptures:
     medium_en: "12"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-028-12.jpg
-    thumbnail: /images/sculptures/sculpture-2020-028-12-thumb.jpg
     weight: 28
   - id: sculpture-2020-029-11
     title_de: "11"
@@ -287,7 +259,6 @@ sculptures:
     medium_en: "11"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-029-11.jpg
-    thumbnail: /images/sculptures/sculpture-2020-029-11-thumb.jpg
     weight: 29
   - id: sculpture-2020-030-10
     title_de: "10"
@@ -297,5 +268,4 @@ sculptures:
     medium_en: "10"
     dimensions: ""
     image: /images/sculptures/sculpture-2020-030-10.jpg
-    thumbnail: /images/sculptures/sculpture-2020-030-10-thumb.jpg
     weight: 30
