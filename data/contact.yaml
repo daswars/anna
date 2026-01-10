@@ -1,0 +1,12 @@
+email: "info@annaliviaweber.com"
+location_de: "Düsseldorf, Deutschland"
+location_en: "Düsseldorf, Germany"
+
+intro_de: "Ich freue mich über Anfragen von Galerien, Sammlern und Interessierten. Bitte kontaktieren Sie mich direkt per E-Mail."
+intro_en: "I welcome inquiries from galleries, collectors, and interested parties. Please contact me directly via email."
+
+socialLinks:
+  - id: "instagram"
+    platform: "Instagram"
+    url: "https://www.instagram.com/anna_livia_weber/"
+    label: "@anna_livia_weber"

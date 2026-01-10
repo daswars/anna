@@ -1,0 +1,120 @@
+{{ define "main" }}
+{{/* Imprint page - Design OS style */}}
+<div class="min-h-screen px-6 py-24 md:py-32 bg-white dark:bg-stone-950 text-stone-900 dark:text-stone-50">
+  <div class="max-w-3xl mx-auto">
+    {{/* Page Title */}}
+    <h1 class="text-5xl md:text-7xl font-light text-stone-900 dark:text-stone-50 mb-16 tracking-tight">
+      {{ if eq .Site.Language.Lang "de" }}Impressum{{ else }}Imprint{{ end }}
+    </h1>
+
+    {{ with .Site.Data.imprint }}
+    {{/* Legal Information */}}
+    <section class="mb-16">
+      <h2 class="text-sm font-mono uppercase tracking-widest text-stone-500 dark:text-stone-500 mb-6">
+        {{ if eq $.Site.Language.Lang "de" }}Angaben gemäß § 5 DDG{{ else }}Information according to § 5 DDG{{ end }}
+      </h2>
+      <div class="space-y-1 text-xl font-light text-stone-700 dark:text-stone-300">
+        <p>{{ .name }}</p>
+        {{ with .address }}
+        <p>{{ .street }}</p>
+        <p>{{ .zip }} {{ .city }}</p>
+        <p>{{ if eq $.Site.Language.Lang "de" }}{{ .country_de }}{{ else }}{{ .country_en }}{{ end }}</p>
+        {{ end }}
+      </div>
+    </section>
+
+    {{/* Contact - Email via JavaScript obfuscation + Contact Form */}}
+    <section class="mb-16">
+      <h2 class="text-sm font-mono uppercase tracking-widest text-stone-500 dark:text-stone-500 mb-6">
+        {{ if eq $.Site.Language.Lang "de" }}Kontakt{{ else }}Contact{{ end }}
+      </h2>
+      <div class="space-y-3 text-xl font-light text-stone-700 dark:text-stone-300">
+        <p>
+          E-Mail: <a
+            id="imprint-email"
+            href="#"
+            class="hover:text-stone-900 dark:hover:text-stone-100 transition-colors underline underline-offset-4"
+            data-u="{{ .email_user }}"
+            data-d="{{ .email_domain }}"
+          ><span class="text-stone-400">[JavaScript erforderlich]</span></a>
+        </p>
+        <p>
+          {{ if eq $.Site.Language.Lang "de" }}
+          Kontaktformular: <a href="/de/contact/" class="hover:text-stone-900 dark:hover:text-stone-100 transition-colors underline underline-offset-4">Nachricht senden</a>
+          {{ else }}
+          Contact form: <a href="/en/contact/" class="hover:text-stone-900 dark:hover:text-stone-100 transition-colors underline underline-offset-4">Send message</a>
+          {{ end }}
+        </p>
+        <p class="text-base text-stone-500 dark:text-stone-500">
+          {{ if eq $.Site.Language.Lang "de" }}
+          Anfragen werden in der Regel innerhalb von 24 Stunden beantwortet.
+          {{ else }}
+          Inquiries are typically answered within 24 hours.
+          {{ end }}
+        </p>
+      </div>
+    </section>
+
+    {{/* Disclaimer Sections */}}
+    <div class="space-y-12 border-t border-stone-200 dark:border-stone-800 pt-16">
+      {{/* Liability for Content */}}
+      <section>
+        <h2 class="text-lg font-medium text-stone-900 dark:text-stone-100 mb-4">
+          {{ if eq $.Site.Language.Lang "de" }}Haftung für Inhalte{{ else }}Liability for Content{{ end }}
+        </h2>
+        <p class="text-stone-600 dark:text-stone-400 leading-relaxed">
+          {{ if eq $.Site.Language.Lang "de" }}
+          Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+          {{ else }}
+          The contents of our pages were created with the greatest care. However, we cannot guarantee the accuracy, completeness, and timeliness of the content. As a service provider, we are responsible for our own content on these pages according to § 7 Abs.1 TMG under general laws. However, according to §§ 8 to 10 TMG, we are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.
+          {{ end }}
+        </p>
+      </section>
+
+      {{/* Liability for Links */}}
+      <section>
+        <h2 class="text-lg font-medium text-stone-900 dark:text-stone-100 mb-4">
+          {{ if eq $.Site.Language.Lang "de" }}Haftung für Links{{ else }}Liability for Links{{ end }}
+        </h2>
+        <p class="text-stone-600 dark:text-stone-400 leading-relaxed">
+          {{ if eq $.Site.Language.Lang "de" }}
+          Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+          {{ else }}
+          Our website contains links to external third-party websites over whose content we have no control. Therefore, we cannot accept any liability for this external content. The respective provider or operator of the pages is always responsible for the content of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at the time of linking.
+          {{ end }}
+        </p>
+      </section>
+
+      {{/* Copyright */}}
+      <section>
+        <h2 class="text-lg font-medium text-stone-900 dark:text-stone-100 mb-4">
+          {{ if eq $.Site.Language.Lang "de" }}Urheberrecht{{ else }}Copyright{{ end }}
+        </h2>
+        <p class="text-stone-600 dark:text-stone-400 leading-relaxed">
+          {{ if eq $.Site.Language.Lang "de" }}
+          Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+          {{ else }}
+          The content and works created by the site operators on these pages are subject to German copyright law. Duplication, processing, distribution, and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use.
+          {{ end }}
+        </p>
+      </section>
+    </div>
+    {{ end }}
+
+  </div>
+</div>
+
+{{/* Email obfuscation - decode at runtime */}}
+<script>
+(function() {
+  var el = document.getElementById('imprint-email');
+  if (el) {
+    var u = el.getAttribute('data-u');
+    var d = el.getAttribute('data-d');
+    var e = u + '@' + d;
+    el.href = 'mailto:' + e;
+    el.innerHTML = e;
+  }
+})();
+</script>
+{{ end }}

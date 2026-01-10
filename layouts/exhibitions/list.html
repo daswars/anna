@@ -1,0 +1,86 @@
+{{ define "main" }}
+{{/* Exhibitions page - Design OS style */}}
+<div class="min-h-screen px-6 py-24 md:py-32 bg-white dark:bg-stone-950 text-stone-900 dark:text-stone-50">
+  <div class="max-w-4xl mx-auto">
+    {{/* Page Title */}}
+    <h1 class="text-5xl md:text-7xl font-light text-stone-900 dark:text-stone-50 mb-24 tracking-tight">
+      {{ if eq .Site.Language.Lang "de" }}Ausstellungen{{ else }}Exhibitions{{ end }}
+    </h1>
+
+    {{/* Get unique years and sort descending */}}
+    {{ $allExhibitions := .Site.Data.exhibitions.exhibitions }}
+    {{ $years := slice }}
+    {{ range $allExhibitions }}
+      {{ $year := .year }}
+      {{ if not (in $years $year) }}
+        {{ $years = $years | append $year }}
+      {{ end }}
+    {{ end }}
+    {{ $sortedYears := sort $years "value" "desc" }}
+
+    {{/* Exhibition count */}}
+    <div class="mb-16 pb-8 border-b border-stone-200 dark:border-stone-800">
+      <p class="text-stone-500 dark:text-stone-400 font-mono text-sm tracking-wider uppercase">
+        {{ len $allExhibitions }} {{ if eq .Site.Language.Lang "de" }}Ausstellungen{{ else }}exhibitions{{ end }} · {{ index $sortedYears (sub (len $sortedYears) 1) }}–{{ index $sortedYears 0 }}
+      </p>
+    </div>
+
+    {{/* Exhibitions by year */}}
+    <div class="space-y-24">
+      {{ range $sortedYears }}
+        {{ $year := . }}
+        <section>
+          {{/* Year heading */}}
+          <div class="relative mb-12">
+            <h2 class="text-6xl md:text-8xl font-extralight text-stone-200/80 dark:text-stone-800/80 leading-none select-none">
+              {{ $year }}
+            </h2>
+            <div class="absolute bottom-2 left-0 w-12 h-px bg-stone-300 dark:bg-stone-700"></div>
+          </div>
+
+          {{/* Exhibitions list for this year */}}
+          <div class="space-y-6">
+            {{ range where $allExhibitions "year" $year }}
+            <div class="group p-6 -mx-6 hover:bg-stone-50 dark:hover:bg-stone-900/30 transition-colors rounded-sm">
+              <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-12">
+                {{/* Solo badge if applicable */}}
+                <div class="min-w-[6rem]">
+                  {{ if eq .type "solo" }}
+                  <span class="text-xs px-2 py-0.5 rounded-full border border-lime-300 dark:border-lime-700 text-lime-700 dark:text-lime-400 uppercase tracking-widest bg-lime-50 dark:bg-lime-900/20">
+                    {{ if eq $.Site.Language.Lang "de" }}Solo{{ else }}Solo{{ end }}
+                  </span>
+                  {{ else }}
+                  <span class="text-xs px-2 py-0.5 rounded-full border border-stone-200 dark:border-stone-700 text-stone-500 dark:text-stone-400 uppercase tracking-widest">
+                    {{ if eq $.Site.Language.Lang "de" }}Gruppe{{ else }}Group{{ end }}
+                  </span>
+                  {{ end }}
+                </div>
+
+                <div class="flex-1">
+                  {{/* Title */}}
+                  <h3 class="text-xl md:text-2xl font-medium text-stone-900 dark:text-stone-100 group-hover:text-stone-600 dark:group-hover:text-stone-400 transition-colors mb-2">
+                    {{ if .title }}"{{ .title }}"{{ else }}{{ if eq $.Site.Language.Lang "de" }}Ausstellung{{ else }}Exhibition{{ end }}{{ end }}
+                  </h3>
+
+                  {{/* Location */}}
+                  <p class="text-stone-600 dark:text-stone-400 font-light">
+                    {{ with .venue }}{{ . }}{{ end }}{{ if and .venue .city }}, {{ end }}{{ .city }}{{ with .country }}, {{ . }}{{ end }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </section>
+      {{ end }}
+    </div>
+
+    {{/* Footer */}}
+    <footer class="mt-32 pt-8 border-t border-stone-200 dark:border-stone-800">
+      <p class="text-sm text-stone-400 dark:text-stone-600 tracking-wider">
+        {{ len $allExhibitions }} {{ if eq .Site.Language.Lang "de" }}Ausstellungen gesamt{{ else }}exhibitions total{{ end }}
+      </p>
+    </footer>
+  </div>
+</div>
+{{ end }}

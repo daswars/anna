@@ -1,0 +1,105 @@
+baseURL: https://annaliviaweber.com/
+title: Anna Weber
+
+# Default language
+defaultContentLanguage: de
+defaultContentLanguageInSubdir: true
+
+# Languages
+languages:
+  de:
+    languageName: Deutsch
+    weight: 1
+    params:
+      subtitle: "Künstlerin aus Düsseldorf"
+    menu:
+      main:
+        - identifier: home
+          name: Home
+          url: /
+          weight: -1
+        - identifier: paintings
+          name: Gemälde
+          url: /paintings/
+          weight: 1
+        - identifier: sculptures
+          name: Skulpturen
+          url: /sculptures/
+          weight: 2
+        - identifier: texts
+          name: Texte
+          url: /texts/
+          weight: 3
+        - identifier: biography
+          name: Biografie
+          url: /biography/
+          weight: 4
+        - identifier: exhibitions
+          name: Ausstellungen
+          url: /exhibitions/
+          weight: 5
+        - identifier: contact
+          name: Kontakt
+          url: /contact/
+          weight: 6
+
+  en:
+    languageName: English
+    weight: 2
+    params:
+      subtitle: "Artist from Düsseldorf"
+    menu:
+      main:
+        - identifier: home
+          name: Home
+          url: /
+          weight: -1
+        - identifier: paintings
+          name: Paintings
+          url: /paintings/
+          weight: 1
+        - identifier: sculptures
+          name: Sculptures
+          url: /sculptures/
+          weight: 2
+        - identifier: texts
+          name: Texts
+          url: /texts/
+          weight: 3
+        - identifier: biography
+          name: Biography
+          url: /biography/
+          weight: 4
+        - identifier: exhibitions
+          name: Exhibitions
+          url: /exhibitions/
+          weight: 5
+        - identifier: contact
+          name: Contact
+          url: /contact/
+          weight: 6
+
+# Params
+params:
+  artist:
+    name: Anna Weber
+    born: 1986
+    location: Düsseldorf, Germany
+    tagline_de: "Künstlerin für Malerei und Skulptur"
+    tagline_en: "Artist for Painting and Sculpture"
+
+# Build settings
+build:
+  writeStats: true
+
+# Markup
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+# Output formats
+outputs:
+  home:
+    - HTML
+    - RSS

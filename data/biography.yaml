@@ -1,0 +1,26 @@
+name: Anna Weber
+tagline_de: "Künstlerin aus Düsseldorf"
+tagline_en: "Artist from Düsseldorf"
+born: 1986
+birthplace: Düsseldorf
+location: "Düsseldorf, Germany"
+
+education:
+  - year: 2006
+    text_de: "Studium der Freien Kunst an der Kunstakademie Münster"
+    text_en: "Studies in Fine Arts at Kunstakademie Münster"
+  - year: 2007
+    text_de: "Studentin von Prof. Daniele Buetti, Kunstakademie Münster"
+    text_en: "Student of Prof. Daniele Buetti, Kunstakademie Münster"
+  - year: 2008
+    text_de: "Gaststudentin von Prof. Tal R, Kunstakademie Düsseldorf"
+    text_en: "Guest student of Prof. Tal R, Kunstakademie Düsseldorf"
+  - year: 2009
+    text_de: "Studium der Malerei an der Kunstakademie Düsseldorf, Studentin von Prof. Andreas Schulze"
+    text_en: "Studies in Painting at Kunstakademie Düsseldorf, Student of Prof. Andreas Schulze"
+  - year: 2015
+    text_de: "Akademiebrief, Meisterschülerin von Andreas Schulze"
+    text_en: "Academy Certificate, Master Student of Andreas Schulze"
+  - year: 2016
+    text_de: "Artist in Residence Stipendium der Stadt Düsseldorf für Tampere, Finnland"
+    text_en: "Artist in Residence Grant from City of Düsseldorf for Tampere, Finland"

@@ -1,0 +1,18 @@
+# Hugo build output
+public/
+
+# Hugo cache
+resources/_gen/
+.hugo_build.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Hugo stats (regenerated on build)
+hugo_stats.json

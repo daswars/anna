@@ -1,0 +1,21 @@
+# Datenschutzerklärung / Privacy Policy
+# Für DSGVO-Konformität mit Formspree Kontaktformular
+
+# Verantwortlicher (gleich wie Impressum)
+responsible:
+  name: "Anna Weber"
+  street: "Oberbilker Allee 317"
+  zip: "40227"
+  city: "Düsseldorf"
+  country_de: "Deutschland"
+  country_en: "Germany"
+  email_user: "info"
+  email_domain: "annaliviaweber.com"
+
+# Formspree Details
+formspree:
+  provider: "Formspree, Inc."
+  location: "USA"
+  privacy_url: "https://formspree.io/legal/privacy-policy/"
+  storage_limit: 100  # Letzte 100 Nachrichten werden gespeichert
+  email_provider: "SendGrid"

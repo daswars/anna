@@ -1,0 +1,223 @@
+{{/* Lightbox Component - Cinematic artwork viewer */}}
+{{/* Include this partial once per page that needs lightbox functionality */}}
+
+<div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center" role="dialog" aria-modal="true" aria-label="Artwork viewer">
+  {{/* Backdrop with blur */}}
+  <div id="lightbox-backdrop" class="absolute inset-0 bg-black/95 backdrop-blur-sm"></div>
+
+  {{/* Close Button */}}
+  <button
+    id="lightbox-close"
+    class="absolute top-6 right-6 z-20 p-2 text-white/60 hover:text-white transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded"
+    aria-label="{{ if eq .Site.Language.Lang "de" }}Schließen{{ else }}Close{{ end }}"
+  >
+    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  {{/* Previous Arrow */}}
+  <button
+    id="lightbox-prev"
+    class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-3 text-white/40 hover:text-white transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded"
+    aria-label="{{ if eq .Site.Language.Lang "de" }}Vorheriges Werk{{ else }}Previous artwork{{ end }}"
+  >
+    <svg class="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+
+  {{/* Next Arrow */}}
+  <button
+    id="lightbox-next"
+    class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-3 text-white/40 hover:text-white transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded"
+    aria-label="{{ if eq .Site.Language.Lang "de" }}Nächstes Werk{{ else }}Next artwork{{ end }}"
+  >
+    <svg class="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+
+  {{/* Lightbox Content */}}
+  <div id="lightbox-content" class="relative z-10 max-w-7xl w-full flex flex-col lg:flex-row items-center gap-8 lg:gap-16 px-6 py-12">
+    {{/* Artwork Image */}}
+    <div class="flex-1 flex items-center justify-center max-h-[65vh] lg:max-h-[85vh]">
+      <div class="relative">
+        <img
+          id="lightbox-image"
+          src=""
+          alt=""
+          class="max-w-full max-h-[65vh] lg:max-h-[85vh] w-auto h-auto object-contain shadow-2xl"
+        />
+      </div>
+    </div>
+
+    {{/* Metadata Panel */}}
+    <div class="lg:w-80 flex-shrink-0 text-white space-y-6">
+      {{/* Title & Year */}}
+      <div class="space-y-2">
+        <h3 id="lightbox-title" class="text-2xl md:text-3xl font-light tracking-wide leading-tight"></h3>
+        <p id="lightbox-year" class="text-xl text-white/50 font-light"></p>
+      </div>
+
+      {{/* Divider */}}
+      <div class="w-12 h-px bg-white/20"></div>
+
+      {{/* Details */}}
+      <div class="space-y-5">
+        <div>
+          <span class="text-[10px] uppercase tracking-[0.2em] text-white/40 block mb-1.5">
+            {{ if eq .Site.Language.Lang "de" }}Medium{{ else }}Medium{{ end }}
+          </span>
+          <p id="lightbox-medium" class="text-white/80"></p>
+        </div>
+
+        <div>
+          <span class="text-[10px] uppercase tracking-[0.2em] text-white/40 block mb-1.5">
+            {{ if eq .Site.Language.Lang "de" }}Maße{{ else }}Dimensions{{ end }}
+          </span>
+          <p id="lightbox-dimensions" class="text-white/80"></p>
+        </div>
+      </div>
+
+      {{/* Bilingual hint & counter */}}
+      <div class="pt-4 flex items-center justify-between text-xs text-white/30">
+        <span id="lightbox-alt-title"></span>
+        <span id="lightbox-counter"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{/* Lightbox Styles */}}
+<style>
+  @keyframes lightboxFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes lightboxZoomFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  #lightbox.open {
+    display: flex;
+  }
+  #lightbox.open #lightbox-backdrop {
+    animation: lightboxFadeIn 0.3s ease-out;
+  }
+  #lightbox.open #lightbox-content {
+    animation: lightboxZoomFadeIn 0.3s ease-out;
+  }
+</style>
+
+{{/* Lightbox JavaScript */}}
+<script>
+(function() {
+  const lightbox = document.getElementById('lightbox');
+  const backdrop = document.getElementById('lightbox-backdrop');
+  const closeBtn = document.getElementById('lightbox-close');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const nextBtn = document.getElementById('lightbox-next');
+  const image = document.getElementById('lightbox-image');
+  const title = document.getElementById('lightbox-title');
+  const year = document.getElementById('lightbox-year');
+  const medium = document.getElementById('lightbox-medium');
+  const dimensions = document.getElementById('lightbox-dimensions');
+  const altTitle = document.getElementById('lightbox-alt-title');
+  const counter = document.getElementById('lightbox-counter');
+
+  let artworks = [];
+  let currentIndex = 0;
+  const lang = '{{ .Site.Language.Lang }}';
+
+  // Initialize lightbox with artwork data
+  window.initLightbox = function(data) {
+    artworks = data;
+  };
+
+  // Open lightbox
+  window.openLightbox = function(index) {
+    if (index < 0 || index >= artworks.length) return;
+    currentIndex = index;
+    updateLightbox();
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Close lightbox
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Go to next artwork
+  function goNext() {
+    if (currentIndex < artworks.length - 1) {
+      currentIndex++;
+      updateLightbox();
+    }
+  }
+
+  // Go to previous artwork
+  function goPrev() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateLightbox();
+    }
+  }
+
+  // Update lightbox content
+  function updateLightbox() {
+    const artwork = artworks[currentIndex];
+    if (!artwork) return;
+
+    image.src = artwork.image;
+    image.alt = lang === 'de' ? artwork.title_de : artwork.title_en;
+    title.textContent = lang === 'de' ? artwork.title_de : artwork.title_en;
+    year.textContent = artwork.year;
+    medium.textContent = lang === 'de' ? artwork.medium_de : artwork.medium_en;
+    dimensions.textContent = artwork.dimensions;
+    altTitle.textContent = lang === 'de'
+      ? 'EN: ' + artwork.title_en
+      : 'DE: ' + artwork.title_de;
+    counter.textContent = (currentIndex + 1) + ' / ' + artworks.length;
+
+    // Update navigation visibility
+    prevBtn.style.display = currentIndex > 0 ? 'block' : 'none';
+    nextBtn.style.display = currentIndex < artworks.length - 1 ? 'block' : 'none';
+  }
+
+  // Event listeners
+  closeBtn.addEventListener('click', closeLightbox);
+  backdrop.addEventListener('click', closeLightbox);
+  prevBtn.addEventListener('click', function(e) { e.stopPropagation(); goPrev(); });
+  nextBtn.addEventListener('click', function(e) { e.stopPropagation(); goNext(); });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (!lightbox.classList.contains('open')) return;
+    switch (e.key) {
+      case 'Escape':
+        closeLightbox();
+        break;
+      case 'ArrowRight':
+        goNext();
+        break;
+      case 'ArrowLeft':
+        goPrev();
+        break;
+    }
+  });
+
+  // Prevent content clicks from closing
+  document.getElementById('lightbox-content').addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+})();
+</script>

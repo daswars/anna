@@ -1,0 +1,139 @@
+exhibitions:
+  # 2022
+  - year: 2022
+    title: "das Konfetti wird zeitnah entfernt"
+    venue: "altes Küsterhaus"
+    city: "Düsseldorf Meerbusch"
+  - year: 2022
+    title: "down by the track"
+    venue: "Kulturbahnhof Eller"
+    city: "Düsseldorf"
+  # 2021
+  - year: 2021
+    title: "it's about the bananas"
+    venue: "Raum für Kunst"
+    city: "Düsseldorf"
+    type: "solo"
+  # 2020
+  - year: 2020
+    title: "rings like silver shines like gold"
+    venue: "Galerie im alten Küsterhaus"
+    city: "Meerbusch"
+  # 2019
+  - year: 2019
+    title: "Down by the lake"
+    venue: "Haiharan Taidekeskus"
+    city: "Tampere"
+    country: "Finland"
+  - year: 2019
+    title: "Halbtraum"
+    venue: "Neuer Kunst Raum"
+    city: "Düsseldorf"
+  # 2018
+  - year: 2018
+    title: "between the lines"
+    venue: "Kunsthaus Essen"
+    city: "Essen"
+  - year: 2018
+    title: "288"
+    venue: "Park-Kultur"
+    city: "Düsseldorf"
+  - year: 2018
+    title: "1541,41 km back from Tampere"
+    venue: "Atelier am Eck"
+    city: "Düsseldorf"
+  # 2017
+  - year: 2017
+    title: "domus"
+    venue: "antichambre"
+    city: "Düsseldorf"
+  - year: 2017
+    title: ""
+    venue: "Enter Art Foundation"
+    city: "Berlin"
+  # 2016
+  - year: 2016
+    title: "Läsnä"
+    venue: "Haiharan Taidekeskus"
+    city: "Tampere"
+    country: "Finland"
+  - year: 2016
+    title: "Fenster 16"
+    venue: "Contemporary Pop Ups"
+    city: "Düsseldorf"
+  - year: 2016
+    title: "Junge Künstler der Kunstakademie Düsseldorf"
+    venue: "städtische Galerie"
+    city: "Kaarst"
+  # 2015
+  - year: 2015
+    title: "heART works"
+    venue: "K21"
+    city: "Düsseldorf"
+  - year: 2015
+    title: "Jadin de Jeux"
+    venue: "Contemporary Pop Ups"
+    city: "Düsseldorf"
+    type: "solo"
+  - year: 2015
+    title: "Gruppenausstellung"
+    venue: "McKinsey"
+    city: "Düsseldorf"
+  - year: 2015
+    title: "Licht"
+    venue: "Bethlehemkirche"
+    city: "Düsseldorf"
+  # 2013
+  - year: 2013
+    title: "Erika Kamele Mir"
+    venue: "Rundstedt"
+    city: "Düsseldorf"
+  - year: 2013
+    title: "alles deine Schulze"
+    venue: "Klasse Schulze, Philara"
+    city: "Düsseldorf"
+  # 2012
+  - year: 2012
+    title: "Kunstförderpreisausstellung"
+    venue: "Rundstedt"
+    city: "Düsseldorf"
+  - year: 2012
+    title: "Geranien"
+    venue: "Klasse Schulze, Turm"
+    city: "Duisburg"
+  # 2011
+  - year: 2011
+    title: "Förderpreisausstellung"
+    venue: "Hogan Lovells"
+    city: "Düsseldorf"
+  - year: 2011
+    title: "Schulze vs. Klasse Schulze"
+    venue: "Oktoberbar"
+    city: "Düsseldorf"
+  # 2010
+  - year: 2010
+    title: "Lederlust"
+    venue: "KHM"
+    city: "Köln"
+  # 2009
+  - year: 2009
+    title: "Kunstförderpreisausstellung"
+    venue: "Rundstedt"
+    city: "Düsseldorf & Berlin"
+  - year: 2009
+    title: "do one thing at a time"
+    venue: "Klasse Buetti, Kunstverein"
+    city: "Ulm"
+  # 2008
+  - year: 2008
+    title: "Abriss"
+    venue: "LWL Landesmuseum"
+    city: "Münster"
+  - year: 2008
+    title: "Münster ist Berlin"
+    venue: "Hawerkamp"
+    city: "Münster"
+  - year: 2008
+    title: "Auswahlausstellung Cusanuswerk"
+    venue: ""
+    city: ""

@@ -1,0 +1,1341 @@
+paintings:
+  - id: painting-2022-001-untitled-1
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-001-untitled-1.jpg
+    thumbnail: /images/paintings/2022/painting-2022-001-untitled-1-thumb.jpg
+    weight: 1
+  - id: painting-2022-002-untitled-2
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-002-untitled-2.jpg
+    thumbnail: /images/paintings/2022/painting-2022-002-untitled-2-thumb.jpg
+    weight: 2
+  - id: painting-2022-003-untitled-3
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-003-untitled-3.jpg
+    thumbnail: /images/paintings/2022/painting-2022-003-untitled-3-thumb.jpg
+    weight: 3
+  - id: painting-2022-004-untitled-4
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-004-untitled-4.jpg
+    thumbnail: /images/paintings/2022/painting-2022-004-untitled-4-thumb.jpg
+    weight: 4
+  - id: painting-2022-005-untitled-5
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-005-untitled-5.jpg
+    thumbnail: /images/paintings/2022/painting-2022-005-untitled-5-thumb.jpg
+    weight: 5
+  - id: painting-2022-006-untitled-6
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-006-untitled-6.jpg
+    thumbnail: /images/paintings/2022/painting-2022-006-untitled-6-thumb.jpg
+    weight: 6
+  - id: painting-2022-007-untitled-7
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-007-untitled-7.jpg
+    thumbnail: /images/paintings/2022/painting-2022-007-untitled-7-thumb.jpg
+    weight: 7
+  - id: painting-2022-008-untitled-8
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-008-untitled-8.jpg
+    thumbnail: /images/paintings/2022/painting-2022-008-untitled-8-thumb.jpg
+    weight: 8
+  - id: painting-2022-009-untitled-9
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-009-untitled-9.jpg
+    thumbnail: /images/paintings/2022/painting-2022-009-untitled-9-thumb.jpg
+    weight: 9
+  - id: painting-2022-010-untitled-10
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-010-untitled-10.jpg
+    thumbnail: /images/paintings/2022/painting-2022-010-untitled-10-thumb.jpg
+    weight: 10
+  - id: painting-2022-011-untitled-11
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-011-untitled-11.jpg
+    thumbnail: /images/paintings/2022/painting-2022-011-untitled-11-thumb.jpg
+    weight: 11
+  - id: painting-2022-012-untitled-12
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-012-untitled-12.jpg
+    thumbnail: /images/paintings/2022/painting-2022-012-untitled-12-thumb.jpg
+    weight: 12
+  - id: painting-2022-013-untitled-13
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-013-untitled-13.jpg
+    thumbnail: /images/paintings/2022/painting-2022-013-untitled-13-thumb.jpg
+    weight: 13
+  - id: painting-2022-014-untitled-14
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-014-untitled-14.jpg
+    thumbnail: /images/paintings/2022/painting-2022-014-untitled-14-thumb.jpg
+    weight: 14
+  - id: painting-2022-015-untitled-15
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-015-untitled-15.jpg
+    thumbnail: /images/paintings/2022/painting-2022-015-untitled-15-thumb.jpg
+    weight: 15
+  - id: painting-2022-016-untitled-16
+    title_de: o.T.
+    title_en: Untitled
+    year: 2022
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2022/painting-2022-016-untitled-16.jpg
+    thumbnail: /images/paintings/2022/painting-2022-016-untitled-16-thumb.jpg
+    weight: 16
+  - id: painting-2021-001-untitled-1
+    title_de: o.T.
+    title_en: Untitled
+    year: 2021
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2021/painting-2021-001-untitled-1.jpg
+    thumbnail: /images/paintings/2021/painting-2021-001-untitled-1-thumb.jpg
+    weight: 17
+  - id: painting-2021-002-untitled-2
+    title_de: o.T.
+    title_en: Untitled
+    year: 2021
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2021/painting-2021-002-untitled-2.jpg
+    thumbnail: /images/paintings/2021/painting-2021-002-untitled-2-thumb.jpg
+    weight: 18
+  - id: painting-2021-003-untitled-3
+    title_de: o.T.
+    title_en: Untitled
+    year: 2021
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2021/painting-2021-003-untitled-3.jpg
+    thumbnail: /images/paintings/2021/painting-2021-003-untitled-3-thumb.jpg
+    weight: 19
+  - id: painting-2021-004-untitled-4
+    title_de: o.T.
+    title_en: Untitled
+    year: 2021
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2021/painting-2021-004-untitled-4.jpg
+    thumbnail: /images/paintings/2021/painting-2021-004-untitled-4-thumb.jpg
+    weight: 20
+  - id: painting-2020-001-untitled-1
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-001-untitled-1.jpg
+    thumbnail: /images/paintings/2020/painting-2020-001-untitled-1-thumb.jpg
+    weight: 21
+  - id: painting-2020-002-untitled-2
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-002-untitled-2.jpg
+    thumbnail: /images/paintings/2020/painting-2020-002-untitled-2-thumb.jpg
+    weight: 22
+  - id: painting-2020-003-untitled-3
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-003-untitled-3.jpg
+    thumbnail: /images/paintings/2020/painting-2020-003-untitled-3-thumb.jpg
+    weight: 23
+  - id: painting-2020-004-untitled-4
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-004-untitled-4.jpg
+    thumbnail: /images/paintings/2020/painting-2020-004-untitled-4-thumb.jpg
+    weight: 24
+  - id: painting-2020-005-untitled-5
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-005-untitled-5.jpg
+    thumbnail: /images/paintings/2020/painting-2020-005-untitled-5-thumb.jpg
+    weight: 25
+  - id: painting-2020-006-untitled-6
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-006-untitled-6.jpg
+    thumbnail: /images/paintings/2020/painting-2020-006-untitled-6-thumb.jpg
+    weight: 26
+  - id: painting-2020-007-untitled-7
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-007-untitled-7.jpg
+    thumbnail: /images/paintings/2020/painting-2020-007-untitled-7-thumb.jpg
+    weight: 27
+  - id: painting-2020-008-untitled-8
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-008-untitled-8.jpg
+    thumbnail: /images/paintings/2020/painting-2020-008-untitled-8-thumb.jpg
+    weight: 28
+  - id: painting-2020-009-untitled-9
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-009-untitled-9.jpg
+    thumbnail: /images/paintings/2020/painting-2020-009-untitled-9-thumb.jpg
+    weight: 29
+  - id: painting-2020-010-untitled-10
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-010-untitled-10.jpg
+    thumbnail: /images/paintings/2020/painting-2020-010-untitled-10-thumb.jpg
+    weight: 30
+  - id: painting-2020-011-untitled-11
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-011-untitled-11.jpg
+    thumbnail: /images/paintings/2020/painting-2020-011-untitled-11-thumb.jpg
+    weight: 31
+  - id: painting-2020-012-untitled-12
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-012-untitled-12.jpg
+    thumbnail: /images/paintings/2020/painting-2020-012-untitled-12-thumb.jpg
+    weight: 32
+  - id: painting-2020-013-untitled-13
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-013-untitled-13.jpg
+    thumbnail: /images/paintings/2020/painting-2020-013-untitled-13-thumb.jpg
+    weight: 33
+  - id: painting-2020-014-untitled-14
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-014-untitled-14.jpg
+    thumbnail: /images/paintings/2020/painting-2020-014-untitled-14-thumb.jpg
+    weight: 34
+  - id: painting-2020-015-untitled-15
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-015-untitled-15.jpg
+    thumbnail: /images/paintings/2020/painting-2020-015-untitled-15-thumb.jpg
+    weight: 35
+  - id: painting-2020-016-untitled-16
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-016-untitled-16.jpg
+    thumbnail: /images/paintings/2020/painting-2020-016-untitled-16-thumb.jpg
+    weight: 36
+  - id: painting-2020-017-untitled-17
+    title_de: o.T.
+    title_en: Untitled
+    year: 2020
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2020/painting-2020-017-untitled-17.jpg
+    thumbnail: /images/paintings/2020/painting-2020-017-untitled-17-thumb.jpg
+    weight: 37
+  - id: painting-2019-001-untitled-1
+    title_de: o.T.
+    title_en: Untitled
+    year: 2019
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2019/painting-2019-001-untitled-1.jpg
+    thumbnail: /images/paintings/2019/painting-2019-001-untitled-1-thumb.jpg
+    weight: 38
+  - id: painting-2019-002-untitled-2
+    title_de: o.T.
+    title_en: Untitled
+    year: 2019
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2019/painting-2019-002-untitled-2.jpg
+    thumbnail: /images/paintings/2019/painting-2019-002-untitled-2-thumb.jpg
+    weight: 39
+  - id: painting-2019-003-untitled-3
+    title_de: o.T.
+    title_en: Untitled
+    year: 2019
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2019/painting-2019-003-untitled-3.jpg
+    thumbnail: /images/paintings/2019/painting-2019-003-untitled-3-thumb.jpg
+    weight: 40
+  - id: painting-2019-004-untitled-4
+    title_de: o.T.
+    title_en: Untitled
+    year: 2019
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2019/painting-2019-004-untitled-4.jpg
+    thumbnail: /images/paintings/2019/painting-2019-004-untitled-4-thumb.jpg
+    weight: 41
+  - id: painting-2019-005-untitled-5
+    title_de: o.T.
+    title_en: Untitled
+    year: 2019
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2019/painting-2019-005-untitled-5.jpg
+    thumbnail: /images/paintings/2019/painting-2019-005-untitled-5-thumb.jpg
+    weight: 42
+  - id: painting-2019-006-untitled-6
+    title_de: o.T.
+    title_en: Untitled
+    year: 2019
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2019/painting-2019-006-untitled-6.jpg
+    thumbnail: /images/paintings/2019/painting-2019-006-untitled-6-thumb.jpg
+    weight: 43
+  - id: painting-2019-007-untitled-7
+    title_de: o.T.
+    title_en: Untitled
+    year: 2019
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2019/painting-2019-007-untitled-7.jpg
+    thumbnail: /images/paintings/2019/painting-2019-007-untitled-7-thumb.jpg
+    weight: 44
+  - id: painting-2019-008-untitled-8
+    title_de: o.T.
+    title_en: Untitled
+    year: 2019
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2019/painting-2019-008-untitled-8.jpg
+    thumbnail: /images/paintings/2019/painting-2019-008-untitled-8-thumb.jpg
+    weight: 45
+  - id: painting-2019-009-untitled-9
+    title_de: o.T.
+    title_en: Untitled
+    year: 2019
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2019/painting-2019-009-untitled-9.jpg
+    thumbnail: /images/paintings/2019/painting-2019-009-untitled-9-thumb.jpg
+    weight: 46
+  - id: painting-2019-010-untitled-10
+    title_de: o.T.
+    title_en: Untitled
+    year: 2019
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2019/painting-2019-010-untitled-10.jpg
+    thumbnail: /images/paintings/2019/painting-2019-010-untitled-10-thumb.jpg
+    weight: 47
+  - id: painting-2019-011-untitled-11
+    title_de: o.T.
+    title_en: Untitled
+    year: 2019
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2019/painting-2019-011-untitled-11.jpg
+    thumbnail: /images/paintings/2019/painting-2019-011-untitled-11-thumb.jpg
+    weight: 48
+  - id: painting-2019-012-untitled-12
+    title_de: o.T.
+    title_en: Untitled
+    year: 2019
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2019/painting-2019-012-untitled-12.jpg
+    thumbnail: /images/paintings/2019/painting-2019-012-untitled-12-thumb.jpg
+    weight: 49
+  - id: painting-2019-013-untitled-13
+    title_de: o.T.
+    title_en: Untitled
+    year: 2019
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: ""
+    image: /images/paintings/2019/painting-2019-013-untitled-13.jpg
+    thumbnail: /images/paintings/2019/painting-2019-013-untitled-13-thumb.jpg
+    weight: 50
+  - id: painting-2018-001-farbpalette
+    title_de: Farbpalette
+    title_en: Farbpalette
+    year: 2018
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 200cm x 140cm
+    image: /images/paintings/2018/painting-2018-001-farbpalette.jpg
+    thumbnail: /images/paintings/2018/painting-2018-001-farbpalette-thumb.jpg
+    weight: 51
+  - id: painting-2018-002-shinyshiny
+    title_de: Shinyshiny
+    title_en: Shinyshiny
+    year: 2018
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 200cm x 140cm
+    image: /images/paintings/2018/painting-2018-002-shinyshiny.jpg
+    thumbnail: /images/paintings/2018/painting-2018-002-shinyshiny-thumb.jpg
+    weight: 52
+  - id: painting-2018-003-roter-faden-unter-palme
+    title_de: roter Faden unter Palme
+    title_en: roter Faden unter Palme
+    year: 2018
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 50cm
+    image: /images/paintings/2018/painting-2018-003-roter-faden-unter-palme.jpg
+    thumbnail: /images/paintings/2018/painting-2018-003-roter-faden-unter-palme-thumb.jpg
+    weight: 53
+  - id: painting-2018-004-roter-faden
+    title_de: roter Faden
+    title_en: roter Faden
+    year: 2018
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 50cm
+    image: /images/paintings/2018/painting-2018-004-roter-faden.jpg
+    thumbnail: /images/paintings/2018/painting-2018-004-roter-faden-thumb.jpg
+    weight: 54
+  - id: painting-2018-005-murmeleck
+    title_de: Murmeleck
+    title_en: Murmeleck
+    year: 2018
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 30cm x 30cm
+    image: /images/paintings/2018/painting-2018-005-murmeleck.jpg
+    thumbnail: /images/paintings/2018/painting-2018-005-murmeleck-thumb.jpg
+    weight: 55
+  - id: painting-2018-006-wo-die-fliegen-fliegen
+    title_de: wo die Fliegen fliegen
+    title_en: wo die Fliegen fliegen
+    year: 2018
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 50cm x 50cm
+    image: /images/paintings/2018/painting-2018-006-wo-die-fliegen-fliegen.jpg
+    thumbnail: /images/paintings/2018/painting-2018-006-wo-die-fliegen-fliegen-thumb.jpg
+    weight: 56
+  - id: painting-2018-007-pappkarton
+    title_de: Pappkarton
+    title_en: Pappkarton
+    year: 2018
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 50cm
+    image: /images/paintings/2018/painting-2018-007-pappkarton.jpg
+    thumbnail: /images/paintings/2018/painting-2018-007-pappkarton-thumb.jpg
+    weight: 57
+  - id: painting-2018-008-strelitzie
+    title_de: Strelitzie
+    title_en: Strelitzie
+    year: 2018
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 50cm
+    image: /images/paintings/2018/painting-2018-008-strelitzie.jpg
+    thumbnail: /images/paintings/2018/painting-2018-008-strelitzie-thumb.jpg
+    weight: 58
+  - id: painting-2018-009-bunnybude
+    title_de: Bunnybude
+    title_en: Bunnybude
+    year: 2018
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 50cm
+    image: /images/paintings/2018/painting-2018-009-bunnybude.jpg
+    thumbnail: /images/paintings/2018/painting-2018-009-bunnybude-thumb.jpg
+    weight: 59
+  - id: painting-2018-010-das-himmlische-kind
+    title_de: das himmlische Kind
+    title_en: das himmlische Kind
+    year: 2018
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 30cm x 30cm
+    image: /images/paintings/2018/painting-2018-010-das-himmlische-kind.jpg
+    thumbnail: /images/paintings/2018/painting-2018-010-das-himmlische-kind-thumb.jpg
+    weight: 60
+  - id: painting-2018-011-humptydumpty
+    title_de: HumptyDumpty
+    title_en: HumptyDumpty
+    year: 2018
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 50cm x 35cm
+    image: /images/paintings/2018/painting-2018-011-humptydumpty.jpg
+    thumbnail: /images/paintings/2018/painting-2018-011-humptydumpty-thumb.jpg
+    weight: 61
+  - id: painting-2018-012-up
+    title_de: up
+    title_en: up
+    year: 2018
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 40cm x 30cm
+    image: /images/paintings/2018/painting-2018-012-up.jpg
+    thumbnail: /images/paintings/2018/painting-2018-012-up-thumb.jpg
+    weight: 62
+  - id: painting-2017-001-can-t-fight-the-moonlight
+    title_de: can’t fight the moonlight
+    title_en: can’t fight the moonlight
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 200cm x 160cm
+    image: /images/paintings/2017/painting-2017-001-can-t-fight-the-moonlight.jpg
+    thumbnail: /images/paintings/2017/painting-2017-001-can-t-fight-the-moonlight-thumb.jpg
+    weight: 63
+  - id: painting-2017-002-untitled-2
+    title_de: o.T.
+    title_en: Untitled
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 160cm x 140cm
+    image: /images/paintings/2017/painting-2017-002-untitled-2.jpg
+    thumbnail: /images/paintings/2017/painting-2017-002-untitled-2-thumb.jpg
+    weight: 64
+  - id: painting-2017-003-bude-mit-fischifisch
+    title_de: Bude mit Fischifisch
+    title_en: Bude mit Fischifisch
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 40cm x 35cm
+    image: /images/paintings/2017/painting-2017-003-bude-mit-fischifisch.jpg
+    thumbnail: /images/paintings/2017/painting-2017-003-bude-mit-fischifisch-thumb.jpg
+    weight: 65
+  - id: painting-2017-004-untitled-4
+    title_de: o.T.
+    title_en: Untitled
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 40cm x 35cm
+    image: /images/paintings/2017/painting-2017-004-untitled-4.jpg
+    thumbnail: /images/paintings/2017/painting-2017-004-untitled-4-thumb.jpg
+    weight: 66
+  - id: painting-2017-005-untitled-5
+    title_de: o.T.
+    title_en: Untitled
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 40cm x 35cm
+    image: /images/paintings/2017/painting-2017-005-untitled-5.jpg
+    thumbnail: /images/paintings/2017/painting-2017-005-untitled-5-thumb.jpg
+    weight: 67
+  - id: painting-2017-006-untitled-6
+    title_de: o.T.
+    title_en: Untitled
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 40cm x 35cm
+    image: /images/paintings/2017/painting-2017-006-untitled-6.jpg
+    thumbnail: /images/paintings/2017/painting-2017-006-untitled-6-thumb.jpg
+    weight: 68
+  - id: painting-2017-007-untitled-7
+    title_de: o.T.
+    title_en: Untitled
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 50cm
+    image: /images/paintings/2017/painting-2017-007-untitled-7.jpg
+    thumbnail: /images/paintings/2017/painting-2017-007-untitled-7-thumb.jpg
+    weight: 69
+  - id: painting-2017-008-ich-will-ich-kann
+    title_de: ich will, ich kann
+    title_en: ich will, ich kann
+    year: 2017
+    medium_de: Acryl, Öl und Lack auf Leinwand
+    medium_en: acrylic, oil and varnish on canvas
+    dimensions: 60cm x 50cm
+    image: /images/paintings/2017/painting-2017-008-ich-will-ich-kann.jpg
+    thumbnail: /images/paintings/2017/painting-2017-008-ich-will-ich-kann-thumb.jpg
+    weight: 70
+  - id: painting-2017-009-untitled-9
+    title_de: o.T.
+    title_en: Untitled
+    year: 2017
+    medium_de: Acryl, Öl und Lack auf Leinwand
+    medium_en: acrylic, oil and varnish on canvas
+    dimensions: 65cm x 90cm
+    image: /images/paintings/2017/painting-2017-009-untitled-9.jpg
+    thumbnail: /images/paintings/2017/painting-2017-009-untitled-9-thumb.jpg
+    weight: 71
+  - id: painting-2017-010-in-the-middle
+    title_de: in the middle
+    title_en: in the middle
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 40cm
+    image: /images/paintings/2017/painting-2017-010-in-the-middle.jpg
+    thumbnail: /images/paintings/2017/painting-2017-010-in-the-middle-thumb.jpg
+    weight: 72
+  - id: painting-2017-011-tischbude
+    title_de: Tischbude
+    title_en: Tischbude
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 80cm x 60cm
+    image: /images/paintings/2017/painting-2017-011-tischbude.jpg
+    thumbnail: /images/paintings/2017/painting-2017-011-tischbude-thumb.jpg
+    weight: 73
+  - id: painting-2017-012-birkenbude
+    title_de: Birkenbude
+    title_en: Birkenbude
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 70cm x 50cm
+    image: /images/paintings/2017/painting-2017-012-birkenbude.jpg
+    thumbnail: /images/paintings/2017/painting-2017-012-birkenbude-thumb.jpg
+    weight: 74
+  - id: painting-2017-013-blumenbude
+    title_de: Blumenbude
+    title_en: Blumenbude
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 65cm x 50cm
+    image: /images/paintings/2017/painting-2017-013-blumenbude.jpg
+    thumbnail: /images/paintings/2017/painting-2017-013-blumenbude-thumb.jpg
+    weight: 75
+  - id: painting-2017-014-zauberkiste
+    title_de: Zauberkiste
+    title_en: Zauberkiste
+    year: 2017
+    medium_de: Acryl, Öl und Lack auf Leinwand
+    medium_en: acrylic, oil and varnish on canvas
+    dimensions: 120cm x 100cm
+    image: /images/paintings/2017/painting-2017-014-zauberkiste.jpg
+    thumbnail: /images/paintings/2017/painting-2017-014-zauberkiste-thumb.jpg
+    weight: 76
+  - id: painting-2017-015-minibude-1
+    title_de: minibude 1
+    title_en: minibude 1
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 30cm x 30cm
+    image: /images/paintings/2017/painting-2017-015-minibude-1.jpg
+    thumbnail: /images/paintings/2017/painting-2017-015-minibude-1-thumb.jpg
+    weight: 77
+  - id: painting-2017-016-minibude-2
+    title_de: minibude 2
+    title_en: minibude 2
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 30cm x 30cm
+    image: /images/paintings/2017/painting-2017-016-minibude-2.jpg
+    thumbnail: /images/paintings/2017/painting-2017-016-minibude-2-thumb.jpg
+    weight: 78
+  - id: painting-2017-017-minibude-3
+    title_de: minibude 3
+    title_en: minibude 3
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 30cm x 30cm
+    image: /images/paintings/2017/painting-2017-017-minibude-3.jpg
+    thumbnail: /images/paintings/2017/painting-2017-017-minibude-3-thumb.jpg
+    weight: 79
+  - id: painting-2017-018-minibude-4
+    title_de: minibude 4
+    title_en: minibude 4
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 30cm x 30cm
+    image: /images/paintings/2017/painting-2017-018-minibude-4.jpg
+    thumbnail: /images/paintings/2017/painting-2017-018-minibude-4-thumb.jpg
+    weight: 80
+  - id: painting-2017-019-minibude-5
+    title_de: minibude 5
+    title_en: minibude 5
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 30cm x 30cm
+    image: /images/paintings/2017/painting-2017-019-minibude-5.jpg
+    thumbnail: /images/paintings/2017/painting-2017-019-minibude-5-thumb.jpg
+    weight: 81
+  - id: painting-2017-020-minibude-6
+    title_de: minibude 6
+    title_en: minibude 6
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 30cm x 30cm
+    image: /images/paintings/2017/painting-2017-020-minibude-6.jpg
+    thumbnail: /images/paintings/2017/painting-2017-020-minibude-6-thumb.jpg
+    weight: 82
+  - id: painting-2017-021-la-carte
+    title_de: à la carte
+    title_en: à la carte
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 180cm x 160cm
+    image: /images/paintings/2017/painting-2017-021-la-carte.jpg
+    thumbnail: /images/paintings/2017/painting-2017-021-la-carte-thumb.jpg
+    weight: 83
+  - id: painting-2017-022-paimpol
+    title_de: paimpol
+    title_en: paimpol
+    year: 2017
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 30cm x 40cm
+    image: /images/paintings/2017/painting-2017-022-paimpol.jpg
+    thumbnail: /images/paintings/2017/painting-2017-022-paimpol-thumb.jpg
+    weight: 84
+  - id: painting-2016-001-diptychon-made-in-finnland
+    title_de: Diptychon made in Finnland
+    title_en: Diptychon made in Finnland
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 2 x 120cm x 140cm
+    image: /images/paintings/2016/painting-2016-001-diptychon-made-in-finnland.jpg
+    thumbnail: /images/paintings/2016/painting-2016-001-diptychon-made-in-finnland-thumb.jpg
+    weight: 85
+  - id: painting-2016-002-puzzle-3
+    title_de: Puzzle 3
+    title_en: Puzzle 3
+    year: 2016
+    medium_de: Acryl auf Leinwand
+    medium_en: acrylic on canvas
+    dimensions: 20cm x 20cm
+    image: /images/paintings/2016/painting-2016-002-puzzle-3.jpg
+    thumbnail: /images/paintings/2016/painting-2016-002-puzzle-3-thumb.jpg
+    weight: 86
+  - id: painting-2016-003-puzzle-2
+    title_de: Puzzle 2
+    title_en: Puzzle 2
+    year: 2016
+    medium_de: Acryl auf Leinwand
+    medium_en: acrylic on canvas
+    dimensions: 20cm x 20cm
+    image: /images/paintings/2016/painting-2016-003-puzzle-2.jpg
+    thumbnail: /images/paintings/2016/painting-2016-003-puzzle-2-thumb.jpg
+    weight: 87
+  - id: painting-2016-004-puzzle-1
+    title_de: Puzzle 1
+    title_en: Puzzle 1
+    year: 2016
+    medium_de: Acryl auf Leinwand
+    medium_en: acrylic on canvas
+    dimensions: 20cm x 20cm
+    image: /images/paintings/2016/painting-2016-004-puzzle-1.jpg
+    thumbnail: /images/paintings/2016/painting-2016-004-puzzle-1-thumb.jpg
+    weight: 88
+  - id: painting-2016-005-hochsitz
+    title_de: Hochsitz
+    title_en: Hochsitz
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 69cm x 55cm
+    image: /images/paintings/2016/painting-2016-005-hochsitz.jpg
+    thumbnail: /images/paintings/2016/painting-2016-005-hochsitz-thumb.jpg
+    weight: 89
+  - id: painting-2016-006-bude-unterm-regenbogen
+    title_de: Bude unterm Regenbogen
+    title_en: Bude unterm Regenbogen
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 69cm x 55cm
+    image: /images/paintings/2016/painting-2016-006-bude-unterm-regenbogen.jpg
+    thumbnail: /images/paintings/2016/painting-2016-006-bude-unterm-regenbogen-thumb.jpg
+    weight: 90
+  - id: painting-2016-007-untitled-7
+    title_de: o.T.
+    title_en: Untitled
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 69cm x 55cm
+    image: /images/paintings/2016/painting-2016-007-untitled-7.jpg
+    thumbnail: /images/paintings/2016/painting-2016-007-untitled-7-thumb.jpg
+    weight: 91
+  - id: painting-2016-008-igelbude
+    title_de: Igelbude
+    title_en: Igelbude
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 120cm x 100cm
+    image: /images/paintings/2016/painting-2016-008-igelbude.jpg
+    thumbnail: /images/paintings/2016/painting-2016-008-igelbude-thumb.jpg
+    weight: 92
+  - id: painting-2016-009-vogelskizze
+    title_de: Vogelskizze
+    title_en: Vogelskizze
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 90cm x 70cm
+    image: /images/paintings/2016/painting-2016-009-vogelskizze.jpg
+    thumbnail: /images/paintings/2016/painting-2016-009-vogelskizze-thumb.jpg
+    weight: 93
+  - id: painting-2016-010-feldbude
+    title_de: Feldbude
+    title_en: Feldbude
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 45cm x 35cm
+    image: /images/paintings/2016/painting-2016-010-feldbude.jpg
+    thumbnail: /images/paintings/2016/painting-2016-010-feldbude-thumb.jpg
+    weight: 94
+  - id: painting-2016-011-atelierbude
+    title_de: Atelierbude
+    title_en: Atelierbude
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 160cm x 130cm
+    image: /images/paintings/2016/painting-2016-011-atelierbude.jpg
+    thumbnail: /images/paintings/2016/painting-2016-011-atelierbude-thumb.jpg
+    weight: 95
+  - id: painting-2016-012-untitled-12
+    title_de: o.T.
+    title_en: Untitled
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 60cm
+    image: /images/paintings/2016/painting-2016-012-untitled-12.jpg
+    thumbnail: /images/paintings/2016/painting-2016-012-untitled-12-thumb.jpg
+    weight: 96
+  - id: painting-2016-013-wenn-ich-ein-voeglein-waer
+    title_de: wenn ich ein Vöglein wär
+    title_en: wenn ich ein Vöglein wär
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 16cm x 24cm
+    image: /images/paintings/2016/painting-2016-013-wenn-ich-ein-voeglein-waer.jpg
+    thumbnail: /images/paintings/2016/painting-2016-013-wenn-ich-ein-voeglein-waer-thumb.jpg
+    weight: 97
+  - id: painting-2016-014-untitled-14
+    title_de: o.T.
+    title_en: Untitled
+    year: 2016
+    medium_de: Acryl auf Leinwand
+    medium_en: acrylic on canvas
+    dimensions: 2 x 15cm x 24cm
+    image: /images/paintings/2016/painting-2016-014-untitled-14.jpg
+    thumbnail: /images/paintings/2016/painting-2016-014-untitled-14-thumb.jpg
+    weight: 98
+  - id: painting-2016-015-winterbude
+    title_de: Winterbude
+    title_en: Winterbude
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 160cm x 80cm
+    image: /images/paintings/2016/painting-2016-015-winterbude.jpg
+    thumbnail: /images/paintings/2016/painting-2016-015-winterbude-thumb.jpg
+    weight: 99
+  - id: painting-2016-016-neujahrsbude
+    title_de: Neujahrsbude
+    title_en: Neujahrsbude
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 90cm x 70cm
+    image: /images/paintings/2016/painting-2016-016-neujahrsbude.jpg
+    thumbnail: /images/paintings/2016/painting-2016-016-neujahrsbude-thumb.jpg
+    weight: 100
+  - id: painting-2016-017-turmtreppchen
+    title_de: Turmtreppchen
+    title_en: Turmtreppchen
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 80cm x 65cm
+    image: /images/paintings/2016/painting-2016-017-turmtreppchen.jpg
+    thumbnail: /images/paintings/2016/painting-2016-017-turmtreppchen-thumb.jpg
+    weight: 101
+  - id: painting-2016-018-avocadozelt
+    title_de: Avocadozelt
+    title_en: Avocadozelt
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 80cm x 65cm
+    image: /images/paintings/2016/painting-2016-018-avocadozelt.jpg
+    thumbnail: /images/paintings/2016/painting-2016-018-avocadozelt-thumb.jpg
+    weight: 102
+  - id: painting-2016-019-nachtfalterhoehle
+    title_de: Nachtfalterhöhle
+    title_en: Nachtfalterhöhle
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 30cm x 30cm
+    image: /images/paintings/2016/painting-2016-019-nachtfalterhoehle.jpg
+    thumbnail: /images/paintings/2016/painting-2016-019-nachtfalterhoehle-thumb.jpg
+    weight: 103
+  - id: painting-2016-020-mondteppich
+    title_de: Mondteppich
+    title_en: Mondteppich
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 25cm x 25cm
+    image: /images/paintings/2016/painting-2016-020-mondteppich.jpg
+    thumbnail: /images/paintings/2016/painting-2016-020-mondteppich-thumb.jpg
+    weight: 104
+  - id: painting-2016-021-untitled-21
+    title_de: o.T.
+    title_en: Untitled
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 35cm x 45cm
+    image: /images/paintings/2016/painting-2016-021-untitled-21.jpg
+    thumbnail: /images/paintings/2016/painting-2016-021-untitled-21-thumb.jpg
+    weight: 105
+  - id: painting-2016-022-untitled-22
+    title_de: o.T.
+    title_en: Untitled
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 50cm x 60cm
+    image: /images/paintings/2016/painting-2016-022-untitled-22.jpg
+    thumbnail: /images/paintings/2016/painting-2016-022-untitled-22-thumb.jpg
+    weight: 106
+  - id: painting-2016-023-untitled-23
+    title_de: o.T.
+    title_en: Untitled
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 60cm
+    image: /images/paintings/2016/painting-2016-023-untitled-23.jpg
+    thumbnail: /images/paintings/2016/painting-2016-023-untitled-23-thumb.jpg
+    weight: 107
+  - id: painting-2016-024-samstagnacht
+    title_de: Samstagnacht
+    title_en: Samstagnacht
+    year: 2016
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 60cm
+    image: /images/paintings/2016/painting-2016-024-samstagnacht.jpg
+    thumbnail: /images/paintings/2016/painting-2016-024-samstagnacht-thumb.jpg
+    weight: 108
+  - id: painting-2015-001-hoehle
+    title_de: Höhle
+    title_en: Höhle
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 200cm x 160cm
+    image: /images/paintings/2015/painting-2015-001-hoehle.jpg
+    thumbnail: /images/paintings/2015/painting-2015-001-hoehle-thumb.jpg
+    weight: 109
+  - id: painting-2015-002-streichholzschachtel
+    title_de: Streichholzschachtel
+    title_en: Streichholzschachtel
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 100cm x 90cm
+    image: /images/paintings/2015/painting-2015-002-streichholzschachtel.jpg
+    thumbnail: /images/paintings/2015/painting-2015-002-streichholzschachtel-thumb.jpg
+    weight: 110
+  - id: painting-2015-003-amas-bude
+    title_de: Amas Bude
+    title_en: Amas Bude
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 100cm x 90cm
+    image: /images/paintings/2015/painting-2015-003-amas-bude.jpg
+    thumbnail: /images/paintings/2015/painting-2015-003-amas-bude-thumb.jpg
+    weight: 111
+  - id: painting-2015-004-zimmerzelt
+    title_de: Zimmerzelt
+    title_en: Zimmerzelt
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 40cm
+    image: /images/paintings/2015/painting-2015-004-zimmerzelt.jpg
+    thumbnail: /images/paintings/2015/painting-2015-004-zimmerzelt-thumb.jpg
+    weight: 112
+  - id: painting-2015-005-geisterstunde
+    title_de: Geisterstunde
+    title_en: Geisterstunde
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 65cm x 80cm
+    image: /images/paintings/2015/painting-2015-005-geisterstunde.jpg
+    thumbnail: /images/paintings/2015/painting-2015-005-geisterstunde-thumb.jpg
+    weight: 113
+  - id: painting-2015-006-jardin
+    title_de: Jardin
+    title_en: Jardin
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 200cm x 160cm
+    image: /images/paintings/2015/painting-2015-006-jardin.jpg
+    thumbnail: /images/paintings/2015/painting-2015-006-jardin-thumb.jpg
+    weight: 114
+  - id: painting-2015-007-untitled-7
+    title_de: o.T.
+    title_en: Untitled
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 160cm x 130cm
+    image: /images/paintings/2015/painting-2015-007-untitled-7.jpg
+    thumbnail: /images/paintings/2015/painting-2015-007-untitled-7-thumb.jpg
+    weight: 115
+  - id: painting-2015-008-bude-am-busch
+    title_de: Bude am Busch
+    title_en: Bude am Busch
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 65cm x 50cm
+    image: /images/paintings/2015/painting-2015-008-bude-am-busch.jpg
+    thumbnail: /images/paintings/2015/painting-2015-008-bude-am-busch-thumb.jpg
+    weight: 116
+  - id: painting-2015-009-flowerpower
+    title_de: Flowerpower
+    title_en: Flowerpower
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 60cm
+    image: /images/paintings/2015/painting-2015-009-flowerpower.jpg
+    thumbnail: /images/paintings/2015/painting-2015-009-flowerpower-thumb.jpg
+    weight: 117
+  - id: painting-2015-010-memphisspielplatz
+    title_de: Memphisspielplatz
+    title_en: Memphisspielplatz
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 40cm
+    image: /images/paintings/2015/painting-2015-010-memphisspielplatz.jpg
+    thumbnail: /images/paintings/2015/painting-2015-010-memphisspielplatz-thumb.jpg
+    weight: 118
+  - id: painting-2015-011-teppichbude
+    title_de: Teppichbude
+    title_en: Teppichbude
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 200cm x 160cm
+    image: /images/paintings/2015/painting-2015-011-teppichbude.jpg
+    thumbnail: /images/paintings/2015/painting-2015-011-teppichbude-thumb.jpg
+    weight: 119
+  - id: painting-2015-012-mondplatz
+    title_de: Mondplatz
+    title_en: Mondplatz
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 50cm x 50cm
+    image: /images/paintings/2015/painting-2015-012-mondplatz.jpg
+    thumbnail: /images/paintings/2015/painting-2015-012-mondplatz-thumb.jpg
+    weight: 120
+  - id: painting-2015-013-stuhlbude
+    title_de: Stuhlbude
+    title_en: Stuhlbude
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 100cm x 90cm
+    image: /images/paintings/2015/painting-2015-013-stuhlbude.jpg
+    thumbnail: /images/paintings/2015/painting-2015-013-stuhlbude-thumb.jpg
+    weight: 121
+  - id: painting-2015-014-rutschbudenremix
+    title_de: Rutschbudenremix
+    title_en: Rutschbudenremix
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 120cm x 160cm
+    image: /images/paintings/2015/painting-2015-014-rutschbudenremix.jpg
+    thumbnail: /images/paintings/2015/painting-2015-014-rutschbudenremix-thumb.jpg
+    weight: 122
+  - id: painting-2015-015-untitled-15
+    title_de: o.T.
+    title_en: Untitled
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 100cm x 90cm
+    image: /images/paintings/2015/painting-2015-015-untitled-15.jpg
+    thumbnail: /images/paintings/2015/painting-2015-015-untitled-15-thumb.jpg
+    weight: 123
+  - id: painting-2015-016-bankbudenremix
+    title_de: Bankbudenremix
+    title_en: Bankbudenremix
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 200cm x 160cm
+    image: /images/paintings/2015/painting-2015-016-bankbudenremix.jpg
+    thumbnail: /images/paintings/2015/painting-2015-016-bankbudenremix-thumb.jpg
+    weight: 124
+  - id: painting-2015-017-ventilatoreneckchen
+    title_de: Ventilatoreneckchen
+    title_en: Ventilatoreneckchen
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 50cm
+    image: /images/paintings/2015/painting-2015-017-ventilatoreneckchen.jpg
+    thumbnail: /images/paintings/2015/painting-2015-017-ventilatoreneckchen-thumb.jpg
+    weight: 125
+  - id: painting-2015-018-faehnlein
+    title_de: Fähnlein
+    title_en: Fähnlein
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 60cm x 60cm
+    image: /images/paintings/2015/painting-2015-018-faehnlein.jpg
+    thumbnail: /images/paintings/2015/painting-2015-018-faehnlein-thumb.jpg
+    weight: 126
+  - id: painting-2015-019-himmelszelt
+    title_de: Himmelszelt
+    title_en: Himmelszelt
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 120cm x 100cm
+    image: /images/paintings/2015/painting-2015-019-himmelszelt.jpg
+    thumbnail: /images/paintings/2015/painting-2015-019-himmelszelt-thumb.jpg
+    weight: 127
+  - id: painting-2015-020-lavendel
+    title_de: Lavendel
+    title_en: Lavendel
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 40cm x 40cm
+    image: /images/paintings/2015/painting-2015-020-lavendel.jpg
+    thumbnail: /images/paintings/2015/painting-2015-020-lavendel-thumb.jpg
+    weight: 128
+  - id: painting-2015-021-nachttischlampenremix
+    title_de: Nachttischlampenremix
+    title_en: Nachttischlampenremix
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 50cm x 60cm
+    image: /images/paintings/2015/painting-2015-021-nachttischlampenremix.jpg
+    thumbnail: /images/paintings/2015/painting-2015-021-nachttischlampenremix-thumb.jpg
+    weight: 129
+  - id: painting-2015-022-schattenplaetzchen
+    title_de: Schattenplätzchen
+    title_en: Schattenplätzchen
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 120cm x 100cm
+    image: /images/paintings/2015/painting-2015-022-schattenplaetzchen.jpg
+    thumbnail: /images/paintings/2015/painting-2015-022-schattenplaetzchen-thumb.jpg
+    weight: 130
+  - id: painting-2015-023-untitled-23
+    title_de: o.T.
+    title_en: Untitled
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 125cm x 100cm
+    image: /images/paintings/2015/painting-2015-023-untitled-23.jpg
+    thumbnail: /images/paintings/2015/painting-2015-023-untitled-23-thumb.jpg
+    weight: 131
+  - id: painting-2015-024-untitled-24
+    title_de: o.T.
+    title_en: Untitled
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 30cm x 30cm
+    image: /images/paintings/2015/painting-2015-024-untitled-24.jpg
+    thumbnail: /images/paintings/2015/painting-2015-024-untitled-24-thumb.jpg
+    weight: 132
+  - id: painting-2015-025-gewaechsbude
+    title_de: Gewächsbude
+    title_en: Gewächsbude
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 140cm x 120cm
+    image: /images/paintings/2015/painting-2015-025-gewaechsbude.jpg
+    thumbnail: /images/paintings/2015/painting-2015-025-gewaechsbude-thumb.jpg
+    weight: 133
+  - id: painting-2015-026-baumhaus
+    title_de: Baumhaus
+    title_en: Baumhaus
+    year: 2015
+    medium_de: Acryl und Lack auf Leinwand
+    medium_en: acrylic and varnish on canvas
+    dimensions: 30cm x 30cm
+    image: /images/paintings/2015/painting-2015-026-baumhaus.jpg
+    thumbnail: /images/paintings/2015/painting-2015-026-baumhaus-thumb.jpg
+    weight: 134

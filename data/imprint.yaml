@@ -1,0 +1,12 @@
+name: "Anna Weber"
+
+# E-Mail wird via JavaScript verschlüsselt dargestellt (Spam-Schutz)
+email_user: "info"
+email_domain: "annaliviaweber.com"
+
+address:
+  street: "Oberbilker Allee 317"
+  zip: "40227"
+  city: "Düsseldorf"
+  country_de: "Deutschland"
+  country_en: "Germany"

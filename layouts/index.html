@@ -1,0 +1,172 @@
+{{ define "main" }}
+{{/* Homepage - Design OS HomeView style */}}
+<div class="w-full min-h-screen bg-white dark:bg-stone-950 text-stone-900 dark:text-stone-50 selection:bg-lime-200 dark:selection:bg-lime-900">
+
+  {{/* Hero Section */}}
+  <section class="relative flex flex-col items-center justify-center px-6 py-24 md:py-40 lg:py-48 text-center border-b border-stone-100 dark:border-stone-900 overflow-hidden">
+    {{/* Background gradients */}}
+    <div class="absolute inset-0 pointer-events-none opacity-30 dark:opacity-10">
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-stone-100 dark:bg-stone-800 rounded-full blur-3xl -translate-y-1/2"></div>
+      <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-stone-50 dark:bg-stone-900 rounded-full blur-3xl translate-y-1/2"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto">
+      <span class="inline-block mb-6 text-xs font-mono tracking-[0.2em] text-stone-400 dark:text-stone-500 uppercase">
+        Portfolio 2015—2022
+      </span>
+      <h1 class="text-6xl md:text-8xl lg:text-9xl tracking-tighter mb-8 font-medium text-stone-900 dark:text-stone-50">
+        {{ .Site.Params.artist.name }}
+      </h1>
+      <div class="h-px w-24 bg-lime-500 mx-auto mb-8"></div>
+      <p class="text-xl md:text-2xl text-stone-500 dark:text-stone-400 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
+        {{ if eq .Site.Language.Lang "de" }}{{ .Site.Params.artist.tagline_de }}{{ else }}{{ .Site.Params.artist.tagline_en }}{{ end }}
+      </p>
+    </div>
+  </section>
+
+  {{/* Featured Works Section */}}
+  {{ $paintings := .Site.Data.paintings.paintings }}
+  {{ if $paintings }}
+  <section class="px-6 py-24 md:py-32 max-w-[1400px] mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 border-b border-stone-100 dark:border-stone-900 pb-8">
+      <h2 class="text-3xl md:text-5xl tracking-tight">
+        {{ if eq .Site.Language.Lang "de" }}Ausgewählte Arbeiten{{ else }}Selected Works{{ end }}
+      </h2>
+      <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm font-mono tracking-wider text-stone-500">
+        <a href="{{ "paintings" | relLangURL }}" class="hover:text-stone-900 dark:hover:text-stone-100 transition-colors uppercase group flex items-center gap-2">
+          <span class="w-1.5 h-1.5 bg-transparent group-hover:bg-lime-500 rounded-full transition-colors"></span>
+          {{ if eq .Site.Language.Lang "de" }}Alle Malereien{{ else }}All Paintings{{ end }}
+        </a>
+        <a href="{{ "sculptures" | relLangURL }}" class="hover:text-stone-900 dark:hover:text-stone-100 transition-colors uppercase group flex items-center gap-2">
+          <span class="w-1.5 h-1.5 bg-transparent group-hover:bg-lime-500 rounded-full transition-colors"></span>
+          {{ if eq .Site.Language.Lang "de" }}Alle Skulpturen{{ else }}All Sculptures{{ end }}
+        </a>
+      </div>
+    </div>
+
+    {{/* Featured Artworks Grid - first 6 */}}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-12">
+      {{ range first 6 $paintings }}
+      <a href="{{ "paintings" | relLangURL }}" class="group flex flex-col gap-5 text-left w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 dark:focus-visible:ring-stone-600 focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-stone-950 rounded">
+        {{/* Image Container */}}
+        <div class="w-full aspect-[4/5] overflow-hidden bg-stone-100 dark:bg-stone-900 relative shadow-sm transition-all duration-500 group-hover:shadow-xl">
+          {{/* Shimmer placeholder */}}
+          <div class="absolute inset-0 bg-gradient-to-br from-stone-200 via-stone-100 to-stone-200 dark:from-stone-800 dark:via-stone-900 dark:to-stone-800"></div>
+          {{/* Artwork image */}}
+          <img
+            src="{{ .thumbnail }}"
+            alt="{{ if eq $.Site.Language.Lang "de" }}{{ .title_de }}{{ else }}{{ .title_en }}{{ end }}"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            loading="lazy"
+          />
+          {{/* Hover overlay */}}
+          <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          {{/* "View" button - slides up on hover */}}
+          <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+            <span class="inline-block bg-white/90 dark:bg-stone-950/90 backdrop-blur px-4 py-2 text-stone-900 dark:text-stone-100 font-mono text-xs uppercase tracking-widest shadow-sm">
+              {{ if eq $.Site.Language.Lang "de" }}Ansehen{{ else }}View{{ end }}
+            </span>
+          </div>
+        </div>
+        {{/* Metadata */}}
+        <div class="flex flex-col gap-2 w-full px-2">
+          <h3 class="text-xl md:text-2xl leading-tight group-hover:text-stone-600 dark:group-hover:text-stone-300 transition-colors">
+            {{ if eq $.Site.Language.Lang "de" }}{{ .title_de }}{{ else }}{{ .title_en }}{{ end }}
+          </h3>
+          <div class="flex items-center gap-3 text-sm text-stone-500 dark:text-stone-400 font-mono tracking-wide border-t border-stone-100 dark:border-stone-800 pt-2 mt-1 w-full">
+            <span class="font-medium">{{ .year }}</span>
+            <span class="w-1 h-1 rounded-full bg-stone-300 dark:bg-stone-700"></span>
+            <span>{{ if eq $.Site.Language.Lang "de" }}{{ .medium_de }}{{ else }}{{ .medium_en }}{{ end }}</span>
+          </div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* Current Exhibition Section */}}
+  {{ $exhibitions := .Site.Data.exhibitions.exhibitions }}
+  {{ if $exhibitions }}
+  {{ $latestExhibition := index $exhibitions 0 }}
+  <section class="relative py-32 bg-stone-50 dark:bg-stone-900/30 overflow-hidden">
+    {{/* Background texture */}}
+    <div class="absolute inset-0 opacity-5 pointer-events-none">
+      <div class="w-full h-full bg-gradient-to-br from-stone-300 to-stone-100 dark:from-stone-700 dark:to-stone-900"></div>
+    </div>
+
+    <div class="relative px-6 max-w-4xl mx-auto text-center">
+      <span class="inline-block px-3 py-1 mb-8 border border-stone-200 dark:border-stone-800 rounded-full font-mono text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400 bg-white dark:bg-stone-900">
+        {{ if eq .Site.Language.Lang "de" }}Letzte Ausstellung{{ else }}Recent Exhibition{{ end }}
+      </span>
+
+      <h2 class="text-5xl md:text-7xl mb-8 leading-none">
+        {{ $latestExhibition.title }}
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-2xl mx-auto border-t border-b border-stone-200 dark:border-stone-800 py-8">
+        <div class="text-center md:text-right md:pr-8 md:border-r border-stone-200 dark:border-stone-800">
+          <span class="block font-mono text-xs uppercase text-stone-400 mb-2">{{ if eq .Site.Language.Lang "de" }}Ort{{ else }}Location{{ end }}</span>
+          <span class="text-lg">{{ $latestExhibition.venue }}, {{ $latestExhibition.city }}</span>
+        </div>
+        <div class="text-center md:text-left md:pl-8">
+          <span class="block font-mono text-xs uppercase text-stone-400 mb-2">{{ if eq .Site.Language.Lang "de" }}Jahr{{ else }}Year{{ end }}</span>
+          <span class="text-lg">{{ $latestExhibition.year }}</span>
+        </div>
+      </div>
+
+      <a href="{{ "exhibitions" | relLangURL }}" class="group inline-flex items-center gap-3 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-lime-600 dark:hover:bg-lime-400 transition-all duration-300">
+        {{ if eq .Site.Language.Lang "de" }}Alle Ausstellungen{{ else }}All Exhibitions{{ end }}
+        <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+      </a>
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* CTA Cards Section */}}
+  <section class="px-6 py-24 md:py-40 bg-white dark:bg-stone-950">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+        {{/* About Card */}}
+        <div class="group">
+          <a href="{{ "biography" | relLangURL }}" class="block text-left w-full p-8 md:p-12 border border-stone-100 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/20 hover:border-stone-300 dark:hover:border-stone-700 hover:shadow-lg transition-all duration-300">
+            <div class="mb-6 w-12 h-12 rounded-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center group-hover:bg-lime-200 dark:group-hover:bg-lime-900 transition-colors">
+              <span class="text-2xl">A</span>
+            </div>
+            <h3 class="text-4xl mb-4 group-hover:text-stone-600 dark:group-hover:text-stone-300 transition-colors">
+              {{ if eq .Site.Language.Lang "de" }}Über die Künstlerin{{ else }}About the Artist{{ end }}
+            </h3>
+            <p class="text-stone-500 dark:text-stone-400 font-light text-lg leading-relaxed mb-8">
+              {{ if eq .Site.Language.Lang "de" }}Erfahren Sie mehr über Anna Livia Webers Werdegang, Ausstellungen und künstlerischen Ansatz.{{ else }}Learn more about Anna Livia Weber's background, exhibitions, and artistic approach.{{ end }}
+            </p>
+            <span class="font-mono text-sm uppercase tracking-wider border-b border-stone-300 pb-0.5 group-hover:border-stone-900 dark:group-hover:border-stone-100 transition-colors inline-flex items-center gap-2">
+              {{ if eq .Site.Language.Lang "de" }}Biografie lesen{{ else }}Read Biography{{ end }}
+              <span class="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all">&rarr;</span>
+            </span>
+          </a>
+        </div>
+
+        {{/* Contact Card */}}
+        <div class="group">
+          <a href="{{ "contact" | relLangURL }}" class="block text-left w-full p-8 md:p-12 border border-stone-100 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/20 hover:border-stone-300 dark:hover:border-stone-700 hover:shadow-lg transition-all duration-300">
+            <div class="mb-6 w-12 h-12 rounded-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center group-hover:bg-lime-200 dark:group-hover:bg-lime-900 transition-colors">
+              <span class="text-2xl">@</span>
+            </div>
+            <h3 class="text-4xl mb-4 group-hover:text-stone-600 dark:group-hover:text-stone-300 transition-colors">
+              {{ if eq .Site.Language.Lang "de" }}Kontakt{{ else }}Contact{{ end }}
+            </h3>
+            <p class="text-stone-500 dark:text-stone-400 font-light text-lg leading-relaxed mb-8">
+              {{ if eq .Site.Language.Lang "de" }}Für Anfragen zu verfügbaren Werken, Atelierbesuche oder Kooperationen.{{ else }}For inquiries about available works, studio visits, or collaborations.{{ end }}
+            </p>
+            <span class="font-mono text-sm uppercase tracking-wider border-b border-stone-300 pb-0.5 group-hover:border-stone-900 dark:group-hover:border-stone-100 transition-colors inline-flex items-center gap-2">
+              {{ if eq .Site.Language.Lang "de" }}Anfrage senden{{ else }}Send Inquiry{{ end }}
+              <span class="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all">&rarr;</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+{{ end }}

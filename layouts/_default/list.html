@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{/* Default list template */}}
+<div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
+  <h1 class="text-2xl font-semibold text-stone-900 mb-8">{{ .Title }}</h1>
+
+  {{ .Content }}
+
+  {{ range .Pages }}
+  <article class="mb-8 pb-8 border-b border-stone-200 last:border-0">
+    <h2 class="text-lg font-medium text-stone-900 mb-2">
+      <a href="{{ .RelPermalink }}" class="hover:text-stone-600 transition-colors">
+        {{ .Title }}
+      </a>
+    </h2>
+    {{ with .Summary }}
+    <p class="text-stone-600">{{ . }}</p>
+    {{ end }}
+  </article>
+  {{ end }}
+</div>
+{{ end }}
