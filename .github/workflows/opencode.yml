@@ -46,141 +46,250 @@ jobs:
             - Bilder in `static/images/` (paintings/YYYY/, sculptures/)
             - Zweisprachig: Deutsch (DE) und Englisch (EN)
 
+            ---
+
+            ## ZWEISPRACHIGKEIT - ÜBERSETZUNGSREGELN
+
+            ### NIEMALS ÜBERSETZEN (1:1 übernehmen):
+
+            | Kategorie | Beispiele | Grund |
+            |-----------|-----------|-------|
+            | Personennamen | Anna Weber, Dr. Müller | Eigennamen |
+            | Kunstwerktitel (künstlerisch) | "o.T.", "288", "domus" | Künstlerische Entscheidung |
+            | Galerienamen | Galerie im alten Küsterhaus, Kunsthaus Essen | Offizielle Namen |
+            | Straßen/Adressen | Musterstraße 12, Am Rhein 5 | Offizielle Bezeichnung |
+            | Städte | Düsseldorf, Meerbusch, Tampere | Geografische Namen |
+            | Länder (DE) | Deutschland, Finnland | In DE-Feld deutsch |
+            | Länder (EN) | Germany, Finland | In EN-Feld englisch |
+            | Maße | 100 x 80 cm, 50 x 30 x 25 cm | Internationale Notation |
+            | Jahre/Daten | 2024, 2024-01-15 | Zahlen |
+            | Ausstellungstitel | "rings like silver shines like gold" | Originaltitel beibehalten |
+
+            ### IMMER ÜBERSETZEN:
+
+            | Feld | Deutsch | Englisch |
+            |------|---------|----------|
+            | title_de / title_en | Deutscher Titel | English Title |
+            | medium_de / medium_en | Öl auf Leinwand | Oil on canvas |
+            | content_de / content_en | Fließtext | Flowing text |
+            | type (solo/group) | Einzelausstellung | Solo Exhibition |
+
+            ### STANDARD-ÜBERSETZUNGEN (Konsistenz!):
+
+            **Techniken/Medien:**
+            | Deutsch | English |
+            |---------|---------|
+            | Öl auf Leinwand | Oil on canvas |
+            | Acryl auf Leinwand | Acrylic on canvas |
+            | Acryl und Lack auf Leinwand | Acrylic and varnish on canvas |
+            | Mischtechnik | Mixed media |
+            | Mischtechnik auf Leinwand | Mixed media on canvas |
+            | Aquarell | Watercolor |
+            | Aquarell auf Papier | Watercolor on paper |
+            | Tempera auf Holz | Tempera on wood |
+            | Bronze | Bronze |
+            | Stein | Stone |
+            | Holz | Wood |
+            | Stahl | Steel |
+            | Keramik | Ceramic |
+            | Gips | Plaster |
+
+            **Titel-Patterns:**
+            | Deutsch | English |
+            |---------|---------|
+            | o.T. | Untitled |
+            | ohne Titel | Untitled |
+            | Ohne Titel | Untitled |
+            | Studie | Study |
+            | Serie | Series |
+
+            **Ausstellungstypen:**
+            | Deutsch | English |
+            |---------|---------|
+            | Einzelausstellung | Solo Exhibition |
+            | Gruppenausstellung | Group Exhibition |
+
+            ### VALIDIERUNG ZWEISPRACHIGKEIT
+
+            Vor dem Commit PRÜFEN:
+            1. **Beide Sprachfelder vorhanden?**
+               - title_de UND title_en
+               - medium_de UND medium_en
+               - content_de UND content_en (bei Texten)
+
+            2. **Konsistenz prüfen:**
+               - "o.T." → title_en MUSS "Untitled" sein
+               - Wenn medium_de "Öl auf Leinwand" → medium_en MUSS "Oil on canvas" sein
+
+            3. **Nicht-übersetzbare Felder identisch?**
+               - dimensions: Identisch in beiden Sprachen
+               - year: Nur eine Zahl
+               - venue, city: Originalname beibehalten
+
+            ### BEISPIEL: NEUES GEMÄLDE
+
+            Issue-Input:
+            ```
+            Titel (Deutsch): Blaue Stunde
+            Title (English): Blue Hour
+            Jahr: 2024
+            Technik: Öl auf Leinwand / Oil on canvas
+            Maße: 100 x 80 cm
+            ```
+
+            YAML-Output:
+            ```yaml
+            - id: painting-2024-001-blaue-stunde
+              title_de: Blaue Stunde        # Übersetzt
+              title_en: Blue Hour            # Übersetzt
+              year: 2024                     # Nicht übersetzen
+              medium_de: Öl auf Leinwand     # Übersetzt
+              medium_en: Oil on canvas       # Übersetzt
+              dimensions: 100 x 80 cm        # Nicht übersetzen (identisch)
+              image: /images/paintings/2024/painting-2024-001-blaue-stunde.jpg
+              thumbnail: /images/paintings/2024/painting-2024-001-blaue-stunde-thumb.jpg
+              weight: 1
+            ```
+
+            ### BEISPIEL: NEUE AUSSTELLUNG
+
+            Issue-Input:
+            ```
+            Titel: Neue Horizonte
+            Ort: Galerie am Rhein
+            Stadt: Düsseldorf
+            Land: Deutschland
+            Jahr: 2024
+            Art: Einzelausstellung
+            ```
+
+            YAML-Output:
+            ```yaml
+            - year: 2024                         # Nicht übersetzen
+              title: "Neue Horizonte"            # Original beibehalten (Ausstellungstitel)
+              venue: "Galerie am Rhein"          # Nicht übersetzen (Eigenname)
+              city: Düsseldorf                   # Nicht übersetzen (Ortsname)
+              country: Deutschland               # Nicht übersetzen (in YAML einsprachig)
+              type: solo                         # Technischer Wert (Template übersetzt)
+            ```
+
+            ---
+
             ## NAMENSSCHEMA (WICHTIG!)
 
             ### Gemälde-Dateien
             Format: `painting-YYYY-NNN-name.jpg`
             - YYYY = Jahr (z.B. 2024)
             - NNN = 3-stellige Nummer, zero-padded (001, 002, ...)
-            - name = kebab-case Slug aus Titel (lowercase, Umlaute konvertieren: ä→ae, ö→oe, ü→ue, ß→ss)
+            - name = kebab-case Slug aus DEUTSCHEM Titel
+            - Umlaute konvertieren: ä→ae, ö→oe, ü→ue, ß→ss
 
             Beispiele:
-            - `painting-2024-001-sommerlandschaft.jpg`
-            - `painting-2024-002-blaue-stunde.jpg`
-            - `painting-2024-003-untitled-3.jpg`
+            - `painting-2024-001-blaue-stunde.jpg` (von "Blaue Stunde")
+            - `painting-2024-002-ot.jpg` (von "o.T.")
+            - `painting-2024-003-sommerlandschaft.jpg`
 
             Thumbnail: `-thumb` Suffix vor Extension
-            - `painting-2024-001-sommerlandschaft-thumb.jpg`
+            - `painting-2024-001-blaue-stunde-thumb.jpg`
 
             Pfad: `/static/images/paintings/YYYY/`
 
             ### Skulptur-Dateien
             Format: `sculpture-YYYY-NNN-ID.jpg`
-            - YYYY = Jahr
-            - NNN = 3-stellige Nummer
-            - ID = Katalognummer
+            Pfad: `/static/images/sculptures/` (flach)
 
-            Beispiel:
-            - `sculpture-2024-001-42.jpg`
-            - `sculpture-2024-001-42-thumb.jpg`
-
-            Pfad: `/static/images/sculptures/` (flach, keine Unterordner)
+            ---
 
             ## THUMBNAIL-GENERIERUNG
 
-            Nutze ImageMagick (vorinstalliert) für Thumbnails:
             ```bash
             # Thumbnail erstellen (max 400px Breite, Qualität 85%)
             convert input.jpg -resize 400x -quality 85 output-thumb.jpg
+
+            # PNG zu JPG konvertieren
+            convert input.png -quality 90 output.jpg
             ```
+
+            ---
 
             ## VALIDIERUNG (vor jedem Commit!)
 
-            1. **Dateiname prüfen:**
+            1. **Zweisprachigkeit komplett?**
                ```bash
-               # Regex für Paintings
+               # Prüfe ob beide Sprachfelder existieren
+               grep -E "title_de:|title_en:" data/paintings.yaml
+               ```
+
+            2. **Dateiname korrekt?**
+               ```bash
                [[ "$filename" =~ ^painting-[0-9]{4}-[0-9]{3}-[a-z0-9-]+\.jpg$ ]]
-
-               # Regex für Sculptures
-               [[ "$filename" =~ ^sculpture-[0-9]{4}-[0-9]{3}-[a-z0-9-]+\.jpg$ ]]
                ```
 
-            2. **Nächste freie Nummer finden:**
-               ```bash
-               # Höchste Nummer im Jahr finden
-               ls static/images/paintings/2024/ | grep -oP 'painting-2024-\K[0-9]{3}' | sort -n | tail -1
-               # Ergebnis +1 für neue Nummer
-               ```
-
-            3. **YAML-Syntax validieren:**
+            3. **YAML-Syntax valide?**
                ```bash
                python3 -c "import yaml; yaml.safe_load(open('data/paintings.yaml'))"
                ```
 
-            4. **Bildformat prüfen:**
+            4. **Bildformat korrekt?**
                ```bash
                file image.jpg | grep -q "JPEG image"
-               # Falls PNG: convert input.png -quality 90 output.jpg
                ```
+
+            ---
 
             ## WORKFLOW BEI NEUEM GEMÄLDE
 
-            1. **Issue parsen:** Titel, Jahr, Technik, Maße aus Formular extrahieren
-            2. **Slug generieren:** Titel → kebab-case (z.B. "Blaue Stunde" → "blaue-stunde")
-            3. **Nummer ermitteln:** Nächste freie NNN für das Jahr
-            4. **Bild herunterladen:** GitHub Attachment URL → temporäre Datei
-            5. **Format konvertieren:** PNG → JPG falls nötig
-            6. **Thumbnail erstellen:** Mit ImageMagick (400px Breite)
-            7. **Dateien speichern:**
-               - `static/images/paintings/YYYY/painting-YYYY-NNN-slug.jpg`
-               - `static/images/paintings/YYYY/painting-YYYY-NNN-slug-thumb.jpg`
-            8. **YAML aktualisieren:** Neuen Eintrag in `data/paintings.yaml`:
-               ```yaml
-               - id: painting-YYYY-NNN-slug
-                 title_de: "Originaltitel"
-                 title_en: "English Title"
-                 year: YYYY
-                 medium_de: "Öl auf Leinwand"
-                 medium_en: "Oil on canvas"
-                 dimensions: "100 x 80 cm"
-                 image: /images/paintings/YYYY/painting-YYYY-NNN-slug.jpg
-                 thumbnail: /images/paintings/YYYY/painting-YYYY-NNN-slug-thumb.jpg
-                 weight: 1
-               ```
-            9. **Validieren:** YAML-Syntax, Dateinamen, Bildformate
-            10. **PR erstellen:** Mit aussagekräftiger Beschreibung
+            1. Issue parsen: Titel DE + EN, Jahr, Technik, Maße
+            2. Slug aus DEUTSCHEM Titel generieren
+            3. Nächste freie Nummer ermitteln
+            4. Bild herunterladen
+            5. PNG → JPG konvertieren falls nötig
+            6. Thumbnail erstellen (400px)
+            7. Dateien speichern in `static/images/paintings/YYYY/`
+            8. YAML aktualisieren mit BEIDEN Sprachen
+            9. Validieren (Sprachen, Syntax, Dateien)
+            10. PR erstellen
 
             ## WORKFLOW BEI NEUER SKULPTUR
 
-            Analog zu Gemälden:
-            - Pfad: `static/images/sculptures/` (ohne Jahr-Unterordner)
+            Analog zu Gemälden, aber:
+            - Pfad: `static/images/sculptures/` (ohne Jahr)
             - YAML: `data/sculptures.yaml`
-            - Thumbnail: 400px Breite
 
             ## WORKFLOW BEI AUSSTELLUNG
 
-            Füge in `data/exhibitions.yaml` hinzu:
             ```yaml
             - year: YYYY
-              title: "Ausstellungstitel"
-              venue: "Galerie/Museum"
-              city: "Stadt"
-              country: "Deutschland"
-              type: solo  # oder: group
+              title: "Originaltitel"     # Nicht übersetzen
+              venue: "Galerie XY"        # Nicht übersetzen
+              city: "Stadt"              # Nicht übersetzen
+              country: "Land"            # Optional
+              type: solo                 # solo oder group
             ```
 
             ## WORKFLOW BEI TEXT
 
-            Füge in `data/texts.yaml` hinzu:
             ```yaml
             - id: text-YYYY-NNN
-              title_de: "Titel"
-              title_en: "Title"
+              title_de: "Deutscher Titel"
+              title_en: "English Title"
               date: "YYYY-MM-DD"
-              author: "Anna Weber"
-              type: statement  # oder: article, interview, review
+              author: "Anna Weber"       # Nicht übersetzen
+              type: statement
               content_de: |
-                Deutscher Text hier...
+                Deutscher Fließtext...
               content_en: |
-                English text here...
+                English flowing text...
             ```
+
+            ---
 
             ## WICHTIGE REGELN
 
-            - IMMER PR erstellen, NIEMALS direkt auf main pushen
-            - Commit-Messages auf Deutsch: "Füge neues Gemälde hinzu: Titel"
-            - YAML alphabetisch nach ID sortieren NICHT - neue Einträge am ANFANG
-            - Bestehende Einträge NIEMALS löschen oder modifizieren
-            - Bei Duplikat-Dateinamen: Nummer hochzählen
-            - Alle Bilder als JPG speichern (PNG konvertieren)
-            - Thumbnails IMMER generieren (400px Breite)
+            - IMMER PR erstellen, NIEMALS direkt auf main
+            - Commit-Messages auf Deutsch
+            - Neue Einträge am ANFANG der YAML-Liste
+            - Bestehende Einträge NIEMALS ändern
+            - IMMER beide Sprachen prüfen
+            - Thumbnails IMMER generieren
+            - Alle Bilder als JPG
