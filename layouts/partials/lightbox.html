@@ -72,7 +72,7 @@
           <p id="lightbox-medium" class="text-white/80"></p>
         </div>
 
-        <div>
+        <div id="lightbox-dimensions-container" class="hidden">
           <span class="text-[10px] uppercase tracking-[0.2em] text-white/40 block mb-1.5">
             {{ if eq .Site.Language.Lang "de" }}Maße{{ else }}Dimensions{{ end }}
           </span>
@@ -129,6 +129,7 @@
   const year = document.getElementById('lightbox-year');
   const medium = document.getElementById('lightbox-medium');
   const dimensions = document.getElementById('lightbox-dimensions');
+  const dimensionsContainer = document.getElementById('lightbox-dimensions-container');
   const altTitle = document.getElementById('lightbox-alt-title');
   const counter = document.getElementById('lightbox-counter');
 
@@ -182,7 +183,14 @@
     title.textContent = lang === 'de' ? artwork.title_de : artwork.title_en;
     year.textContent = artwork.year;
     medium.textContent = lang === 'de' ? artwork.medium_de : artwork.medium_en;
-    dimensions.textContent = artwork.dimensions;
+
+    // Only show dimensions if available
+    if (artwork.dimensions && artwork.dimensions.trim() !== '') {
+      dimensions.textContent = artwork.dimensions;
+      dimensionsContainer.classList.remove('hidden');
+    } else {
+      dimensionsContainer.classList.add('hidden');
+    }
     altTitle.textContent = lang === 'de'
       ? 'EN: ' + artwork.title_en
       : 'DE: ' + artwork.title_de;

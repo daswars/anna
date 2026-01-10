@@ -52,13 +52,12 @@
         <div class="w-full aspect-[4/5] overflow-hidden bg-stone-100 dark:bg-stone-900 relative shadow-sm transition-all duration-500 group-hover:shadow-xl">
           {{/* Shimmer placeholder */}}
           <div class="absolute inset-0 bg-gradient-to-br from-stone-200 via-stone-100 to-stone-200 dark:from-stone-800 dark:via-stone-900 dark:to-stone-800"></div>
-          {{/* Artwork image */}}
-          <img
-            src="{{ .thumbnail }}"
-            alt="{{ if eq $.Site.Language.Lang "de" }}{{ .title_de }}{{ else }}{{ .title_en }}{{ end }}"
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-            loading="lazy"
-          />
+          {{/* Artwork image - Hugo responsive */}}
+          {{ partial "thumbnail.html" (dict
+            "src" .image
+            "alt" (cond (eq $.Site.Language.Lang "de") .title_de .title_en)
+            "class" "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+          ) }}
           {{/* Hover overlay */}}
           <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           {{/* "View" button - slides up on hover */}}
