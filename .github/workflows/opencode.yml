@@ -26,6 +26,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install ImageMagick for thumbnail generation
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+
       - name: Run OpenCode
         uses: anomalyco/opencode/github@latest
         env:
@@ -38,49 +43,144 @@ jobs:
             ## Projektstruktur
             - Hugo Static Site mit YAML-basierten Daten
             - Content in `data/` Ordner: paintings.yaml, sculptures.yaml, exhibitions.yaml, texts.yaml
-            - Bilder in `static/images/` (paintings/, sculptures/)
+            - Bilder in `static/images/` (paintings/YYYY/, sculptures/)
             - Zweisprachig: Deutsch (DE) und Englisch (EN)
 
-            ## Deine Aufgaben
+            ## NAMENSSCHEMA (WICHTIG!)
 
-            ### Bei "Neues Gemälde" Issues:
-            1. Extrahiere Bild-URLs aus Issue-Attachments
-            2. Lade Bilder herunter nach `static/images/paintings/`
-            3. Erstelle Thumbnail (falls möglich) oder nutze Originalbild
-            4. Füge neuen Eintrag in `data/paintings.yaml` hinzu:
+            ### Gemälde-Dateien
+            Format: `painting-YYYY-NNN-name.jpg`
+            - YYYY = Jahr (z.B. 2024)
+            - NNN = 3-stellige Nummer, zero-padded (001, 002, ...)
+            - name = kebab-case Slug aus Titel (lowercase, Umlaute konvertieren: ä→ae, ö→oe, ü→ue, ß→ss)
+
+            Beispiele:
+            - `painting-2024-001-sommerlandschaft.jpg`
+            - `painting-2024-002-blaue-stunde.jpg`
+            - `painting-2024-003-untitled-3.jpg`
+
+            Thumbnail: `-thumb` Suffix vor Extension
+            - `painting-2024-001-sommerlandschaft-thumb.jpg`
+
+            Pfad: `/static/images/paintings/YYYY/`
+
+            ### Skulptur-Dateien
+            Format: `sculpture-YYYY-NNN-ID.jpg`
+            - YYYY = Jahr
+            - NNN = 3-stellige Nummer
+            - ID = Katalognummer
+
+            Beispiel:
+            - `sculpture-2024-001-42.jpg`
+            - `sculpture-2024-001-42-thumb.jpg`
+
+            Pfad: `/static/images/sculptures/` (flach, keine Unterordner)
+
+            ## THUMBNAIL-GENERIERUNG
+
+            Nutze ImageMagick (vorinstalliert) für Thumbnails:
+            ```bash
+            # Thumbnail erstellen (max 400px Breite, Qualität 85%)
+            convert input.jpg -resize 400x -quality 85 output-thumb.jpg
+            ```
+
+            ## VALIDIERUNG (vor jedem Commit!)
+
+            1. **Dateiname prüfen:**
+               ```bash
+               # Regex für Paintings
+               [[ "$filename" =~ ^painting-[0-9]{4}-[0-9]{3}-[a-z0-9-]+\.jpg$ ]]
+
+               # Regex für Sculptures
+               [[ "$filename" =~ ^sculpture-[0-9]{4}-[0-9]{3}-[a-z0-9-]+\.jpg$ ]]
+               ```
+
+            2. **Nächste freie Nummer finden:**
+               ```bash
+               # Höchste Nummer im Jahr finden
+               ls static/images/paintings/2024/ | grep -oP 'painting-2024-\K[0-9]{3}' | sort -n | tail -1
+               # Ergebnis +1 für neue Nummer
+               ```
+
+            3. **YAML-Syntax validieren:**
+               ```bash
+               python3 -c "import yaml; yaml.safe_load(open('data/paintings.yaml'))"
+               ```
+
+            4. **Bildformat prüfen:**
+               ```bash
+               file image.jpg | grep -q "JPEG image"
+               # Falls PNG: convert input.png -quality 90 output.jpg
+               ```
+
+            ## WORKFLOW BEI NEUEM GEMÄLDE
+
+            1. **Issue parsen:** Titel, Jahr, Technik, Maße aus Formular extrahieren
+            2. **Slug generieren:** Titel → kebab-case (z.B. "Blaue Stunde" → "blaue-stunde")
+            3. **Nummer ermitteln:** Nächste freie NNN für das Jahr
+            4. **Bild herunterladen:** GitHub Attachment URL → temporäre Datei
+            5. **Format konvertieren:** PNG → JPG falls nötig
+            6. **Thumbnail erstellen:** Mit ImageMagick (400px Breite)
+            7. **Dateien speichern:**
+               - `static/images/paintings/YYYY/painting-YYYY-NNN-slug.jpg`
+               - `static/images/paintings/YYYY/painting-YYYY-NNN-slug-thumb.jpg`
+            8. **YAML aktualisieren:** Neuen Eintrag in `data/paintings.yaml`:
                ```yaml
-               - id: "painting-XXX"  # Fortlaufende Nummer
-                 title_de: "Titel auf Deutsch"
+               - id: painting-YYYY-NNN-slug
+                 title_de: "Originaltitel"
                  title_en: "English Title"
                  year: YYYY
                  medium_de: "Öl auf Leinwand"
                  medium_en: "Oil on canvas"
                  dimensions: "100 x 80 cm"
-                 image: "/images/paintings/filename.jpg"
-                 thumbnail: "/images/paintings/filename_thumb.jpg"
-                 weight: X  # Sortierung
+                 image: /images/paintings/YYYY/painting-YYYY-NNN-slug.jpg
+                 thumbnail: /images/paintings/YYYY/painting-YYYY-NNN-slug-thumb.jpg
+                 weight: 1
                ```
+            9. **Validieren:** YAML-Syntax, Dateinamen, Bildformate
+            10. **PR erstellen:** Mit aussagekräftiger Beschreibung
 
-            ### Bei "Neue Skulptur" Issues:
-            Analog zu Gemälden, aber in `data/sculptures.yaml` und `static/images/sculptures/`
+            ## WORKFLOW BEI NEUER SKULPTUR
 
-            ### Bei "Neue Ausstellung" Issues:
-            Füge Eintrag in `data/exhibitions.yaml` hinzu:
+            Analog zu Gemälden:
+            - Pfad: `static/images/sculptures/` (ohne Jahr-Unterordner)
+            - YAML: `data/sculptures.yaml`
+            - Thumbnail: 400px Breite
+
+            ## WORKFLOW BEI AUSSTELLUNG
+
+            Füge in `data/exhibitions.yaml` hinzu:
             ```yaml
             - year: YYYY
               title: "Ausstellungstitel"
               venue: "Galerie/Museum"
               city: "Stadt"
-              country: "Land"
-              type: "solo" oder "group"
+              country: "Deutschland"
+              type: solo  # oder: group
             ```
 
-            ### Bei "Neuer Text" Issues:
-            Füge Eintrag in `data/texts.yaml` hinzu mit title_de, title_en, content_de, content_en
+            ## WORKFLOW BEI TEXT
 
-            ## Wichtige Regeln
-            - Erstelle IMMER einen PR mit den Änderungen
-            - Nutze aussagekräftige Commit-Messages auf Deutsch
-            - Validiere YAML-Syntax vor dem Commit
-            - Behalte bestehende Einträge bei, füge nur neue hinzu
-            - Bei Bildern: Prüfe ob Dateiname bereits existiert, falls ja, nummeriere
+            Füge in `data/texts.yaml` hinzu:
+            ```yaml
+            - id: text-YYYY-NNN
+              title_de: "Titel"
+              title_en: "Title"
+              date: "YYYY-MM-DD"
+              author: "Anna Weber"
+              type: statement  # oder: article, interview, review
+              content_de: |
+                Deutscher Text hier...
+              content_en: |
+                English text here...
+            ```
+
+            ## WICHTIGE REGELN
+
+            - IMMER PR erstellen, NIEMALS direkt auf main pushen
+            - Commit-Messages auf Deutsch: "Füge neues Gemälde hinzu: Titel"
+            - YAML alphabetisch nach ID sortieren NICHT - neue Einträge am ANFANG
+            - Bestehende Einträge NIEMALS löschen oder modifizieren
+            - Bei Duplikat-Dateinamen: Nummer hochzählen
+            - Alle Bilder als JPG speichern (PNG konvertieren)
+            - Thumbnails IMMER generieren (400px Breite)
