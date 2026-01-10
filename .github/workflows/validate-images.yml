@@ -1,0 +1,338 @@
+name: validate-images
+
+# Wird bei jedem PR ausgeführt der Bilder enthält
+on:
+  pull_request:
+    paths:
+      - 'static/images/**'
+      - 'data/paintings.yaml'
+      - 'data/sculptures.yaml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+
+      # =========================================
+      # STEP 1: Dateinamen-Validierung
+      # =========================================
+      - name: "Step 1: Validate filenames"
+        id: validate-filenames
+        run: |
+          echo "🔍 Validiere Dateinamen..."
+          errors=0
+
+          # Paintings
+          for file in static/images/paintings/**/*.jpg; do
+            [[ -f "$file" ]] || continue
+            basename=$(basename "$file")
+            [[ "$basename" == *-thumb.jpg ]] && continue
+
+            if [[ ! "$basename" =~ ^painting-[0-9]{4}-[0-9]{3}-[a-z0-9-]+\.jpg$ ]]; then
+              echo "❌ Ungültiger Dateiname: $basename"
+              echo "   Erwartet: painting-YYYY-NNN-slug.jpg"
+              ((errors++))
+            fi
+          done
+
+          # Sculptures
+          for file in static/images/sculptures/*.jpg; do
+            [[ -f "$file" ]] || continue
+            basename=$(basename "$file")
+            [[ "$basename" == *-thumb.jpg ]] && continue
+
+            if [[ ! "$basename" =~ ^sculpture-[0-9]{4}-[0-9]{3}-[a-z0-9-]+\.jpg$ ]]; then
+              echo "❌ Ungültiger Dateiname: $basename"
+              echo "   Erwartet: sculpture-YYYY-NNN-slug.jpg"
+              ((errors++))
+            fi
+          done
+
+          if [[ $errors -eq 0 ]]; then
+            echo "✅ Alle Dateinamen sind korrekt"
+          else
+            echo "::error::$errors Dateinamen-Fehler gefunden"
+            exit 1
+          fi
+
+      # =========================================
+      # STEP 2: Thumbnail-Existenz prüfen
+      # =========================================
+      - name: "Step 2: Check thumbnails exist"
+        id: check-thumbnails
+        run: |
+          echo "🔍 Prüfe Thumbnail-Existenz..."
+          missing=0
+
+          for file in static/images/paintings/**/*.jpg static/images/sculptures/*.jpg; do
+            [[ -f "$file" ]] || continue
+            basename=$(basename "$file")
+            [[ "$basename" == *-thumb.jpg ]] && continue
+
+            thumb="${file%.jpg}-thumb.jpg"
+            if [[ ! -f "$thumb" ]]; then
+              echo "❌ Thumbnail fehlt: $thumb"
+              ((missing++))
+            fi
+          done
+
+          if [[ $missing -eq 0 ]]; then
+            echo "✅ Alle Thumbnails vorhanden"
+          else
+            echo "::error::$missing fehlende Thumbnails"
+            exit 1
+          fi
+
+      # =========================================
+      # STEP 3: Bildformat validieren
+      # =========================================
+      - name: "Step 3: Validate image formats"
+        id: validate-formats
+        run: |
+          echo "🔍 Validiere Bildformate..."
+          errors=0
+
+          for file in static/images/paintings/**/*.jpg static/images/sculptures/*.jpg; do
+            [[ -f "$file" ]] || continue
+
+            format=$(identify -format "%m" "$file" 2>/dev/null || echo "UNKNOWN")
+            if [[ "$format" != "JPEG" ]]; then
+              echo "❌ Kein JPEG: $file ($format)"
+              ((errors++))
+            fi
+          done
+
+          if [[ $errors -eq 0 ]]; then
+            echo "✅ Alle Bilder sind JPEG"
+          else
+            echo "::error::$errors Format-Fehler gefunden"
+            exit 1
+          fi
+
+      # =========================================
+      # STEP 4: Thumbnail-Dimensionen prüfen
+      # =========================================
+      - name: "Step 4: Validate thumbnail dimensions"
+        id: validate-dimensions
+        run: |
+          echo "🔍 Validiere Thumbnail-Dimensionen..."
+          MAX_THUMB_WIDTH=450  # Etwas Toleranz über 400
+          warnings=0
+
+          for file in static/images/paintings/**/*-thumb.jpg static/images/sculptures/*-thumb.jpg; do
+            [[ -f "$file" ]] || continue
+
+            width=$(identify -format "%w" "$file" 2>/dev/null || echo "0")
+            if [[ $width -gt $MAX_THUMB_WIDTH ]]; then
+              echo "⚠️ Thumbnail zu breit: $file (${width}px > ${MAX_THUMB_WIDTH}px)"
+              ((warnings++))
+            fi
+          done
+
+          if [[ $warnings -eq 0 ]]; then
+            echo "✅ Alle Thumbnail-Dimensionen korrekt"
+          else
+            echo "::warning::$warnings Thumbnails sind größer als erwartet"
+            # Kein Fehler, nur Warnung für bestehende Bilder
+          fi
+
+      # =========================================
+      # STEP 5: YAML-Syntax validieren
+      # =========================================
+      - name: "Step 5: Validate YAML syntax"
+        id: validate-yaml
+        run: |
+          echo "🔍 Validiere YAML-Syntax..."
+
+          python3 << 'EOF'
+          import yaml
+          import sys
+
+          files = ['data/paintings.yaml', 'data/sculptures.yaml', 'data/exhibitions.yaml']
+          errors = 0
+
+          for f in files:
+              try:
+                  with open(f) as file:
+                      yaml.safe_load(file)
+                  print(f"✅ {f}")
+              except yaml.YAMLError as e:
+                  print(f"❌ {f}: {e}")
+                  errors += 1
+              except FileNotFoundError:
+                  print(f"⚠️ {f} nicht gefunden (optional)")
+
+          sys.exit(errors)
+          EOF
+
+      # =========================================
+      # STEP 6: Zweisprachigkeit prüfen
+      # =========================================
+      - name: "Step 6: Validate bilingual fields"
+        id: validate-bilingual
+        run: |
+          echo "🔍 Validiere Zweisprachigkeit..."
+
+          python3 << 'EOF'
+          import yaml
+          import sys
+
+          errors = 0
+
+          # Paintings
+          try:
+              with open('data/paintings.yaml') as f:
+                  data = yaml.safe_load(f)
+
+              for item in data.get('paintings', []):
+                  item_id = item.get('id', 'unknown')
+
+                  # Prüfe ob beide Sprachfelder existieren
+                  if 'title_de' not in item:
+                      print(f"❌ {item_id}: title_de fehlt")
+                      errors += 1
+                  if 'title_en' not in item:
+                      print(f"❌ {item_id}: title_en fehlt")
+                      errors += 1
+                  if 'medium_de' not in item:
+                      print(f"❌ {item_id}: medium_de fehlt")
+                      errors += 1
+                  if 'medium_en' not in item:
+                      print(f"❌ {item_id}: medium_en fehlt")
+                      errors += 1
+
+                  # Prüfe Konsistenz: o.T. -> Untitled
+                  title_de = item.get('title_de', '')
+                  title_en = item.get('title_en', '')
+                  if title_de in ['o.T.', 'ohne Titel', 'Ohne Titel']:
+                      if title_en != 'Untitled':
+                          print(f"⚠️ {item_id}: '{title_de}' sollte 'Untitled' sein, nicht '{title_en}'")
+
+          except Exception as e:
+              print(f"❌ Fehler beim Parsen von paintings.yaml: {e}")
+              errors += 1
+
+          # Sculptures
+          try:
+              with open('data/sculptures.yaml') as f:
+                  data = yaml.safe_load(f)
+
+              for item in data.get('sculptures', []):
+                  item_id = item.get('id', 'unknown')
+
+                  if 'title_de' not in item:
+                      print(f"❌ {item_id}: title_de fehlt")
+                      errors += 1
+                  if 'title_en' not in item:
+                      print(f"❌ {item_id}: title_en fehlt")
+                      errors += 1
+
+          except Exception as e:
+              print(f"❌ Fehler beim Parsen von sculptures.yaml: {e}")
+              errors += 1
+
+          if errors == 0:
+              print("✅ Alle zweisprachigen Felder vorhanden")
+          else:
+              print(f"::error::{errors} Zweisprachigkeits-Fehler gefunden")
+              sys.exit(1)
+          EOF
+
+      # =========================================
+      # STEP 7: Bild-Referenzen in YAML prüfen
+      # =========================================
+      - name: "Step 7: Validate image references"
+        id: validate-references
+        run: |
+          echo "🔍 Validiere Bild-Referenzen in YAML..."
+
+          python3 << 'EOF'
+          import yaml
+          import os
+          import sys
+
+          errors = 0
+
+          # Paintings
+          try:
+              with open('data/paintings.yaml') as f:
+                  data = yaml.safe_load(f)
+
+              for item in data.get('paintings', []):
+                  item_id = item.get('id', 'unknown')
+                  image = item.get('image', '')
+                  thumbnail = item.get('thumbnail', '')
+
+                  # Konvertiere URL-Pfad zu Dateipfad
+                  image_path = 'static' + image
+                  thumb_path = 'static' + thumbnail
+
+                  if image and not os.path.exists(image_path):
+                      print(f"❌ {item_id}: Bild nicht gefunden: {image_path}")
+                      errors += 1
+
+                  if thumbnail and not os.path.exists(thumb_path):
+                      print(f"❌ {item_id}: Thumbnail nicht gefunden: {thumb_path}")
+                      errors += 1
+
+          except Exception as e:
+              print(f"❌ Fehler beim Prüfen von paintings.yaml: {e}")
+              errors += 1
+
+          # Sculptures
+          try:
+              with open('data/sculptures.yaml') as f:
+                  data = yaml.safe_load(f)
+
+              for item in data.get('sculptures', []):
+                  item_id = item.get('id', 'unknown')
+                  image = item.get('image', '')
+                  thumbnail = item.get('thumbnail', '')
+
+                  image_path = 'static' + image
+                  thumb_path = 'static' + thumbnail
+
+                  if image and not os.path.exists(image_path):
+                      print(f"❌ {item_id}: Bild nicht gefunden: {image_path}")
+                      errors += 1
+
+                  if thumbnail and not os.path.exists(thumb_path):
+                      print(f"❌ {item_id}: Thumbnail nicht gefunden: {thumb_path}")
+                      errors += 1
+
+          except Exception as e:
+              print(f"❌ Fehler beim Prüfen von sculptures.yaml: {e}")
+              errors += 1
+
+          if errors == 0:
+              print("✅ Alle Bild-Referenzen gültig")
+          else:
+              print(f"::error::{errors} fehlende Bilder")
+              sys.exit(1)
+          EOF
+
+      # =========================================
+      # Zusammenfassung
+      # =========================================
+      - name: "Summary"
+        if: always()
+        run: |
+          echo ""
+          echo "========================================"
+          echo "       VALIDIERUNGS-ZUSAMMENFASSUNG"
+          echo "========================================"
+          echo "1. Dateinamen:        ${{ steps.validate-filenames.outcome }}"
+          echo "2. Thumbnails:        ${{ steps.check-thumbnails.outcome }}"
+          echo "3. Bildformate:       ${{ steps.validate-formats.outcome }}"
+          echo "4. Dimensionen:       ${{ steps.validate-dimensions.outcome }}"
+          echo "5. YAML-Syntax:       ${{ steps.validate-yaml.outcome }}"
+          echo "6. Zweisprachigkeit:  ${{ steps.validate-bilingual.outcome }}"
+          echo "7. Bild-Referenzen:   ${{ steps.validate-references.outcome }}"
+          echo "========================================"

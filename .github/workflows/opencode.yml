@@ -200,15 +200,41 @@ jobs:
 
             ---
 
-            ## THUMBNAIL-GENERIERUNG
+            ## BILDVERARBEITUNG MIT SCRIPT
 
+            Das Projekt enthält ein Bildverarbeitungs-Script: `scripts/process-images.sh`
+
+            ### Script verwenden (BEVORZUGT):
             ```bash
-            # Thumbnail erstellen (max 400px Breite, Qualität 85%)
-            convert input.jpg -resize 400x -quality 85 output-thumb.jpg
+            # Bild verarbeiten (PNG oder JPG)
+            ./scripts/process-images.sh upload.png painting 2024 blaue-stunde
 
+            # Das Script:
+            # 1. Konvertiert PNG zu JPG
+            # 2. Skaliert auf max 1200px Breite
+            # 3. Generiert Thumbnail (400px Breite)
+            # 4. Speichert in korrektem Verzeichnis
+            # 5. Validiert Dateinamen
+            # 6. Gibt YAML-Eintrag aus
+            ```
+
+            ### Manuelle Bildverarbeitung (falls Script nicht verfügbar):
+            ```bash
             # PNG zu JPG konvertieren
             convert input.png -quality 90 output.jpg
+
+            # Vollbild optimieren (max 1200px)
+            convert input.jpg -resize "1200x>" -quality 85 -strip output.jpg
+
+            # Thumbnail erstellen (max 400px Breite)
+            convert input.jpg -resize "400x>" -quality 80 -strip output-thumb.jpg
             ```
+
+            ### Bildspezifikationen:
+            | Typ | Max. Breite | Qualität | Format |
+            |-----|-------------|----------|--------|
+            | Vollbild | 1200px | 85% | JPEG |
+            | Thumbnail | 400px | 80% | JPEG |
 
             ---
 
