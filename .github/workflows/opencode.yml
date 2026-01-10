@@ -26,11 +26,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install ImageMagick for thumbnail generation
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y imagemagick
-
       - name: Run OpenCode
         uses: anomalyco/opencode/github@latest
         env:
@@ -43,7 +38,7 @@ jobs:
             ## Projektstruktur
             - Hugo Static Site mit YAML-basierten Daten
             - Content in `data/` Ordner: paintings.yaml, sculptures.yaml, exhibitions.yaml, texts.yaml
-            - Bilder in `static/images/` (paintings/YYYY/, sculptures/)
+            - Bilder in `assets/images/` (paintings/YYYY/, sculptures/) - Hugo generiert Thumbnails automatisch
             - Zweisprachig: Deutsch (DE) und Englisch (EN)
 
             ---
@@ -147,8 +142,8 @@ jobs:
               medium_en: Oil on canvas       # Übersetzt
               dimensions: 100 x 80 cm        # Nicht übersetzen (identisch)
               image: /images/paintings/2024/painting-2024-001-blaue-stunde.jpg
-              thumbnail: /images/paintings/2024/painting-2024-001-blaue-stunde-thumb.jpg
               weight: 1
+            # HINWEIS: Kein thumbnail-Feld nötig - Hugo generiert automatisch
             ```
 
             ### BEISPIEL: NEUE AUSSTELLUNG
@@ -189,52 +184,36 @@ jobs:
             - `painting-2024-002-ot.jpg` (von "o.T.")
             - `painting-2024-003-sommerlandschaft.jpg`
 
-            Thumbnail: `-thumb` Suffix vor Extension
-            - `painting-2024-001-blaue-stunde-thumb.jpg`
-
-            Pfad: `/static/images/paintings/YYYY/`
+            Pfad: `/assets/images/paintings/YYYY/`
 
             ### Skulptur-Dateien
             Format: `sculpture-YYYY-NNN-ID.jpg`
-            Pfad: `/static/images/sculptures/` (flach)
+            Pfad: `/assets/images/sculptures/` (flach)
+
+            ### KEINE manuellen Thumbnails!
+            Hugo generiert automatisch alle Bildversionen beim Build.
 
             ---
 
-            ## BILDVERARBEITUNG MIT SCRIPT
+            ## BILDVERARBEITUNG (HUGO IMAGE PROCESSING)
 
-            Das Projekt enthält ein Bildverarbeitungs-Script: `scripts/process-images.sh`
+            Hugo generiert automatisch alle optimierten Bildversionen beim Build:
 
-            ### Script verwenden (BEVORZUGT):
-            ```bash
-            # Bild verarbeiten (PNG oder JPG)
-            ./scripts/process-images.sh upload.png painting 2024 blaue-stunde
+            | Verwendung | Größe | Format | Qualität |
+            |------------|-------|--------|----------|
+            | Galerie-Thumbnails | 400px | WebP | 80% |
+            | Lightbox-Ansicht | 1600px | WebP | 90% |
+            | Blur-up Placeholder | 20px | WebP | 20% |
 
-            # Das Script:
-            # 1. Konvertiert PNG zu JPG
-            # 2. Skaliert auf max 1200px Breite
-            # 3. Generiert Thumbnail (400px Breite)
-            # 4. Speichert in korrektem Verzeichnis
-            # 5. Validiert Dateinamen
-            # 6. Gibt YAML-Eintrag aus
-            ```
+            ### Workflow für neue Bilder:
+            1. Original-Bild in `assets/images/paintings/YYYY/` ablegen
+            2. Nur das `image:` Feld in YAML setzen
+            3. Hugo macht den Rest automatisch beim Build
 
-            ### Manuelle Bildverarbeitung (falls Script nicht verfügbar):
-            ```bash
-            # PNG zu JPG konvertieren
-            convert input.png -quality 90 output.jpg
-
-            # Vollbild optimieren (max 1200px)
-            convert input.jpg -resize "1200x>" -quality 85 -strip output.jpg
-
-            # Thumbnail erstellen (max 400px Breite)
-            convert input.jpg -resize "400x>" -quality 80 -strip output-thumb.jpg
-            ```
-
-            ### Bildspezifikationen:
-            | Typ | Max. Breite | Qualität | Format |
-            |-----|-------------|----------|--------|
-            | Vollbild | 1200px | 85% | JPEG |
-            | Thumbnail | 400px | 80% | JPEG |
+            ### Bildanforderungen (Originale):
+            - Format: JPEG oder PNG
+            - Empfohlene Mindestgröße: 1600px Breite
+            - Keine manuellen Thumbnails erstellen!
 
             ---
 
@@ -269,17 +248,15 @@ jobs:
             2. Slug aus DEUTSCHEM Titel generieren
             3. Nächste freie Nummer ermitteln
             4. Bild herunterladen
-            5. PNG → JPG konvertieren falls nötig
-            6. Thumbnail erstellen (400px)
-            7. Dateien speichern in `static/images/paintings/YYYY/`
-            8. YAML aktualisieren mit BEIDEN Sprachen
-            9. Validieren (Sprachen, Syntax, Dateien)
-            10. PR erstellen
+            5. Datei speichern in `assets/images/paintings/YYYY/`
+            6. YAML aktualisieren mit BEIDEN Sprachen (KEIN thumbnail-Feld!)
+            7. Validieren (Sprachen, Syntax, Dateien)
+            8. PR erstellen
 
             ## WORKFLOW BEI NEUER SKULPTUR
 
             Analog zu Gemälden, aber:
-            - Pfad: `static/images/sculptures/` (ohne Jahr)
+            - Pfad: `assets/images/sculptures/` (ohne Jahr)
             - YAML: `data/sculptures.yaml`
 
             ## WORKFLOW BEI AUSSTELLUNG
@@ -317,5 +294,5 @@ jobs:
             - Neue Einträge am ANFANG der YAML-Liste
             - Bestehende Einträge NIEMALS ändern
             - IMMER beide Sprachen prüfen
-            - Thumbnails IMMER generieren
-            - Alle Bilder als JPG
+            - KEINE manuellen Thumbnails (Hugo generiert automatisch)
+            - Bilder in `assets/images/` ablegen (NICHT static/)
