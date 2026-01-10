@@ -1,0 +1,2 @@
+{"type":"offload","id":"fcdf35fd","session_id":"a55c9c8c754f","created_at":"2026-01-10T20:56:41Z","cmd":"git","cmd_token":"git","cmd_group":"git","exit_code":0,"bytes":1016,"lines":19,"path":".fewword/scratch/tool_outputs/git_20260110_215640_fcdf35fd_exit0.txt"}
+{"type":"offload","id":"ad5cdce2","session_id":"a55c9c8c754f","created_at":"2026-01-10T20:56:46Z","cmd":"git","cmd_token":"git","cmd_group":"git","exit_code":0,"bytes":1051,"lines":20,"path":".fewword/scratch/tool_outputs/git_20260110_215646_ad5cdce2_exit0.txt"}
