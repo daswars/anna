@@ -1,0 +1,79 @@
+name: "Neue Skulptur"
+description: "Eine neue Skulptur zum Portfolio hinzufügen"
+title: "[Skulptur] "
+labels: ["opencode", "content", "sculpture"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fügen Sie eine neue Skulptur zum Portfolio hinzu. Nach dem Absenden wird OpenCode automatisch die Änderungen vornehmen.
+
+  - type: input
+    id: title_de
+    attributes:
+      label: Titel (Deutsch)
+      placeholder: "z.B. Abstrakte Form I"
+    validations:
+      required: true
+
+  - type: input
+    id: title_en
+    attributes:
+      label: Title (English)
+      placeholder: "e.g. Abstract Form I"
+    validations:
+      required: true
+
+  - type: input
+    id: year
+    attributes:
+      label: Jahr
+      placeholder: "2024"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: medium
+    attributes:
+      label: Material
+      options:
+        - "Bronze / Bronze"
+        - "Stein / Stone"
+        - "Holz / Wood"
+        - "Stahl / Steel"
+        - "Keramik / Ceramic"
+        - "Gips / Plaster"
+        - "Andere / Other"
+    validations:
+      required: true
+
+  - type: input
+    id: medium_custom
+    attributes:
+      label: Material (falls "Andere" gewählt)
+      description: "Format: Deutsch / English"
+      placeholder: "z.B. Alabaster / Alabaster"
+
+  - type: input
+    id: dimensions
+    attributes:
+      label: Maße
+      placeholder: "50 x 30 x 25 cm"
+    validations:
+      required: true
+
+  - type: textarea
+    id: images
+    attributes:
+      label: Bilder
+      description: "Ziehen Sie die Bilder hierher oder fügen Sie sie ein. Mehrere Ansichten möglich."
+      placeholder: "Bilder hier einfügen..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anmerkungen
+      description: "Zusätzliche Informationen zur Skulptur"
+      placeholder: "Optional: Besondere Hinweise, Kontext, etc."

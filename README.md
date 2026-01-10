@@ -84,7 +84,42 @@ anna-hugo/
 - **Responsive Design** - Optimiert für alle Bildschirmgrößen
 - **SEO-optimiert** - Strukturierte Daten und Meta-Tags
 
-## Inhalte bearbeiten
+## Content-Management mit OpenCode GitHub
+
+Dieses Projekt nutzt [OpenCode](https://github.com/anomalyco/opencode) als KI-gestütztes Content-Management-System. Neue Inhalte können direkt über GitHub Issues hinzugefügt werden.
+
+### So funktioniert's
+
+1. **Issue erstellen** - Nutze eines der Issue-Templates:
+   - [Neues Gemälde](.github/ISSUE_TEMPLATE/neues-gemaelde.yml)
+   - [Neue Skulptur](.github/ISSUE_TEMPLATE/neue-skulptur.yml)
+   - [Neue Ausstellung](.github/ISSUE_TEMPLATE/neue-ausstellung.yml)
+   - [Neuer Text](.github/ISSUE_TEMPLATE/neuer-text.yml)
+
+2. **Formular ausfüllen** - Titel, Jahr, Technik, Bilder hochladen
+
+3. **OpenCode arbeitet** - Der KI-Agent:
+   - Verarbeitet die Bilder
+   - Aktualisiert die YAML-Dateien
+   - Erstellt einen Pull Request
+
+4. **Review & Merge** - PR prüfen und mergen → automatisches Deployment
+
+### Manuelle Befehle
+
+In jedem Issue oder PR-Kommentar:
+
+```
+/opencode erkläre dieses Issue
+/oc füge das Bild zur Galerie hinzu
+```
+
+### Setup (einmalig)
+
+1. GitHub App installieren: [github.com/apps/opencode-agent](https://github.com/apps/opencode-agent)
+2. `ANTHROPIC_API_KEY` als Repository Secret hinzufügen
+
+## Inhalte manuell bearbeiten
 
 | Datei | Beschreibung |
 |-------|--------------|
@@ -95,19 +130,20 @@ anna-hugo/
 | `i18n/en.yaml` | Englische Übersetzungen |
 | `hugo.yaml` | Seitentitel und Menüs |
 
-### Neues Kunstwerk hinzufügen
+### Neues Kunstwerk manuell hinzufügen
 
 In `data/paintings.yaml`:
 
 ```yaml
-- title_de: "Titel auf Deutsch"
+- id: "painting-XXX"
+  title_de: "Titel auf Deutsch"
   title_en: "Title in English"
   year: 2024
   medium_de: "Öl auf Leinwand"
   medium_en: "Oil on canvas"
   dimensions: "100 x 80 cm"
-  image: "/images/paintings/2024/artwork.jpg"
-  thumb: "/images/paintings/2024/artwork-thumb.jpg"
+  image: "/images/paintings/artwork.jpg"
+  thumbnail: "/images/paintings/artwork_thumb.jpg"
   weight: 1
 ```
 
