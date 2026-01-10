@@ -29,9 +29,9 @@ jobs:
       - name: Run OpenCode
         uses: anomalyco/opencode/github@latest
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         with:
-          model: anthropic/claude-sonnet-4-20250514
+          model: openrouter/anthropic/claude-haiku-4.5
           prompt: |
             Du bist ein Content-Manager für das Anna Weber Kunst-Portfolio.
 
