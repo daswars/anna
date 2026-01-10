@@ -54,7 +54,7 @@
           <div class="absolute inset-0 bg-gradient-to-br from-stone-200 via-stone-100 to-stone-200 dark:from-stone-800 dark:via-stone-900 dark:to-stone-800"></div>
           {{/* Artwork image */}}
           <img
-            src="{{ .thumbnail }}"
+            src="{{ .image }}"
             alt="{{ if eq $.Site.Language.Lang "de" }}{{ .title_de }}{{ else }}{{ .title_en }}{{ end }}"
             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             loading="lazy"
