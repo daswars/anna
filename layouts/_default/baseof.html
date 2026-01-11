@@ -6,6 +6,54 @@
   <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.artist.name }} - {{ with .Site.Language.Params.subtitle }}{{ . }}{{ end }}{{ end }}">
 
+  {{/* Canonical URL */}}
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  {{/* Open Graph */}}
+  <meta property="og:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.artist.name }} - {{ with .Site.Language.Params.subtitle }}{{ . }}{{ end }}{{ end }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ "images/og-image.jpg" | absURL }}">
+  <meta property="og:locale" content="{{ .Site.Language.Lang }}_{{ upper .Site.Language.Lang }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+
+  {{/* Twitter Card */}}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
+  <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.artist.name }} - {{ with .Site.Language.Params.subtitle }}{{ . }}{{ end }}{{ end }}">
+  <meta name="twitter:image" content="{{ "images/og-image.jpg" | absURL }}">
+
+  {{/* Hreflang for multilingual */}}
+  {{ if .IsTranslated }}
+    {{ range .Translations }}
+    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+    {{ end }}
+    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+  {{ end }}
+  <link rel="alternate" hreflang="x-default" href="{{ .Site.BaseURL }}">
+
+  {{/* Schema.org Structured Data */}}
+  {{ if .IsHome }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ .Site.Params.artist.name }}",
+    "jobTitle": "{{ if eq .Site.Language.Lang "de" }}Künstlerin{{ else }}Artist{{ end }}",
+    "description": "{{ if eq .Site.Language.Lang "de" }}Künstlerin für Malerei und Skulptur aus Düsseldorf{{ else }}Artist for Painting and Sculpture from Düsseldorf{{ end }}",
+    "url": "{{ .Site.BaseURL }}",
+    "image": "{{ "images/og-image.jpg" | absURL }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Düsseldorf",
+      "addressCountry": "DE"
+    },
+    "knowsAbout": ["{{ if eq .Site.Language.Lang "de" }}Malerei{{ else }}Painting{{ end }}", "{{ if eq .Site.Language.Lang "de" }}Skulptur{{ else }}Sculpture{{ end }}", "{{ if eq .Site.Language.Lang "de" }}Bildende Kunst{{ else }}Fine Art{{ end }}"]
+  }
+  </script>
+  {{ end }}
+
   {{/* Preload critical font */}}
   <link rel="preload" href="/fonts/DM_Sans/DMSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 

@@ -1,12 +1,9 @@
 baseURL: /
 title: Anna Weber
 
-# Default language
+# Default language (German at root, English at /en/)
 defaultContentLanguage: de
-defaultContentLanguageInSubdir: true
-
-# Disable auto-redirect from / to /de/ (we use custom landing page)
-disableDefaultLanguageRedirect: true
+defaultContentLanguageInSubdir: false
 
 # Languages
 languages:
