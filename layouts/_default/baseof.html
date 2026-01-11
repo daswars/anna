@@ -70,28 +70,45 @@
     {{ $css = $css | minify | fingerprint }}
   {{ end }}
 
-  {{/* Critical CSS inline - minimal styles for first paint */}}
+  {{/* Critical CSS inline - expanded for hero section to prevent CLS */}}
   <style>
-    @font-face{font-family:'DM Sans';src:url('/fonts/DM_Sans/DMSans-Variable.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+    @font-face{font-family:'DM Sans';src:url('/fonts/DM_Sans/DMSans-Variable.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:optional}
     :root{--font-family-sans:'DM Sans',system-ui,sans-serif}
     html{scroll-behavior:smooth}
     body{font-family:var(--font-family-sans);margin:0;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
     .dark{color-scheme:dark}
     body{background-color:#fafaf9;color:#1c1917}
     .dark body{background-color:#1c1917;color:#f5f5f4}
+    /* Layout utilities */
     .flex{display:flex}.flex-col{flex-direction:column}.min-h-screen{min-height:100vh}.flex-1{flex:1 1 0%}
+    .items-center{align-items:center}.justify-center{justify-content:center}.text-center{text-align:center}
+    .relative{position:relative}.z-10{z-index:10}.mx-auto{margin-left:auto;margin-right:auto}
+    .w-full{width:100%}.min-h-screen{min-height:100vh}.max-w-4xl{max-width:56rem}
+    /* Spacing for hero */
+    .px-6{padding-left:1.5rem;padding-right:1.5rem}.py-24{padding-top:6rem;padding-bottom:6rem}
+    .mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}
+    /* Typography for hero - prevent font-swap shifts */
+    .text-xs{font-size:0.75rem;line-height:1rem}.text-xl{font-size:1.25rem;line-height:1.75rem}
+    .text-6xl{font-size:3.75rem;line-height:1}.tracking-tighter{letter-spacing:-0.05em}
+    .tracking-wide{letter-spacing:0.025em}.font-medium{font-weight:500}.font-light{font-weight:300}
+    .font-mono{font-family:ui-monospace,SFMono-Regular,monospace}.uppercase{text-transform:uppercase}
+    /* Colors */
+    .bg-white{background-color:#fff}.text-stone-900{color:#1c1917}.text-stone-400{color:#a8a29e}.text-stone-500{color:#78716c}
+    .dark .bg-stone-950{background-color:#0c0a09}.dark .text-stone-50{color:#fafaf9}.dark .text-stone-400{color:#a8a29e}.dark .text-stone-500{color:#78716c}
+    .bg-lime-500{background-color:#84cc16}
+    /* Hero line */
+    .h-px{height:1px}.w-24{width:6rem}
+    /* Responsive hero text */
+    @media(min-width:768px){.md\:py-40{padding-top:10rem;padding-bottom:10rem}.md\:text-8xl{font-size:6rem;line-height:1}.md\:text-2xl{font-size:1.5rem;line-height:2rem}}
+    @media(min-width:1024px){.lg\:py-48{padding-top:12rem;padding-bottom:12rem}.lg\:text-9xl{font-size:8rem;line-height:1}}
+    /* Border for hero */
+    .border-b{border-bottom-width:1px}.border-stone-100{border-color:#f5f5f4}.dark .border-stone-900{border-color:#1c1917}
+    /* Inline-block for badge */
+    .inline-block{display:inline-block}
   </style>
 
-  {{/* Preload full CSS */}}
-  <link rel="preload" href="{{ $css.RelPermalink }}" as="style" {{ if hugo.IsProduction }}integrity="{{ $css.Data.Integrity }}"{{ end }}>
-
-  {{/* Load CSS asynchronously to avoid render-blocking */}}
-  <link rel="stylesheet" href="{{ $css.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $css.Data.Integrity }}"{{ end }} media="print" onload="this.media='all'">
-
-  {{/* Fallback for browsers with JS disabled */}}
-  <noscript>
-    <link rel="stylesheet" href="{{ $css.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $css.Data.Integrity }}"{{ end }}>
-  </noscript>
+  {{/* Load CSS synchronously - CLS prevention is more important than render-blocking */}}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $css.Data.Integrity }}"{{ end }}>
 
   {{/* Theme Script (must be in head to prevent flash) */}}
   <script>
