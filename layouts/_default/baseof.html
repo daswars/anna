@@ -95,7 +95,7 @@
 
   {{/* Theme Script (must be in head to prevent flash) */}}
   <script>
-    (function() {
+    (() => {
       const stored = localStorage.getItem('theme');
       if (stored === 'dark') {
         document.documentElement.classList.add('dark');
@@ -122,10 +122,10 @@
 
   <!-- Dark Mode Toggle Handler -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', () => {
       const toggle = document.getElementById('theme-toggle');
       if (toggle) {
-        toggle.addEventListener('click', function() {
+        toggle.addEventListener('click', () => {
           const isDark = document.documentElement.classList.toggle('dark');
           localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
