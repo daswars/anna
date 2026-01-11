@@ -1,6 +1,9 @@
 /* Main CSS - Tailwind CSS v4 with Hugo */
 @import "tailwindcss";
 
+/* Enable class-based dark mode (required for Tailwind v4) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Custom font-face for DM Sans (self-hosted) */
 @font-face {
   font-family: 'DM Sans';
