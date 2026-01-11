@@ -83,7 +83,7 @@ languages:
 params:
   # Site-wide configuration
   formspree_id: "xpqqaypb"
-  portfolio_years: "2015—2024"
+  portfolio_years: "2015—2026"
   featured_paintings_count: 6
 
   artist:
