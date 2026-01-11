@@ -1,0 +1,23 @@
+# Cloudflare Pages Cache Headers
+# https://developers.cloudflare.com/pages/platform/headers
+
+# Images - 1 year cache
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts - 1 year cache
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# CSS with fingerprint - 1 year cache
+/*.*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# Hugo generated resources
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# WebP images from Hugo image processing
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable

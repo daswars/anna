@@ -17,8 +17,8 @@ Thumbs.db
 # Hugo stats (regenerated on build)
 hugo_stats.json
 
+# Node/Bun dependencies (installed on CI)
+node_modules/
+
 # FewWord context plugin
-.fewword/scratch/
-.fewword/index/
-.fewword/*
-.*
+.fewword/

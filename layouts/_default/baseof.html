@@ -1,36 +1,25 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}" class="scroll-smooth">
+<html lang="{{ .Site.Language.Lang }}" class="scroll-smooth dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.artist.name }} - {{ with .Site.Language.Params.subtitle }}{{ . }}{{ end }}{{ end }}">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  {{/* Preload critical font */}}
+  <link rel="preload" href="/fonts/DM_Sans/DMSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['DM Sans', 'system-ui', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
+  {{/* Tailwind CSS via Hugo Pipes */}}
+  {{ $css := resources.Get "css/main.css" | css.TailwindCSS }}
+  {{ if hugo.IsProduction }}
+    {{ $css = $css | minify | fingerprint }}
+  {{ end }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $css.Data.Integrity }}"{{ end }}>
 
-  <!-- Theme Script (must be in head to prevent flash) -->
+  {{/* Theme Script (must be in head to prevent flash) */}}
   <script>
     (function() {
       const stored = localStorage.getItem('theme');
-      // Default to light mode, only use dark if explicitly set
       if (stored === 'dark') {
         document.documentElement.classList.add('dark');
       } else {
@@ -38,12 +27,6 @@
       }
     })();
   </script>
-
-  <style>
-    body {
-      font-family: 'DM Sans', system-ui, sans-serif;
-    }
-  </style>
 
   {{ block "head" . }}{{ end }}
 </head>

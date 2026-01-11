@@ -1,3 +1,6 @@
 name = "anna"
 compatibility_date = "2025-01-10"
 pages_build_output_dir = "./public"
+
+[build]
+command = "bun install && hugo --gc --minify"

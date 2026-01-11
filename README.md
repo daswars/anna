@@ -16,6 +16,7 @@ Diese Website präsentiert die Gemälde und Skulpturen von Anna Weber (geb. 1986
 ## Voraussetzungen
 
 - [Hugo](https://gohugo.io/installation/) (Extended Version empfohlen)
+- [Bun](https://bun.sh/) (für Tailwind CSS Build)
 - [Git](https://git-scm.com/)
 - [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/install-and-update/) (optional, für Deployment)
 
@@ -25,6 +26,9 @@ Diese Website präsentiert die Gemälde und Skulpturen von Anna Weber (geb. 1986
 # Repository klonen
 git clone <repository-url>
 cd anna-hugo
+
+# Dependencies installieren (Tailwind CSS CLI)
+bun install
 
 # Entwicklungsserver starten
 hugo server
@@ -39,7 +43,7 @@ Die Seite ist dann unter `http://localhost:1313` erreichbar.
 hugo server -D
 
 # Produktion-Build erstellen
-hugo build
+hugo --gc --minify
 ```
 
 Die generierten Dateien befinden sich im `public/`-Verzeichnis.
@@ -48,7 +52,7 @@ Die generierten Dateien befinden sich im `public/`-Verzeichnis.
 
 ```bash
 # Build erstellen und auf Cloudflare Pages deployen
-hugo build
+hugo --gc --minify
 wrangler pages publish public
 ```
 
@@ -56,6 +60,9 @@ wrangler pages publish public
 
 ```
 anna-hugo/
+├── assets/
+│   ├── css/main.css   # Tailwind CSS Entry Point
+│   └── images/        # Original-Bilder (Hugo generiert Thumbnails)
 ├── content/           # Markdown-Inhalte (DE/EN)
 │   ├── paintings/     # Gemälde-Seite
 │   ├── sculptures/    # Skulpturen-Seite
@@ -70,9 +77,12 @@ anna-hugo/
 │   ├── _default/      # Basis-Layouts
 │   ├── partials/      # Wiederverwendbare Komponenten
 │   └── ...
-├── assets/images/     # Original-Bilder (Hugo generiert Thumbnails)
+├── static/
+│   ├── fonts/         # Self-hosted DM Sans Fonts
+│   └── _headers       # Cloudflare Cache-Headers
 ├── i18n/              # Übersetzungen (DE/EN)
 ├── hugo.yaml          # Hugo-Konfiguration
+├── package.json       # Bun/Node Dependencies
 └── wrangler.toml      # Cloudflare-Konfiguration
 ```
 
@@ -84,6 +94,7 @@ anna-hugo/
 - **Responsive Design** - Optimiert für alle Bildschirmgrößen
 - **SEO-optimiert** - Strukturierte Daten und Meta-Tags
 - **Hugo Image Processing** - Automatische Thumbnail-Generierung
+- **Performance-optimiert** - Tailwind CSS Build-Zeit, selbst-gehostete Fonts, LCP-Optimierung
 
 ## Bildverarbeitung (Hugo Image Processing)
 
