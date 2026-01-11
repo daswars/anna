@@ -37,7 +37,7 @@
     decoding="async"
     fetchpriority="high"
     {{ with $class }}class="{{ . }}"{{ end }}
-    style="background-image: url('{{ $placeholder.RelPermalink }}'); background-size: cover;"
+    style="background-image: url('data:image/webp;base64,{{ $placeholder.Content | base64Encode }}'); background-size: cover;"
   >
 {{- else -}}
   {{/* Fallback if image not found */}}
