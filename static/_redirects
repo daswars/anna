@@ -2,24 +2,8 @@
 # WordPress zu Hugo Redirects
 # annaliviaweber.com
 # =============================================
-
-# Galerie-Seiten -> Paintings Übersicht
-/dt_gallery/painting-2015/* /paintings/ 301
-/dt_gallery/painting-2016/* /paintings/ 301
-/dt_gallery/painting-2017/* /paintings/ 301
-/dt_gallery/paintings-2018/* /paintings/ 301
-/dt_gallery/paintings-2019/* /paintings/ 301
-/dt_gallery/paintings-2020/* /paintings/ 301
-/dt_gallery/paintings-2021/* /paintings/ 301
-/dt_gallery/paintings-2022/* /paintings/ 301
-
-# Skulpturen -> Sculptures Übersicht
-/dt_gallery/models/* /sculptures/ 301
-
-# WordPress System-URLs -> Startseite
-/wp-admin/* / 301
-/wp-includes/* / 301
-/wp-json/* / 301
+# IMPORTANT: Static/specific redirects MUST come before wildcard rules
+# for better Cloudflare Pages performance
 
 # Alte Sitemaps -> Neue Hugo Sitemap
 /sitemap-posttype-page-p1.xml /sitemap.xml 301
@@ -225,3 +209,25 @@
 /wp-content/uploads/2017/09/IMG_4189.jpg /images/sculptures/sculpture-2020-003-36.jpg 301
 /wp-content/uploads/2017/09/IMG_4190.jpg /images/sculptures/sculpture-2020-002-37.jpg 301
 /wp-content/uploads/2017/09/IMG_4191.jpg /images/sculptures/sculpture-2020-001-38.jpg 301
+
+# =============================================
+# WILDCARD RULES (must be LAST for performance)
+# =============================================
+
+# Galerie-Seiten -> Paintings Übersicht
+/dt_gallery/painting-2015/* /paintings/ 301
+/dt_gallery/painting-2016/* /paintings/ 301
+/dt_gallery/painting-2017/* /paintings/ 301
+/dt_gallery/paintings-2018/* /paintings/ 301
+/dt_gallery/paintings-2019/* /paintings/ 301
+/dt_gallery/paintings-2020/* /paintings/ 301
+/dt_gallery/paintings-2021/* /paintings/ 301
+/dt_gallery/paintings-2022/* /paintings/ 301
+
+# Skulpturen -> Sculptures Übersicht
+/dt_gallery/models/* /sculptures/ 301
+
+# WordPress System-URLs -> Startseite
+/wp-admin/* / 301
+/wp-includes/* / 301
+/wp-json/* / 301
