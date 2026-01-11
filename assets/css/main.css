@@ -23,6 +23,43 @@ body {
   font-family: var(--font-family-sans);
 }
 
+/* Section Container - unified styling for content pages */
+.section-page {
+  min-height: 100vh;
+  background-color: white;
+  color: #1c1917; /* stone-900 */
+}
+.dark .section-page {
+  background-color: #0c0a09; /* stone-950 */
+  color: #fafaf9; /* stone-50 */
+}
+
+.section-content {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem; /* px-6 */
+  padding-right: 1.5rem;
+  padding-top: 6rem; /* py-24 */
+  padding-bottom: 6rem;
+}
+@media (min-width: 768px) {
+  .section-content {
+    padding-top: 8rem; /* md:py-32 */
+    padding-bottom: 8rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-content {
+    padding-left: 3rem; /* lg:px-12 */
+    padding-right: 3rem;
+  }
+}
+
+/* Width variants */
+.section-wide { max-width: 80rem; } /* max-w-7xl */
+.section-standard { max-width: 56rem; } /* max-w-4xl */
+.section-narrow { max-width: 42rem; } /* max-w-2xl */
+
 /* Lightbox animations */
 @keyframes lightboxFadeIn {
   from { opacity: 0; }

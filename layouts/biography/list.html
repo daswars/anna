@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{/* Biography page - Design OS About style */}}
-<div class="min-h-screen px-6 py-24 md:py-32 bg-white dark:bg-stone-950 text-stone-900 dark:text-stone-50">
-  <div class="max-w-4xl mx-auto">
+<div class="section-page">
+  <main class="section-content section-standard">
     {{/* Page Title */}}
     <h1 class="text-5xl md:text-7xl font-light text-stone-900 dark:text-stone-50 mb-24 tracking-tight">
       {{ if eq $.Site.Language.Lang "de" }}Über die Künstlerin{{ else }}About the Artist{{ end }}
@@ -88,6 +88,6 @@
     </section>
     {{ end }}
 
-  </div>
+  </main>
 </div>
 {{ end }}
