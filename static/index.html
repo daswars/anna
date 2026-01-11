@@ -6,20 +6,52 @@
   <title>Anna Weber | Malerei und Skulptur aus Düsseldorf</title>
   <meta name="description" content="Portfolio der Künstlerin Anna Weber aus Düsseldorf. Entdecken Sie Gemälde, Skulpturen und Ausstellungen aus den Jahren 2015-2022.">
 
+  <!-- Canonical -->
+  <link rel="canonical" href="https://anna-hugo.pages.dev/">
+
   <!-- Open Graph -->
   <meta property="og:title" content="Anna Weber | Malerei und Skulptur">
-  <meta property="og:description" content="Portfolio der Künstlerin Anna Weber aus Düsseldorf">
+  <meta property="og:description" content="Portfolio der Künstlerin Anna Weber aus Düsseldorf. Gemälde, Skulpturen und Ausstellungen.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anna-hugo.pages.dev/">
+  <meta property="og:image" content="https://anna-hugo.pages.dev/images/og-image.jpg">
   <meta property="og:locale" content="de_DE">
   <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="Anna Weber">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Anna Weber | Malerei und Skulptur">
+  <meta name="twitter:description" content="Portfolio der Künstlerin Anna Weber aus Düsseldorf">
+  <meta name="twitter:image" content="https://anna-hugo.pages.dev/images/og-image.jpg">
 
   <!-- Hreflang -->
-  <link rel="alternate" hreflang="de" href="/de/">
-  <link rel="alternate" hreflang="en" href="/en/">
-  <link rel="alternate" hreflang="x-default" href="/">
+  <link rel="alternate" hreflang="de" href="https://anna-hugo.pages.dev/de/">
+  <link rel="alternate" hreflang="en" href="https://anna-hugo.pages.dev/en/">
+  <link rel="alternate" hreflang="x-default" href="https://anna-hugo.pages.dev/">
 
   <!-- Preload critical font -->
   <link rel="preload" href="/fonts/DM_Sans/DMSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Anna Weber",
+    "jobTitle": "Künstlerin",
+    "description": "Künstlerin für Malerei und Skulptur aus Düsseldorf",
+    "url": "https://anna-hugo.pages.dev/",
+    "image": "https://anna-hugo.pages.dev/images/og-image.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Düsseldorf",
+      "addressCountry": "DE"
+    },
+    "knowsAbout": ["Malerei", "Skulptur", "Bildende Kunst", "Ölmalerei", "Plastik"],
+    "sameAs": []
+  }
+  </script>
 
   <style>
     @font-face {
@@ -37,19 +69,24 @@
       font-display: swap;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'DM Sans', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fafaf9 0%, #f5f5f4 100%);
+      color: #1c1917;
+      line-height: 1.6;
+    }
+    .hero {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #fafaf9 0%, #f5f5f4 100%);
-      color: #1c1917;
       text-align: center;
       padding: 2rem;
     }
-    .container { max-width: 600px; width: 100%; }
+    .hero-content { max-width: 600px; width: 100%; }
     .name {
       font-size: clamp(3rem, 10vw, 6rem);
       font-weight: 500;
@@ -60,20 +97,29 @@
     .tagline {
       font-size: 1.25rem;
       color: #78716c;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
       font-weight: 400;
     }
     .accent {
       width: 60px;
       height: 2px;
       background: #84cc16;
-      margin: 0 auto 3rem;
+      margin: 0 auto 2rem;
+    }
+    .intro {
+      font-size: 1rem;
+      color: #44403c;
+      margin-bottom: 2rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .languages {
       display: flex;
       gap: 1.5rem;
       justify-content: center;
       flex-wrap: wrap;
+      margin-bottom: 3rem;
     }
     .lang-btn {
       display: inline-flex;
@@ -101,47 +147,251 @@
     }
     .lang-btn .arrow { transition: transform 0.3s ease; }
     .lang-btn:hover .arrow { transform: translateX(4px); }
-    .footer {
-      position: fixed;
-      bottom: 2rem;
-      left: 0;
-      right: 0;
-      text-align: center;
-      font-size: 0.875rem;
+    .scroll-hint {
+      margin-top: 2rem;
       color: #a8a29e;
+      font-size: 0.875rem;
     }
-    .footer a {
+    .scroll-hint a {
       color: #78716c;
       text-decoration: none;
     }
-    .footer a:hover { text-decoration: underline; }
+    .scroll-hint a:hover { text-decoration: underline; }
+
+    /* Content Sections */
+    .section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .section h2 {
+      font-size: 1.75rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: #1c1917;
+    }
+    .section p {
+      color: #44403c;
+      margin-bottom: 1rem;
+    }
+    .section-divider {
+      width: 40px;
+      height: 2px;
+      background: #84cc16;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Quick Links */
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .quick-link {
+      display: block;
+      padding: 1rem 1.5rem;
+      background: #fff;
+      border: 1px solid #e7e5e4;
+      text-decoration: none;
+      color: #1c1917;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .quick-link:hover {
+      border-color: #84cc16;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .quick-link span {
+      color: #78716c;
+      font-weight: 400;
+      font-size: 0.875rem;
+      display: block;
+      margin-top: 0.25rem;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #a8a29e;
+      border-top: 1px solid #e7e5e4;
+    }
+    .site-footer a {
+      color: #78716c;
+      text-decoration: none;
+    }
+    .site-footer a:hover { text-decoration: underline; }
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+    .footer-links a {
+      margin: 0 0.75rem;
+    }
+    .external-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .external-link svg {
+      width: 12px;
+      height: 12px;
+    }
+
     @media (max-width: 480px) {
       .languages { flex-direction: column; align-items: stretch; }
       .lang-btn { justify-content: center; }
+      .quick-links { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <main class="container">
-    <h1 class="name">Anna Weber</h1>
-    <p class="tagline">Malerei und Skulptur</p>
-    <div class="accent"></div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="name">Anna Weber</h1>
+      <p class="tagline">Malerei und Skulptur</p>
+      <div class="accent"></div>
 
-    <nav class="languages" aria-label="Sprachauswahl">
-      <a href="/de/" class="lang-btn" hreflang="de">
-        Deutsch
-        <span class="arrow" aria-hidden="true">&rarr;</span>
+      <p class="intro">
+        Willkommen im Portfolio von Anna Weber, Künstlerin aus Düsseldorf.
+        Entdecken Sie zeitgenössische Gemälde und Skulpturen, die Farbe, Form
+        und Raum in einen Dialog treten lassen.
+      </p>
+
+      <nav class="languages" aria-label="Sprachauswahl">
+        <a href="/de/" class="lang-btn" hreflang="de">
+          Deutsch
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <a href="/en/" class="lang-btn" hreflang="en">
+          English
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </nav>
+
+      <p class="scroll-hint">
+        <a href="#about">Mehr erfahren &darr;</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="section-divider"></div>
+    <h2>Über die Künstlerin</h2>
+    <p>
+      Anna Weber wurde 1986 in Düsseldorf geboren und lebt und arbeitet in ihrer
+      Heimatstadt. Nach ihrem Studium der Freien Kunst entwickelte sie eine
+      eigenständige künstlerische Sprache, die sich zwischen expressiver Malerei
+      und plastischer Formgebung bewegt. Ihre Arbeiten befinden sich in privaten
+      Sammlungen im In- und Ausland.
+    </p>
+    <p>
+      In ihren Gemälden verbindet Anna Weber kräftige Farbfelder mit organischen
+      Strukturen. Die Werke entstehen in einem intuitiven Prozess, bei dem
+      Schichtungen und Übermalungen zu einer lebendigen Oberfläche führen.
+      Parallel zur Malerei entstehen Skulpturen aus verschiedenen Materialien,
+      die den Raum als eigenständiges Gestaltungselement einbeziehen.
+    </p>
+    <p>
+      Seit 2015 zeigt Anna Weber ihre Arbeiten regelmäßig in Einzel- und
+      Gruppenausstellungen. Ihre Werke wurden unter anderem in Düsseldorf,
+      Köln, Berlin und international präsentiert. Die Künstlerin arbeitet
+      in ihrem Atelier in Düsseldorf und ist offen für Kommissionsarbeiten
+      sowie Ausstellungsanfragen.
+    </p>
+  </section>
+
+  <!-- Works Section -->
+  <section class="section">
+    <div class="section-divider"></div>
+    <h2>Werkbereiche</h2>
+    <p>
+      Das künstlerische Schaffen von Anna Weber umfasst zwei Hauptbereiche:
+      Malerei und Skulptur. Beide Disziplinen beeinflussen sich gegenseitig
+      und führen zu einem vielschichtigen Gesamtwerk. Die Gemälde zeichnen
+      sich durch intensive Farbigkeit und gestische Pinselführung aus. Die
+      Skulpturen erkunden Volumen, Leere und die Beziehung zwischen Objekt
+      und umgebendem Raum.
+    </p>
+
+    <nav class="quick-links" aria-label="Schnellnavigation">
+      <a href="/de/paintings/" class="quick-link">
+        Gemälde
+        <span>Ölmalerei und Mischtechnik</span>
       </a>
-      <a href="/en/" class="lang-btn" hreflang="en">
-        English
-        <span class="arrow" aria-hidden="true">&rarr;</span>
+      <a href="/de/sculptures/" class="quick-link">
+        Skulpturen
+        <span>Plastiken und Installationen</span>
+      </a>
+      <a href="/de/exhibitions/" class="quick-link">
+        Ausstellungen
+        <span>Aktuelle und vergangene Shows</span>
+      </a>
+      <a href="/de/biography/" class="quick-link">
+        Biografie
+        <span>Lebenslauf und Ausbildung</span>
+      </a>
+      <a href="/de/texts/" class="quick-link">
+        Texte
+        <span>Katalogbeiträge und Kritiken</span>
+      </a>
+      <a href="/de/contact/" class="quick-link">
+        Kontakt
+        <span>Anfragen und Atelierbesuche</span>
       </a>
     </nav>
-  </main>
+  </section>
 
-  <footer class="footer">
-    <a href="/de/imprint/">Impressum</a> &middot;
-    <a href="/de/privacy/">Datenschutz</a>
+  <!-- English Quick Access -->
+  <section class="section">
+    <div class="section-divider"></div>
+    <h2>English Version</h2>
+    <p>
+      This portfolio is available in English. Explore paintings, sculptures,
+      exhibitions, and learn more about the artist Anna Weber from Düsseldorf,
+      Germany.
+    </p>
+
+    <nav class="quick-links" aria-label="English navigation">
+      <a href="/en/paintings/" class="quick-link">
+        Paintings
+        <span>Oil paintings and mixed media</span>
+      </a>
+      <a href="/en/sculptures/" class="quick-link">
+        Sculptures
+        <span>Sculptures and installations</span>
+      </a>
+      <a href="/en/exhibitions/" class="quick-link">
+        Exhibitions
+        <span>Current and past shows</span>
+      </a>
+      <a href="/en/biography/" class="quick-link">
+        Biography
+        <span>CV and education</span>
+      </a>
+    </nav>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <nav class="footer-links">
+      <a href="/de/imprint/">Impressum</a>
+      <a href="/de/privacy/">Datenschutz</a>
+      <a href="/de/contact/">Kontakt</a>
+    </nav>
+    <p>
+      Anna Weber, Düsseldorf &middot;
+      <a href="https://www.kunstakademie-duesseldorf.de/" rel="noopener noreferrer" target="_blank" class="external-link">
+        Kunstakademie Düsseldorf
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </p>
   </footer>
 </body>
 </html>
