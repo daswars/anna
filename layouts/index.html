@@ -12,7 +12,7 @@
 
     <div class="relative z-10 max-w-4xl mx-auto">
       <span class="inline-block mb-6 text-xs font-mono tracking-[0.2em] text-stone-400 dark:text-stone-500 uppercase">
-        Portfolio 2015—2022
+        Portfolio {{ .Site.Params.portfolio_years }}
       </span>
       <h1 class="text-6xl md:text-8xl lg:text-9xl tracking-tighter mb-8 font-medium text-stone-900 dark:text-stone-50">
         {{ .Site.Params.artist.name }}
@@ -44,49 +44,20 @@
       </div>
     </div>
 
-    {{/* Featured Artworks Grid - first 6 */}}
+    {{/* Featured Artworks Grid - using configurable count */}}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-12">
-      {{ range $idx, $painting := first 6 $paintings }}
-      <a href="{{ "paintings" | relLangURL }}" class="group flex flex-col gap-5 text-left w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 dark:focus-visible:ring-stone-600 focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-stone-950 rounded">
-        {{/* Image Container */}}
-        <div class="w-full aspect-[4/5] overflow-hidden bg-stone-100 dark:bg-stone-900 relative shadow-sm transition-all duration-500 group-hover:shadow-xl">
-          {{/* Shimmer placeholder */}}
-          <div class="absolute inset-0 bg-gradient-to-br from-stone-200 via-stone-100 to-stone-200 dark:from-stone-800 dark:via-stone-900 dark:to-stone-800"></div>
-          {{/* Artwork image - first image with priority for LCP */}}
-          {{ if eq $idx 0 }}
-            {{ partial "thumbnail-priority.html" (dict
-              "src" $painting.image
-              "alt" (cond (eq $.Site.Language.Lang "de") $painting.title_de $painting.title_en)
-              "class" "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-            ) }}
-          {{ else }}
-            {{ partial "thumbnail.html" (dict
-              "src" $painting.image
-              "alt" (cond (eq $.Site.Language.Lang "de") $painting.title_de $painting.title_en)
-              "class" "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-            ) }}
-          {{ end }}
-          {{/* Hover overlay */}}
-          <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          {{/* "View" button - slides up on hover */}}
-          <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-            <span class="inline-block bg-white/90 dark:bg-stone-950/90 backdrop-blur px-4 py-2 text-stone-900 dark:text-stone-100 font-mono text-xs uppercase tracking-widest shadow-sm">
-              {{ if eq $.Site.Language.Lang "de" }}Ansehen{{ else }}View{{ end }}
-            </span>
-          </div>
-        </div>
-        {{/* Metadata */}}
-        <div class="flex flex-col gap-2 w-full px-2">
-          <h3 class="text-xl md:text-2xl leading-tight group-hover:text-stone-600 dark:group-hover:text-stone-300 transition-colors">
-            {{ if eq $.Site.Language.Lang "de" }}{{ $painting.title_de }}{{ else }}{{ $painting.title_en }}{{ end }}
-          </h3>
-          <div class="flex items-center gap-3 text-sm text-stone-500 dark:text-stone-400 font-mono tracking-wide border-t border-stone-100 dark:border-stone-800 pt-2 mt-1 w-full">
-            <span class="font-medium">{{ $painting.year }}</span>
-            <span class="w-1 h-1 rounded-full bg-stone-300 dark:bg-stone-700"></span>
-            <span>{{ if eq $.Site.Language.Lang "de" }}{{ $painting.medium_de }}{{ else }}{{ $painting.medium_en }}{{ end }}</span>
-          </div>
-        </div>
-      </a>
+      {{ range $idx, $painting := first .Site.Params.featured_paintings_count $paintings }}
+      {{/* Artwork Card - using shared partial with link type */}}
+      {{ partial "_artwork-card.html" (dict
+        "artwork" $painting
+        "index" $idx
+        "lang" $.Site.Language.Lang
+        "context" $
+        "type" "link"
+        "linkUrl" "paintings"
+        "showDimensions" false
+        "priority" (eq $idx 0)
+      ) }}
       {{ end }}
     </div>
   </section>

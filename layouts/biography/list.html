@@ -58,31 +58,35 @@
     </section>
     {{ end }}
 
-    {{/* Residency Section - if we have data */}}
+    {{/* Residency Section - from data/biography.yaml */}}
+    {{ with .Site.Data.biography.residencies }}
     <section class="mb-32">
       <h2 class="text-3xl font-light text-stone-900 dark:text-stone-50 mb-12 pb-6 border-b border-stone-200 dark:border-stone-800">
         {{ if eq $.Site.Language.Lang "de" }}Residenzen & Stipendien{{ else }}Residencies & Scholarships{{ end }}
       </h2>
 
       <div class="space-y-8">
+        {{ range . }}
         <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 p-6 -mx-6">
           <span class="text-stone-400 dark:text-stone-500 font-mono text-sm tracking-widest min-w-[8rem]">
-            2016
+            {{ .year }}
           </span>
           <div class="flex-1">
             <h3 class="text-xl font-medium text-stone-900 dark:text-stone-100 mb-2">
-              {{ if eq $.Site.Language.Lang "de" }}Artist in Residence{{ else }}Artist in Residence{{ end }}
+              {{ if eq $.Site.Language.Lang "de" }}{{ .title_de }}{{ else }}{{ .title_en }}{{ end }}
             </h3>
             <p class="text-stone-600 dark:text-stone-400 font-light">
-              Tampere, {{ if eq $.Site.Language.Lang "de" }}Finnland{{ else }}Finland{{ end }}
+              {{ if eq $.Site.Language.Lang "de" }}{{ .location_de }}{{ else }}{{ .location_en }}{{ end }}
             </p>
             <p class="text-sm text-stone-500 dark:text-stone-500 mt-3 leading-relaxed max-w-2xl">
-              {{ if eq $.Site.Language.Lang "de" }}Stipendium der Stadt Düsseldorf{{ else }}Grant from the City of Düsseldorf{{ end }}
+              {{ if eq $.Site.Language.Lang "de" }}{{ .description_de }}{{ else }}{{ .description_en }}{{ end }}
             </p>
           </div>
         </div>
+        {{ end }}
       </div>
     </section>
+    {{ end }}
 
   </div>
 </div>

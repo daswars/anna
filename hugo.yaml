@@ -81,6 +81,11 @@ languages:
 
 # Params
 params:
+  # Site-wide configuration
+  formspree_id: "xpqqaypb"
+  portfolio_years: "2015—2024"
+  featured_paintings_count: 6
+
   artist:
     name: Anna Weber
     born: 1986

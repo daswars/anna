@@ -1,0 +1,23 @@
+{{/*
+  Page Header Partial
+
+  Usage:
+    {{ partial "_page-header.html" (dict
+      "title" "Page Title"
+      "subtitle" "Optional subtitle"  // optional
+      "class" "mb-24"                 // optional additional classes
+    ) }}
+*/}}
+
+{{ $title := .title }}
+{{ $subtitle := .subtitle | default "" }}
+{{ $class := .class | default "mb-24" }}
+
+<h1 class="text-5xl md:text-7xl font-light text-stone-900 dark:text-stone-50 tracking-tight {{ $class }}">
+  {{ $title }}
+</h1>
+{{ with $subtitle }}
+<p class="text-xl text-stone-600 dark:text-stone-400 text-center leading-relaxed font-light -mt-16 mb-16">
+  {{ . }}
+</p>
+{{ end }}

@@ -24,3 +24,12 @@ education:
   - year: 2016
     text_de: "Artist in Residence Stipendium der Stadt Düsseldorf für Tampere, Finnland"
     text_en: "Artist in Residence Grant from City of Düsseldorf for Tampere, Finland"
+
+residencies:
+  - year: 2016
+    title_de: "Artist in Residence"
+    title_en: "Artist in Residence"
+    location_de: "Tampere, Finnland"
+    location_en: "Tampere, Finland"
+    description_de: "Stipendium der Stadt Düsseldorf"
+    description_en: "Grant from the City of Düsseldorf"
