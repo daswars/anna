@@ -1,6 +1,7 @@
 name: opencode
 
 on:
+  # Manuelle Trigger via /oc Kommentare
   issue_comment:
     types: [created]
   pull_request_review_comment:
@@ -8,7 +9,16 @@ on:
   issues:
     types: [opened, edited]
 
+  # Automatisches PR-Review
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+  # Wöchentliche Prüfung: Montags 8 Uhr UTC (9 Uhr DE)
+  schedule:
+    - cron: "0 8 * * 1"
+
 jobs:
+  # Job für manuelle /oc Kommentare
   opencode:
     if: |
       contains(github.event.comment.body, '/oc') ||
@@ -32,6 +42,7 @@ jobs:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         with:
           model: openrouter/anthropic/claude-haiku-4.5
+          share: false
           prompt: |
             Du bist ein Content-Manager für das Anna Weber Kunst-Portfolio.
 
@@ -296,3 +307,96 @@ jobs:
             - IMMER beide Sprachen prüfen
             - KEINE manuellen Thumbnails (Hugo generiert automatisch)
             - Bilder in `assets/images/` ablegen (NICHT static/)
+
+  # Job für automatisches PR-Review
+  pr-review:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run OpenCode PR Review
+        uses: anomalyco/opencode/github@latest
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        with:
+          model: openrouter/anthropic/claude-haiku-4.5
+          share: false
+          prompt: |
+            Prüfe diesen Pull Request für das Anna Weber Kunst-Portfolio.
+
+            ## Prüfpunkte:
+
+            1. **YAML-Syntax**: Sind alle YAML-Dateien valide?
+            2. **Zweisprachigkeit**: Haben alle Einträge sowohl DE als auch EN Felder?
+            3. **Namenskonventionen**: Entsprechen Dateinamen dem Schema?
+            4. **Bildpfade**: Sind alle referenzierten Bilder vorhanden?
+            5. **Keine Breaking Changes**: Wurden bestehende Einträge verändert?
+
+            ## Antwortformat:
+
+            - ✅ Alles OK: Kurze Bestätigung
+            - ⚠️ Warnung: Potenzielle Probleme auflisten
+            - ❌ Fehler: Konkrete Fehler mit Lösungsvorschlag
+
+            Antworte auf Deutsch. Sei konstruktiv und hilfsbereit.
+
+  # Job für wöchentliche Qualitätsprüfung (Montags)
+  weekly-check:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run OpenCode Weekly Check
+        uses: anomalyco/opencode/github@latest
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        with:
+          model: openrouter/anthropic/claude-haiku-4.5
+          share: false
+          prompt: |
+            Führe eine wöchentliche Qualitätsprüfung für das Anna Weber Kunst-Portfolio durch.
+
+            ## Prüfe folgende Punkte:
+
+            1. **YAML-Validierung**:
+               - `data/paintings.yaml` - Syntax korrekt?
+               - `data/sculptures.yaml` - Syntax korrekt?
+               - `data/exhibitions.yaml` - Syntax korrekt?
+               - `data/texts.yaml` - Syntax korrekt?
+
+            2. **Zweisprachigkeit**:
+               - Fehlen irgendwo `_de` oder `_en` Felder?
+               - Sind Übersetzungen konsistent (o.T. → Untitled)?
+
+            3. **Bildintegrität**:
+               - Gibt es YAML-Einträge mit fehlenden Bildern?
+               - Gibt es Bilder ohne YAML-Eintrag?
+
+            4. **Datenqualität**:
+               - Fehlende Pflichtfelder (year, dimensions)?
+               - Doppelte IDs?
+
+            ## Ergebnis:
+
+            - Wenn alles OK: Erstelle KEIN Issue, nur Log-Ausgabe
+            - Wenn Probleme gefunden: Erstelle ein Issue mit Titel "Wöchentliche Prüfung: Probleme gefunden" und liste alle Probleme auf
+
+            Antworte auf Deutsch.
