@@ -54,8 +54,9 @@
   </script>
   {{ end }}
 
-  {{/* Preload critical font */}}
+  {{/* Preload critical fonts to avoid render-blocking chain */}}
   <link rel="preload" href="/fonts/DM_Sans/DMSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/DM_Sans/DMSans-Medium.woff2" as="font" type="font/woff2" crossorigin>
 
   {{/* Tailwind CSS via Hugo Pipes */}}
   {{ $css := resources.Get "css/main.css" | css.TailwindCSS }}
