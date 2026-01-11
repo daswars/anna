@@ -1,4 +1,15 @@
 texts:
+  - id: "text-004"
+    title_de: "Über meine künstlerische Arbeit"
+    title_en: "About my Artistic Work"
+    date: "2026-01-11"
+    author: "Anna Weber"
+    type: "interview"
+    content_de: |
+      Meine Arbeiten entstehen aus der Auseinandersetzung mit...
+    content_en: |
+      My works emerge from engaging with...
+
   - id: "text-001"
     title_de: "Geschichten erzählen ohne Worte"
     title_en: "Telling Stories Without Words"
