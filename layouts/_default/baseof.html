@@ -55,8 +55,7 @@
   {{ end }}
 
   {{/* Preload critical fonts to avoid render-blocking chain */}}
-  <link rel="preload" href="/fonts/DM_Sans/DMSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/DM_Sans/DMSans-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/DM_Sans/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
 
   {{/* Tailwind CSS via Hugo Pipes */}}
   {{ $css := resources.Get "css/main.css" | css.TailwindCSS }}
@@ -66,7 +65,7 @@
 
   {{/* Critical CSS inline - minimal styles for first paint */}}
   <style>
-    @font-face{font-family:'DM Sans';src:url('/fonts/DM_Sans/DMSans-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+    @font-face{font-family:'DM Sans';src:url('/fonts/DM_Sans/DMSans-Variable.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
     :root{--font-family-sans:'DM Sans',system-ui,sans-serif}
     html{scroll-behavior:smooth}
     body{font-family:var(--font-family-sans);margin:0;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
