@@ -3,6 +3,9 @@
 <div class="section-page">
   <main class="section-content section-wide">
 
+    {{/* Page Title */}}
+    {{ partial "_page-title.html" (dict "title" (i18n "paintings")) }}
+
     {{/* Get unique years and sort descending */}}
     {{ $allPaintings := .Site.Data.paintings.paintings }}
     {{ $years := slice }}
@@ -14,6 +17,10 @@
     {{ end }}
     {{ $sortedYears := sort $years "value" "desc" }}
 
+    {{/* Gallery Meta - Stats & Separator */}}
+    {{ $metaText := printf "%d %s · %d–%d" (len $allPaintings) (cond (eq .Site.Language.Lang "de") "Werke" "works") (index $sortedYears (sub (len $sortedYears) 1)) (index $sortedYears 0) }}
+    {{ partial "_section-separator.html" (dict "text" $metaText) }}
+
     {{/* Year Sections */}}
     <div class="space-y-24 md:space-y-32">
       {{ $globalIndex := 0 }}
@@ -21,7 +28,7 @@
         {{ $year := . }}
         <section class="scroll-mt-24">
           {{/* Year Heading - using shared partial */}}
-          {{ partial "_year-section.html" (dict "year" $year "size" "large") }}
+          {{ partial "_year-section.html" (dict "year" $year "size" "medium") }}
 
           {{/* Artwork Grid */}}
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 md:gap-x-8 gap-y-12 md:gap-y-16">
@@ -62,7 +69,7 @@
 {{/* Include Lightbox */}}
 {{ partial "lightbox.html" . }}
 
-{{/* Initialize Lightbox with artwork data - Hugo generates optimized URLs */}}
+{{/* Initialize Lightbox with artwork data - Hugo generates responsive optimized URLs */}}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     initLightbox([
@@ -70,7 +77,9 @@
       {{- $assetPath := replace .image "/images/" "images/" -}}
       {{- $img := resources.Get $assetPath -}}
       {{- if $img -}}
-      {{- $largeImg := $img.Resize "1600x webp q90" -}}
+      {{- $img800 := $img.Resize "800x webp q85" -}}
+      {{- $img1200 := $img.Resize "1200x webp q85" -}}
+      {{- $img1600 := $img.Resize "1600x webp q90" -}}
       {
         id: "{{ .id }}",
         title_de: "{{ .title_de }}",
@@ -79,7 +88,10 @@
         medium_de: "{{ .medium_de }}",
         medium_en: "{{ .medium_en }}",
         dimensions: "{{ .dimensions }}",
-        image: "{{ $largeImg.RelPermalink }}"
+        image_800: "{{ $img800.RelPermalink }}",
+        image_1200: "{{ $img1200.RelPermalink }}",
+        image_1600: "{{ $img1600.RelPermalink }}",
+        image: "{{ $img1200.RelPermalink }}"
       },
       {{- end -}}
       {{ end }}

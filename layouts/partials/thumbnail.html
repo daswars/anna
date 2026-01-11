@@ -8,7 +8,7 @@
       "class" "optional-css-classes"
     ) }}
 
-  Generates a small, optimized WebP thumbnail (400px width)
+  Generates responsive WebP thumbnails with srcset
 */}}
 
 {{- $src := .src -}}
@@ -22,21 +22,21 @@
 {{- $image := resources.Get $assetPath -}}
 
 {{- if $image -}}
-  {{/* Generate thumbnail (400px width, WebP, q65 for optimal file size) */}}
-  {{- $thumb := $image.Resize "400x webp q65" -}}
-
-  {{/* Tiny placeholder for blur-up */}}
-  {{- $placeholder := $image.Resize "20x webp q20" -}}
+  {{/* Generate responsive thumbnails */}}
+  {{- $thumb300 := $image.Resize "300x webp q65" -}}
+  {{- $thumb400 := $image.Resize "400x webp q65" -}}
+  {{- $thumb600 := $image.Resize "600x webp q65" -}}
 
   <img
-    src="{{ $thumb.RelPermalink }}"
+    src="{{ $thumb400.RelPermalink }}"
+    srcset="{{ $thumb300.RelPermalink }} 300w, {{ $thumb400.RelPermalink }} 400w, {{ $thumb600.RelPermalink }} 600w"
+    sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 400px"
     alt="{{ $alt }}"
-    width="{{ $thumb.Width }}"
-    height="{{ $thumb.Height }}"
+    width="{{ $thumb400.Width }}"
+    height="{{ $thumb400.Height }}"
     loading="lazy"
     decoding="async"
     {{ with $class }}class="{{ . }}"{{ end }}
-    style="background-image: url('data:image/webp;base64,{{ $placeholder.Content | base64Encode }}'); background-size: cover;"
   >
 {{- else -}}
   {{/* Fallback if image not found */}}

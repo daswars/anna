@@ -1,0 +1,21 @@
+{{/*
+  Section Separator Partial - Elegant divider between title and content
+
+  Usage:
+    {{ partial "_section-separator.html" }}
+    {{ partial "_section-separator.html" (dict "text" "12 Werke · 2018–2024") }}
+*/}}
+
+{{ $text := .text | default "" }}
+
+<div class="mb-20 md:mb-28">
+  <div class="flex items-center gap-6">
+    <div class="h-px flex-1 bg-gradient-to-r from-stone-200 dark:from-stone-800 to-transparent"></div>
+    {{ if $text }}
+    <p class="text-stone-400 dark:text-stone-500 font-mono text-xs tracking-widest uppercase">
+      {{ $text }}
+    </p>
+    {{ end }}
+    <div class="h-px flex-1 bg-gradient-to-l from-stone-200 dark:from-stone-800 to-transparent"></div>
+  </div>
+</div>

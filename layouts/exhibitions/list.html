@@ -3,9 +3,7 @@
 <div class="section-page">
   <main class="section-content section-standard">
     {{/* Page Title */}}
-    <h1 class="text-5xl md:text-7xl font-light text-stone-900 dark:text-stone-50 mb-24 tracking-tight">
-      {{ if eq .Site.Language.Lang "de" }}Ausstellungen{{ else }}Exhibitions{{ end }}
-    </h1>
+    {{ partial "_page-title.html" (dict "title" (i18n "exhibitions")) }}
 
     {{/* Get unique years and sort descending */}}
     {{ $allExhibitions := .Site.Data.exhibitions.exhibitions }}
@@ -18,12 +16,9 @@
     {{ end }}
     {{ $sortedYears := sort $years "value" "desc" }}
 
-    {{/* Exhibition count */}}
-    <div class="mb-16 pb-8 border-b border-stone-200 dark:border-stone-800">
-      <p class="text-stone-500 dark:text-stone-400 font-mono text-sm tracking-wider uppercase">
-        {{ len $allExhibitions }} {{ if eq .Site.Language.Lang "de" }}Ausstellungen{{ else }}exhibitions{{ end }} · {{ index $sortedYears (sub (len $sortedYears) 1) }}–{{ index $sortedYears 0 }}
-      </p>
-    </div>
+    {{/* Separator with stats */}}
+    {{ $metaText := printf "%d %s · %d–%d" (len $allExhibitions) (cond (eq .Site.Language.Lang "de") "Ausstellungen" "exhibitions") (index $sortedYears (sub (len $sortedYears) 1)) (index $sortedYears 0) }}
+    {{ partial "_section-separator.html" (dict "text" $metaText) }}
 
     {{/* Exhibitions by year */}}
     <div class="space-y-24">

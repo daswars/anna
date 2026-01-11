@@ -46,6 +46,8 @@
         <img
           id="lightbox-image"
           src=""
+          srcset=""
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1600px"
           alt=""
           class="max-w-full max-h-[65vh] lg:max-h-[85vh] w-auto h-auto object-contain shadow-2xl"
         />
@@ -151,7 +153,14 @@
     const artwork = artworks[currentIndex];
     if (!artwork) return;
 
-    image.src = artwork.image;
+    // Set responsive srcset if available, fallback to single image
+    if (artwork.image_800 && artwork.image_1200 && artwork.image_1600) {
+      image.srcset = `${artwork.image_800} 800w, ${artwork.image_1200} 1200w, ${artwork.image_1600} 1600w`;
+      image.src = artwork.image_1200;
+    } else {
+      image.srcset = '';
+      image.src = artwork.image;
+    }
     image.alt = lang === 'de' ? artwork.title_de : artwork.title_en;
     title.textContent = lang === 'de' ? artwork.title_de : artwork.title_en;
     year.textContent = artwork.year;

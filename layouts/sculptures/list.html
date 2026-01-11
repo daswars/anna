@@ -3,16 +3,27 @@
 <div class="section-page">
   <main class="section-content section-wide">
 
+    {{/* Page Title */}}
+    {{ partial "_page-title.html" (dict "title" (i18n "sculptures")) }}
+
     {{ $allSculptures := .Site.Data.sculptures.sculptures }}
 
-    {{/* Section Header */}}
-    <div class="relative mb-12 md:mb-16">
-      <h1 class="text-8xl md:text-9xl lg:text-[12rem] font-extralight text-stone-200/80 dark:text-stone-800/80 leading-none select-none -ml-2 md:-ml-4">
-        {{ if eq $.Site.Language.Lang "de" }}Skulpturen{{ else }}Sculptures{{ end }}
-      </h1>
-      {{/* Subtle accent line */}}
-      <div class="absolute bottom-4 left-0 w-16 h-px bg-stone-300 dark:bg-stone-700"></div>
-    </div>
+    {{/* Get year range */}}
+    {{ $years := slice }}
+    {{ range $allSculptures }}
+      {{ $year := .year }}
+      {{ if not (in $years $year) }}
+        {{ $years = $years | append $year }}
+      {{ end }}
+    {{ end }}
+    {{ $sortedYears := sort $years "value" "desc" }}
+
+    {{/* Gallery Meta - Stats & Separator */}}
+    {{ $metaText := printf "%d %s" (len $allSculptures) (cond (eq .Site.Language.Lang "de") "Werke" "works") }}
+    {{ if gt (len $sortedYears) 0 }}
+      {{ $metaText = printf "%s · %d–%d" $metaText (index $sortedYears (sub (len $sortedYears) 1)) (index $sortedYears 0) }}
+    {{ end }}
+    {{ partial "_section-separator.html" (dict "text" $metaText) }}
 
     {{/* Artwork Grid */}}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 md:gap-x-8 gap-y-12 md:gap-y-16">
@@ -43,7 +54,7 @@
 {{/* Include Lightbox */}}
 {{ partial "lightbox.html" . }}
 
-{{/* Initialize Lightbox with artwork data - Hugo generates optimized URLs */}}
+{{/* Initialize Lightbox with artwork data - Hugo generates responsive optimized URLs */}}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     initLightbox([
@@ -51,7 +62,9 @@
       {{- $assetPath := replace .image "/images/" "images/" -}}
       {{- $img := resources.Get $assetPath -}}
       {{- if $img -}}
-      {{- $largeImg := $img.Resize "1600x webp q90" -}}
+      {{- $img800 := $img.Resize "800x webp q85" -}}
+      {{- $img1200 := $img.Resize "1200x webp q85" -}}
+      {{- $img1600 := $img.Resize "1600x webp q90" -}}
       {
         id: "{{ .id }}",
         title_de: "{{ .title_de }}",
@@ -60,7 +73,10 @@
         medium_de: "{{ .medium_de }}",
         medium_en: "{{ .medium_en }}",
         dimensions: "{{ .dimensions }}",
-        image: "{{ $largeImg.RelPermalink }}"
+        image_800: "{{ $img800.RelPermalink }}",
+        image_1200: "{{ $img1200.RelPermalink }}",
+        image_1600: "{{ $img1600.RelPermalink }}",
+        image: "{{ $img1200.RelPermalink }}"
       },
       {{- end -}}
       {{ end }}

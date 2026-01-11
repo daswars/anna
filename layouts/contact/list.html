@@ -3,9 +3,10 @@
 <div class="section-page">
   <main class="section-content section-narrow">
     {{/* Page Title */}}
-    <h1 class="text-5xl md:text-7xl font-light text-stone-900 dark:text-stone-50 mb-12 text-center tracking-tight">
-      {{ if eq .Site.Language.Lang "de" }}Kontakt{{ else }}Contact{{ end }}
-    </h1>
+    {{ partial "_page-title.html" (dict "title" (i18n "contact")) }}
+
+    {{/* Separator */}}
+    {{ partial "_section-separator.html" }}
 
     {{/* Intro text */}}
     <p class="text-xl text-stone-600 dark:text-stone-400 text-center mb-16 leading-relaxed font-light">

@@ -3,11 +3,17 @@
 <div class="section-page">
   <main class="section-content section-narrow">
     {{/* Page Title */}}
-    <h1 class="text-5xl md:text-7xl font-light text-stone-900 dark:text-stone-50 mb-24 tracking-tight">
-      {{ if eq .Site.Language.Lang "de" }}Texte{{ else }}Texts{{ end }}
-    </h1>
+    {{ partial "_page-title.html" (dict "title" (i18n "texts")) }}
 
     {{ $texts := .Site.Data.texts.texts }}
+
+    {{/* Separator with count */}}
+    {{ if $texts }}
+      {{ $metaText := printf "%d %s" (len $texts) (cond (eq .Site.Language.Lang "de") "Texte" "texts") }}
+      {{ partial "_section-separator.html" (dict "text" $metaText) }}
+    {{ else }}
+      {{ partial "_section-separator.html" }}
+    {{ end }}
     {{ if $texts }}
     <div class="space-y-24">
       {{ range $texts }}
