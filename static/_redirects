@@ -1,0 +1,227 @@
+# =============================================
+# WordPress zu Hugo Redirects
+# annaliviaweber.com
+# =============================================
+
+# Galerie-Seiten -> Paintings Übersicht
+/dt_gallery/painting-2015/* /paintings/ 301
+/dt_gallery/painting-2016/* /paintings/ 301
+/dt_gallery/painting-2017/* /paintings/ 301
+/dt_gallery/paintings-2018/* /paintings/ 301
+/dt_gallery/paintings-2019/* /paintings/ 301
+/dt_gallery/paintings-2020/* /paintings/ 301
+/dt_gallery/paintings-2021/* /paintings/ 301
+/dt_gallery/paintings-2022/* /paintings/ 301
+
+# Skulpturen -> Sculptures Übersicht
+/dt_gallery/models/* /sculptures/ 301
+
+# WordPress System-URLs -> Startseite
+/wp-admin/* / 301
+/wp-includes/* / 301
+/wp-json/* / 301
+
+# Alte Sitemaps -> Neue Hugo Sitemap
+/sitemap-posttype-page-p1.xml /sitemap.xml 301
+/sitemap-taxonomy-category.xml /sitemap.xml 301
+/sitemap-taxonomy-post_tag.xml /sitemap.xml 301
+
+# =============================================
+# PAINTINGS 2015 (Bilder 88-115 -> painting-2015-001 bis 026)
+# =============================================
+/wp-content/uploads/2017/09/88.jpg /images/paintings/2015/painting-2015-001-hoehle.jpg 301
+/wp-content/uploads/2017/09/89.jpg /images/paintings/2015/painting-2015-002-streichholzschachtel.jpg 301
+/wp-content/uploads/2017/09/90.jpg /images/paintings/2015/painting-2015-003-amas-bude.jpg 301
+/wp-content/uploads/2017/09/93.jpg /images/paintings/2015/painting-2015-004-zimmerzelt.jpg 301
+/wp-content/uploads/2017/09/94.jpg /images/paintings/2015/painting-2015-005-geisterstunde.jpg 301
+/wp-content/uploads/2017/09/95.jpg /images/paintings/2015/painting-2015-006-jardin.jpg 301
+/wp-content/uploads/2017/09/96.jpg /images/paintings/2015/painting-2015-007-untitled-7.jpg 301
+/wp-content/uploads/2017/09/97.jpg /images/paintings/2015/painting-2015-008-bude-am-busch.jpg 301
+/wp-content/uploads/2017/09/98.jpg /images/paintings/2015/painting-2015-009-flowerpower.jpg 301
+/wp-content/uploads/2017/09/99.jpg /images/paintings/2015/painting-2015-010-memphisspielplatz.jpg 301
+/wp-content/uploads/2017/09/100.jpg /images/paintings/2015/painting-2015-011-teppichbude.jpg 301
+/wp-content/uploads/2017/09/101.jpg /images/paintings/2015/painting-2015-012-mondplatz.jpg 301
+/wp-content/uploads/2017/09/102.jpg /images/paintings/2015/painting-2015-013-stuhlbude.jpg 301
+/wp-content/uploads/2017/09/103.jpg /images/paintings/2015/painting-2015-014-rutschbudenremix.jpg 301
+/wp-content/uploads/2017/09/104.jpg /images/paintings/2015/painting-2015-015-untitled-15.jpg 301
+/wp-content/uploads/2017/09/105.jpg /images/paintings/2015/painting-2015-016-bankbudenremix.jpg 301
+/wp-content/uploads/2017/09/106.jpg /images/paintings/2015/painting-2015-017-ventilatoreneckchen.jpg 301
+/wp-content/uploads/2017/09/107.jpg /images/paintings/2015/painting-2015-018-faehnlein.jpg 301
+/wp-content/uploads/2017/09/108.jpg /images/paintings/2015/painting-2015-019-himmelszelt.jpg 301
+/wp-content/uploads/2017/09/109.jpg /images/paintings/2015/painting-2015-020-lavendel.jpg 301
+/wp-content/uploads/2017/09/110.jpg /images/paintings/2015/painting-2015-021-nachttischlampenremix.jpg 301
+/wp-content/uploads/2017/09/111.jpg /images/paintings/2015/painting-2015-022-schattenplaetzchen.jpg 301
+/wp-content/uploads/2017/09/112.jpg /images/paintings/2015/painting-2015-023-untitled-23.jpg 301
+/wp-content/uploads/2017/09/113.jpg /images/paintings/2015/painting-2015-024-untitled-24.jpg 301
+/wp-content/uploads/2017/09/114.jpg /images/paintings/2015/painting-2015-025-gewaechsbude.jpg 301
+/wp-content/uploads/2017/09/115.jpg /images/paintings/2015/painting-2015-026-baumhaus.jpg 301
+
+# =============================================
+# PAINTINGS 2016 (Bilder 116-139 -> painting-2016-001 bis 024)
+# =============================================
+/wp-content/uploads/2017/09/116.jpg /images/paintings/2016/painting-2016-001-diptychon-made-in-finnland.jpg 301
+/wp-content/uploads/2017/09/117.jpg /images/paintings/2016/painting-2016-002-puzzle-3.jpg 301
+/wp-content/uploads/2017/09/118.jpg /images/paintings/2016/painting-2016-003-puzzle-2.jpg 301
+/wp-content/uploads/2017/09/119.jpg /images/paintings/2016/painting-2016-004-puzzle-1.jpg 301
+/wp-content/uploads/2017/09/120.jpg /images/paintings/2016/painting-2016-005-hochsitz.jpg 301
+/wp-content/uploads/2017/09/121.jpg /images/paintings/2016/painting-2016-006-bude-unterm-regenbogen.jpg 301
+/wp-content/uploads/2017/09/122.jpg /images/paintings/2016/painting-2016-007-untitled-7.jpg 301
+/wp-content/uploads/2017/09/123.jpg /images/paintings/2016/painting-2016-008-igelbude.jpg 301
+/wp-content/uploads/2017/09/124.jpg /images/paintings/2016/painting-2016-009-vogelskizze.jpg 301
+/wp-content/uploads/2017/09/125.jpg /images/paintings/2016/painting-2016-010-feldbude.jpg 301
+/wp-content/uploads/2017/09/126.jpg /images/paintings/2016/painting-2016-011-atelierbude.jpg 301
+/wp-content/uploads/2017/09/127.jpg /images/paintings/2016/painting-2016-012-untitled-12.jpg 301
+/wp-content/uploads/2017/09/128.jpg /images/paintings/2016/painting-2016-013-wenn-ich-ein-voeglein-waer.jpg 301
+/wp-content/uploads/2017/09/129.jpg /images/paintings/2016/painting-2016-014-untitled-14.jpg 301
+/wp-content/uploads/2017/09/130.jpg /images/paintings/2016/painting-2016-015-winterbude.jpg 301
+/wp-content/uploads/2017/09/131.jpg /images/paintings/2016/painting-2016-016-neujahrsbude.jpg 301
+/wp-content/uploads/2017/09/132.jpg /images/paintings/2016/painting-2016-017-turmtreppchen.jpg 301
+/wp-content/uploads/2017/09/133.jpg /images/paintings/2016/painting-2016-018-avocadozelt.jpg 301
+/wp-content/uploads/2017/09/134.jpg /images/paintings/2016/painting-2016-019-nachtfalterhoehle.jpg 301
+/wp-content/uploads/2017/09/135.jpg /images/paintings/2016/painting-2016-020-mondteppich.jpg 301
+/wp-content/uploads/2017/09/136.jpg /images/paintings/2016/painting-2016-021-untitled-21.jpg 301
+/wp-content/uploads/2017/09/137.jpg /images/paintings/2016/painting-2016-022-untitled-22.jpg 301
+/wp-content/uploads/2017/09/138.jpg /images/paintings/2016/painting-2016-023-untitled-23.jpg 301
+/wp-content/uploads/2017/09/139.jpg /images/paintings/2016/painting-2016-024-samstagnacht.jpg 301
+
+# =============================================
+# PAINTINGS 2017 (Bilder 140-155 + spezielle -> painting-2017-001 bis 022)
+# =============================================
+/wp-content/uploads/2017/09/140.jpg /images/paintings/2017/painting-2017-001-can-t-fight-the-moonlight.jpg 301
+/wp-content/uploads/2017/09/141.jpg /images/paintings/2017/painting-2017-002-untitled-2.jpg 301
+/wp-content/uploads/2017/09/142.jpg /images/paintings/2017/painting-2017-003-bude-mit-fischifisch.jpg 301
+/wp-content/uploads/2017/09/143.jpg /images/paintings/2017/painting-2017-004-untitled-4.jpg 301
+/wp-content/uploads/2017/09/144.jpg /images/paintings/2017/painting-2017-005-untitled-5.jpg 301
+/wp-content/uploads/2017/09/145_1.jpg /images/paintings/2017/painting-2017-006-untitled-6.jpg 301
+/wp-content/uploads/2017/09/145_2.jpg /images/paintings/2017/painting-2017-007-untitled-7.jpg 301
+/wp-content/uploads/2017/09/145_3.jpg /images/paintings/2017/painting-2017-008-ich-will-ich-kann.jpg 301
+/wp-content/uploads/2017/09/145_4.jpg /images/paintings/2017/painting-2017-009-untitled-9.jpg 301
+/wp-content/uploads/2017/09/145_5.jpg /images/paintings/2017/painting-2017-010-in-the-middle.jpg 301
+/wp-content/uploads/2017/09/145_6.jpg /images/paintings/2017/painting-2017-011-tischbude.jpg 301
+/wp-content/uploads/2017/09/147.jpg /images/paintings/2017/painting-2017-012-birkenbude.jpg 301
+/wp-content/uploads/2017/09/148.jpg /images/paintings/2017/painting-2017-013-blumenbude.jpg 301
+/wp-content/uploads/2017/09/149.jpg /images/paintings/2017/painting-2017-014-zauberkiste.jpg 301
+/wp-content/uploads/2017/09/150.jpg /images/paintings/2017/painting-2017-015-minibude-1.jpg 301
+/wp-content/uploads/2017/09/151.jpg /images/paintings/2017/painting-2017-016-minibude-2.jpg 301
+/wp-content/uploads/2017/09/152.jpg /images/paintings/2017/painting-2017-017-minibude-3.jpg 301
+/wp-content/uploads/2017/09/153.jpg /images/paintings/2017/painting-2017-018-minibude-4.jpg 301
+/wp-content/uploads/2017/09/154.jpg /images/paintings/2017/painting-2017-019-minibude-5.jpg 301
+/wp-content/uploads/2017/09/155.jpg /images/paintings/2017/painting-2017-020-minibude-6.jpg 301
+/wp-content/uploads/2017/09/alacarte.jpg /images/paintings/2017/painting-2017-021-la-carte.jpg 301
+/wp-content/uploads/2017/09/paimpol.jpg /images/paintings/2017/painting-2017-022-paimpol.jpg 301
+
+# =============================================
+# PAINTINGS 2018 (DSC-Dateien -> painting-2018-001 bis 012)
+# =============================================
+/wp-content/uploads/2018/06/DSC02063.jpg /images/paintings/2018/painting-2018-001-farbpalette.jpg 301
+/wp-content/uploads/2018/06/DSC02066.jpg /images/paintings/2018/painting-2018-002-shinyshiny.jpg 301
+/wp-content/uploads/2018/06/DSC02067.jpg /images/paintings/2018/painting-2018-003-roter-faden-unter-palme.jpg 301
+/wp-content/uploads/2018/06/DSC02070.jpg /images/paintings/2018/painting-2018-004-roter-faden.jpg 301
+/wp-content/uploads/2018/06/DSC02073.jpg /images/paintings/2018/painting-2018-005-murmeleck.jpg 301
+/wp-content/uploads/2018/06/DSC02079.jpg /images/paintings/2018/painting-2018-006-wo-die-fliegen-fliegen.jpg 301
+/wp-content/uploads/2018/06/DSC02081.jpg /images/paintings/2018/painting-2018-007-pappkarton.jpg 301
+/wp-content/uploads/2018/06/DSC02084.jpg /images/paintings/2018/painting-2018-008-strelitzie.jpg 301
+/wp-content/uploads/2018/06/DSC02086.jpg /images/paintings/2018/painting-2018-009-bunnybude.jpg 301
+/wp-content/uploads/2018/06/DSC02089.jpg /images/paintings/2018/painting-2018-010-das-himmlische-kind.jpg 301
+/wp-content/uploads/2018/06/DSC02091.jpg /images/paintings/2018/painting-2018-011-humptydumpty.jpg 301
+/wp-content/uploads/2018/06/DSC02093.jpg /images/paintings/2018/painting-2018-012-up.jpg 301
+
+# =============================================
+# PAINTINGS 2019 (IMG-Dateien -> painting-2019-001 bis 013)
+# =============================================
+/wp-content/uploads/2022/08/Bildschirmfoto-2019-01-12-um-18.59.44.jpg /images/paintings/2019/painting-2019-001-untitled-1.jpg 301
+/wp-content/uploads/2022/08/IMG_2156.jpg /images/paintings/2019/painting-2019-002-untitled-2.jpg 301
+/wp-content/uploads/2022/08/IMG_2161-scaled.jpg /images/paintings/2019/painting-2019-003-untitled-3.jpg 301
+/wp-content/uploads/2022/08/IMG_2215.jpg /images/paintings/2019/painting-2019-004-untitled-4.jpg 301
+/wp-content/uploads/2022/08/IMG_4655-scaled.jpg /images/paintings/2019/painting-2019-005-untitled-5.jpg 301
+/wp-content/uploads/2022/08/IMG_4741.jpg /images/paintings/2019/painting-2019-006-untitled-6.jpg 301
+/wp-content/uploads/2022/08/IMG_4742.jpg /images/paintings/2019/painting-2019-007-untitled-7.jpg 301
+/wp-content/uploads/2022/08/IMG_4745.jpg /images/paintings/2019/painting-2019-008-untitled-8.jpg 301
+/wp-content/uploads/2022/08/IMG_E4294-scaled.jpg /images/paintings/2019/painting-2019-009-untitled-9.jpg 301
+/wp-content/uploads/2022/08/IMG_E4327.jpg /images/paintings/2019/painting-2019-010-untitled-10.jpg 301
+/wp-content/uploads/2022/08/IMG_E4329.jpg /images/paintings/2019/painting-2019-011-untitled-11.jpg 301
+/wp-content/uploads/2022/08/IMG_E4330.jpg /images/paintings/2019/painting-2019-012-untitled-12.jpg 301
+/wp-content/uploads/2022/08/IMG_E4333.jpg /images/paintings/2019/painting-2019-013-untitled-13.jpg 301
+
+# =============================================
+# PAINTINGS 2020 (IMG-Dateien -> painting-2020-001 bis 017)
+# =============================================
+/wp-content/uploads/2022/08/IMG_20200624_120659-scaled.jpg /images/paintings/2020/painting-2020-001-untitled-1.jpg 301
+/wp-content/uploads/2022/08/IMG_20200719_094210.jpg /images/paintings/2020/painting-2020-002-untitled-2.jpg 301
+/wp-content/uploads/2022/08/IMG_20200721_083523-scaled.jpg /images/paintings/2020/painting-2020-003-untitled-3.jpg 301
+/wp-content/uploads/2022/08/IMG_20200726_202506.jpg /images/paintings/2020/painting-2020-004-untitled-4.jpg 301
+/wp-content/uploads/2022/08/IMG_20200731_194336.jpg /images/paintings/2020/painting-2020-005-untitled-5.jpg 301
+/wp-content/uploads/2022/08/IMG_20200814_121153.jpg /images/paintings/2020/painting-2020-006-untitled-6.jpg 301
+/wp-content/uploads/2022/08/IMG_20200816_092207-scaled.jpg /images/paintings/2020/painting-2020-007-untitled-7.jpg 301
+/wp-content/uploads/2022/08/IMG_20210201_115547.jpg /images/paintings/2020/painting-2020-008-untitled-8.jpg 301
+/wp-content/uploads/2022/08/IMG_20210201_115554.jpg /images/paintings/2020/painting-2020-009-untitled-9.jpg 301
+/wp-content/uploads/2022/08/IMG_20210201_115601.jpg /images/paintings/2020/painting-2020-010-untitled-10.jpg 301
+/wp-content/uploads/2022/08/IMG_20210201_115612.jpg /images/paintings/2020/painting-2020-011-untitled-11.jpg 301
+/wp-content/uploads/2022/08/IMG_20210201_115717.jpg /images/paintings/2020/painting-2020-012-untitled-12.jpg 301
+/wp-content/uploads/2022/08/IMG_20210201_115831.jpg /images/paintings/2020/painting-2020-013-untitled-13.jpg 301
+/wp-content/uploads/2022/08/IMG_20210201_115839.jpg /images/paintings/2020/painting-2020-014-untitled-14.jpg 301
+/wp-content/uploads/2022/08/IMG_20210201_120006.jpg /images/paintings/2020/painting-2020-015-untitled-15.jpg 301
+/wp-content/uploads/2022/08/IMG_20210201_120102.jpg /images/paintings/2020/painting-2020-016-untitled-16.jpg 301
+/wp-content/uploads/2022/08/IMG_4279.jpg /images/paintings/2020/painting-2020-017-untitled-17.jpg 301
+
+# =============================================
+# PAINTINGS 2021 (IMG-Dateien -> painting-2021-001 bis 004)
+# =============================================
+/wp-content/uploads/2022/08/IMG_20210201_120036.jpg /images/paintings/2021/painting-2021-001-untitled-1.jpg 301
+/wp-content/uploads/2022/08/IMG_20210201_120131.jpg /images/paintings/2021/painting-2021-002-untitled-2.jpg 301
+/wp-content/uploads/2022/08/IMG_20220130_114107.jpg /images/paintings/2021/painting-2021-003-untitled-3.jpg 301
+/wp-content/uploads/2022/08/IMG_20220130_114353.jpg /images/paintings/2021/painting-2021-004-untitled-4.jpg 301
+
+# =============================================
+# PAINTINGS 2022 (IMG-Dateien -> painting-2022-001 bis 016)
+# =============================================
+/wp-content/uploads/2022/08/IMG_20220130_114247.jpg /images/paintings/2022/painting-2022-001-untitled-1.jpg 301
+/wp-content/uploads/2022/08/IMG_20220402_165707_edit_149143183213180.jpg /images/paintings/2022/painting-2022-002-untitled-2.jpg 301
+/wp-content/uploads/2022/08/IMG_20220409_151816_edit_480655773469886.jpg /images/paintings/2022/painting-2022-003-untitled-3.jpg 301
+/wp-content/uploads/2022/08/IMG_20220409_151853_edit_480623307779787.jpg /images/paintings/2022/painting-2022-004-untitled-4.jpg 301
+/wp-content/uploads/2022/08/IMG_20220805_135714-scaled.jpg /images/paintings/2022/painting-2022-005-untitled-5.jpg 301
+/wp-content/uploads/2022/08/IMG_20220805_135748.jpg /images/paintings/2022/painting-2022-006-untitled-6.jpg 301
+/wp-content/uploads/2022/08/IMG_20220805_135818.jpg /images/paintings/2022/painting-2022-007-untitled-7.jpg 301
+/wp-content/uploads/2022/08/IMG_20220805_135910.jpg /images/paintings/2022/painting-2022-008-untitled-8.jpg 301
+/wp-content/uploads/2022/08/IMG_20220805_135945.jpg /images/paintings/2022/painting-2022-009-untitled-9.jpg 301
+/wp-content/uploads/2022/08/IMG_20220805_140037.jpg /images/paintings/2022/painting-2022-010-untitled-10.jpg 301
+/wp-content/uploads/2022/08/IMG_20220805_140124.jpg /images/paintings/2022/painting-2022-011-untitled-11.jpg 301
+/wp-content/uploads/2022/08/IMG_20220805_140204.jpg /images/paintings/2022/painting-2022-012-untitled-12.jpg 301
+/wp-content/uploads/2022/08/IMG_20220805_140233.jpg /images/paintings/2022/painting-2022-013-untitled-13.jpg 301
+/wp-content/uploads/2022/08/IMG_20220805_140300.jpg /images/paintings/2022/painting-2022-014-untitled-14.jpg 301
+/wp-content/uploads/2022/08/IMG_20220805_140532.jpg /images/paintings/2022/painting-2022-015-untitled-15.jpg 301
+/wp-content/uploads/2022/08/IMG_20220805_140728.jpg /images/paintings/2022/painting-2022-016-untitled-16.jpg 301
+
+# =============================================
+# SCULPTURES (nummerierte Bilder + IMG/DSC -> sculpture-2020-001 bis 030)
+# =============================================
+/wp-content/uploads/2017/09/10-1.jpg /images/sculptures/sculpture-2020-030-10.jpg 301
+/wp-content/uploads/2017/09/11-1.jpg /images/sculptures/sculpture-2020-029-11.jpg 301
+/wp-content/uploads/2017/09/12-1.jpg /images/sculptures/sculpture-2020-028-12.jpg 301
+/wp-content/uploads/2017/09/13-1.jpg /images/sculptures/sculpture-2020-027-13.jpg 301
+/wp-content/uploads/2017/09/14-1.jpg /images/sculptures/sculpture-2020-026-14.jpg 301
+/wp-content/uploads/2017/09/15-1.jpg /images/sculptures/sculpture-2020-025-15.jpg 301
+/wp-content/uploads/2017/09/16-1.jpg /images/sculptures/sculpture-2020-024-16.jpg 301
+/wp-content/uploads/2017/09/17-1.jpg /images/sculptures/sculpture-2020-023-17.jpg 301
+/wp-content/uploads/2017/09/18-1.jpg /images/sculptures/sculpture-2020-022-18.jpg 301
+/wp-content/uploads/2017/09/19-1.jpg /images/sculptures/sculpture-2020-021-19.jpg 301
+/wp-content/uploads/2017/09/20-1.jpg /images/sculptures/sculpture-2020-020-20.jpg 301
+/wp-content/uploads/2017/09/21-1.jpg /images/sculptures/sculpture-2020-019-21.jpg 301
+/wp-content/uploads/2017/09/22-1.jpg /images/sculptures/sculpture-2020-018-22.jpg 301
+/wp-content/uploads/2017/09/23-1.jpg /images/sculptures/sculpture-2020-017-23.jpg 301
+/wp-content/uploads/2017/09/24-1.jpg /images/sculptures/sculpture-2020-016-24.jpg 301
+/wp-content/uploads/2017/09/25-1.jpg /images/sculptures/sculpture-2020-015-25.jpg 301
+/wp-content/uploads/2017/09/26-1.jpg /images/sculptures/sculpture-2020-014-26.jpg 301
+/wp-content/uploads/2017/09/27-1.jpg /images/sculptures/sculpture-2020-013-27.jpg 301
+/wp-content/uploads/2017/09/28.jpeg /images/sculptures/sculpture-2020-012-28.jpeg 301
+/wp-content/uploads/2017/09/29-1.jpg /images/sculptures/sculpture-2020-011-29.jpg 301
+/wp-content/uploads/2017/09/30-1.jpg /images/sculptures/sculpture-2020-010-30.jpg 301
+/wp-content/uploads/2017/09/31-1.jpg /images/sculptures/sculpture-2020-009-31.jpg 301
+/wp-content/uploads/2017/09/32-1.jpg /images/sculptures/sculpture-2020-007-32.jpg 301
+/wp-content/uploads/2017/09/DSC02124.jpg /images/sculptures/sculpture-2020-008-32.jpg 301
+/wp-content/uploads/2017/09/IMG_1880.jpg /images/sculptures/sculpture-2020-006-33.jpg 301
+/wp-content/uploads/2017/09/IMG_2218.jpg /images/sculptures/sculpture-2020-005-34.jpg 301
+/wp-content/uploads/2017/09/IMG_4188.jpg /images/sculptures/sculpture-2020-004-35.jpg 301
+/wp-content/uploads/2017/09/IMG_4189.jpg /images/sculptures/sculpture-2020-003-36.jpg 301
+/wp-content/uploads/2017/09/IMG_4190.jpg /images/sculptures/sculpture-2020-002-37.jpg 301
+/wp-content/uploads/2017/09/IMG_4191.jpg /images/sculptures/sculpture-2020-001-38.jpg 301
