@@ -4,9 +4,9 @@ name: validate-images
 on:
   pull_request:
     paths:
-      - 'assets/images/**'
-      - 'data/paintings.yaml'
-      - 'data/sculptures.yaml'
+      - "assets/images/**"
+      - "data/paintings.yaml"
+      - "data/sculptures.yaml"
 
 jobs:
   validate:
