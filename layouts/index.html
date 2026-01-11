@@ -2,8 +2,8 @@
 {{/* Homepage - Design OS HomeView style */}}
 <div class="w-full min-h-screen bg-white dark:bg-stone-950 text-stone-900 dark:text-stone-50 selection:bg-lime-200 dark:selection:bg-lime-900">
 
-  {{/* Hero Section */}}
-  <section class="relative flex flex-col items-center justify-center px-6 py-24 md:py-40 lg:py-48 text-center border-b border-stone-100 dark:border-stone-900 overflow-hidden">
+  {{/* Hero Section - using header instead of section to avoid H1UserAgentFontSizeInSection deprecation */}}
+  <header class="relative flex flex-col items-center justify-center px-6 py-24 md:py-40 lg:py-48 text-center border-b border-stone-100 dark:border-stone-900 overflow-hidden">
     {{/* Background gradients */}}
     <div class="absolute inset-0 pointer-events-none opacity-30 dark:opacity-10">
       <div class="absolute top-0 left-1/4 w-96 h-96 bg-stone-100 dark:bg-stone-800 rounded-full blur-3xl -translate-y-1/2"></div>
@@ -22,7 +22,7 @@
         {{ if eq .Site.Language.Lang "de" }}{{ .Site.Params.artist.tagline_de }}{{ else }}{{ .Site.Params.artist.tagline_en }}{{ end }}
       </p>
     </div>
-  </section>
+  </header>
 
   {{/* Featured Works Section */}}
   {{ $paintings := .Site.Data.paintings.paintings }}
