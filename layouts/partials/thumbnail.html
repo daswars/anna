@@ -22,8 +22,8 @@
 {{- $image := resources.Get $assetPath -}}
 
 {{- if $image -}}
-  {{/* Generate thumbnail (400px width, WebP) */}}
-  {{- $thumb := $image.Resize "400x webp q80" -}}
+  {{/* Generate thumbnail (400px width, WebP, q65 for optimal file size) */}}
+  {{- $thumb := $image.Resize "400x webp q65" -}}
 
   {{/* Tiny placeholder for blur-up */}}
   {{- $placeholder := $image.Resize "20x webp q20" -}}
