@@ -5,6 +5,9 @@ title: Anna Weber
 defaultContentLanguage: de
 defaultContentLanguageInSubdir: true
 
+# Disable auto-redirect from / to /de/ (we use custom landing page)
+disableDefaultLanguageRedirect: true
+
 # Languages
 languages:
   de:
