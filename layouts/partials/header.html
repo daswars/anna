@@ -38,18 +38,21 @@
           </svg>
         </button>
 
-        <!-- Language Switcher - Unified Pill Design -->
-        <div class="flex items-center bg-stone-100 dark:bg-stone-800 rounded-full p-1 shadow-sm">
-          {{ range .Page.AllTranslations }}
-            {{ $isActive := eq $.Page.Language.Lang .Language.Lang }}
-            <a
-              href="{{ .RelPermalink }}"
-              class="px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 {{ if $isActive }}bg-white dark:bg-stone-700 text-stone-900 dark:text-stone-100 shadow-sm{{ else }}text-stone-400 dark:text-stone-500 hover:text-stone-600 dark:hover:text-stone-300{{ end }}"
-            >
-              {{ upper .Language.Lang }}
-            </a>
+        {{ $targetPage := .Page }}
+        {{ range .Page.AllTranslations }}
+          {{ if ne .Language.Lang $.Page.Language.Lang }}
+            {{ $targetPage = . }}
           {{ end }}
-        </div>
+        {{ end }}
+
+        <a
+          href="{{ $targetPage.RelPermalink }}"
+          class="group flex items-center border border-stone-200 dark:border-stone-700 rounded-full overflow-hidden cursor-pointer transition-colors hover:border-stone-400 dark:hover:border-stone-500"
+          aria-label="Switch Language"
+        >
+          <span class="px-3 py-1 text-sm transition-colors {{ if eq .Page.Language.Lang "de" }}bg-stone-200 dark:bg-stone-700 font-bold text-stone-900 dark:text-stone-100{{ else }}bg-white dark:bg-stone-900 font-normal text-stone-400 dark:text-stone-500 group-hover:text-stone-600 dark:group-hover:text-stone-300{{ end }}">DE</span>
+          <span class="px-3 py-1 text-sm transition-colors {{ if eq .Page.Language.Lang "en" }}bg-stone-200 dark:bg-stone-700 font-bold text-stone-900 dark:text-stone-100{{ else }}bg-white dark:bg-stone-900 font-normal text-stone-400 dark:text-stone-500 group-hover:text-stone-600 dark:group-hover:text-stone-300{{ end }}">EN</span>
+        </a>
 
         <!-- Mobile Menu Button -->
         <button
