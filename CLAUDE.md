@@ -18,6 +18,10 @@ hugo --gc --minify
 # Install dependencies (Tailwind CSS CLI via Bun)
 bun install
 
+# Lint CSS/JSON (Biome)
+bun run lint
+bun run lint:fix
+
 # Deploy to Cloudflare Pages
 wrangler pages publish public
 ```
@@ -35,10 +39,11 @@ All artwork and content lives in YAML files under `data/`:
 
 ### Hugo Image Processing
 
-Original images go in `assets/images/`. Hugo automatically generates:
-- 400px WebP thumbnails (gallery)
-- 1600px WebP (lightbox)
-- 20px blur placeholders
+Original images go in `assets/images/`. Hugo automatically generates optimized versions via partials:
+
+**Thumbnails** (`partials/thumbnail.html`): 300w/400w/600w WebP at q55
+**Lightbox** (`partials/responsive-image.html`): 400w/800w/1200w WebP at q85 with JPEG fallback
+**Placeholders**: 20px WebP blur-up
 
 **Never create manual thumbnails** - only set the `image:` field in YAML.
 
@@ -96,8 +101,19 @@ Files: `painting-YYYY-NNN-slug.jpg`
 
 ## Technical Notes
 
-- **Dark mode**: Class-based (`dark:` prefix), toggle in header, persisted to localStorage
-- **Fonts**: Self-hosted DM Sans in `static/fonts/`
+- **Dark mode**: Class-based via `@custom-variant dark (&:where(.dark, .dark *))` in CSS, toggle in header, persisted to localStorage
+- **Fonts**: Self-hosted DM Sans Variable in `static/fonts/`, with `font-display: optional` to prevent CLS
 - **Forms**: Formspree integration (ID in `hugo.yaml` params)
 - **Hosting**: Cloudflare Pages (config in `wrangler.toml`)
-- **CSS**: Tailwind v4 with `@theme` inline pattern in `assets/css/main.css`
+- **CSS**: Tailwind v4 with `@theme` inline pattern in `assets/css/main.css` - no tailwind.config.js
+- **Linting**: Biome for CSS and JSON files only (see `biome.json`)
+
+## Content Management via GitHub Issues
+
+New content can be added through GitHub Issue templates in `.github/ISSUE_TEMPLATE/`:
+- `neues-gemaelde.yml` - New painting
+- `neue-skulptur.yml` - New sculpture
+- `neue-ausstellung.yml` - New exhibition
+- `neuer-text.yml` - New text
+
+OpenCode agent processes issues automatically, updates YAML files, and creates PRs.
