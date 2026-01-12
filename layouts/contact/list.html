@@ -87,7 +87,7 @@
 
       {{/* Privacy Notice - DSGVO compliant */}}
       <p class="text-center text-sm text-stone-500 dark:text-stone-500 mt-4">
-        {{ i18n "privacy_agreement" }} <a href="/{{ .Site.Language.Lang }}/privacy/" class="underline underline-offset-4 hover:text-stone-700 dark:hover:text-stone-300">{{ i18n "privacy_agreement_link" }}</a>{{ i18n "privacy_agreement_suffix" }}
+        {{ i18n "privacy_agreement" }} <a href="{{ relLangURL "/privacy/" }}" class="underline underline-offset-4 hover:text-stone-700 dark:hover:text-stone-300">{{ i18n "privacy_agreement_link" }}</a>{{ i18n "privacy_agreement_suffix" }}
       </p>
 
       {{/* Success Message (shown via JavaScript) */}}
