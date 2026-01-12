@@ -15,7 +15,7 @@
 
       <div class="space-y-6">
         {{/* Artist basic info */}}
-        <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 p-6 -mx-6">
+        <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 p-6 -mx-6 hover:bg-stone-50 dark:hover:bg-stone-900/30 transition-colors rounded-sm">
           <span class="text-stone-400 dark:text-stone-500 font-mono text-sm tracking-widest min-w-[8rem]">
             * {{ .born }}
           </span>
@@ -40,7 +40,7 @@
 
       <div class="space-y-8">
         {{ range .education }}
-        <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 p-6 -mx-6">
+        <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 p-6 -mx-6 hover:bg-stone-50 dark:hover:bg-stone-900/30 transition-colors rounded-sm">
           <span class="text-stone-400 dark:text-stone-500 font-mono text-sm tracking-widest min-w-[8rem]">
             {{ .year }}
           </span>
@@ -62,7 +62,7 @@
 
       <div class="space-y-8">
         {{ range . }}
-        <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 p-6 -mx-6">
+        <div class="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 p-6 -mx-6 hover:bg-stone-50 dark:hover:bg-stone-900/30 transition-colors rounded-sm">
           <span class="text-stone-400 dark:text-stone-500 font-mono text-sm tracking-widest min-w-[8rem]">
             {{ .year }}
           </span>

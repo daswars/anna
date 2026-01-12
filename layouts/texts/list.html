@@ -17,7 +17,7 @@
     {{ if $texts }}
     <div class="space-y-24">
       {{ range $texts }}
-      <article class="group border-t border-stone-200 dark:border-stone-800 pt-8 transition-colors hover:border-stone-400 dark:hover:border-stone-600">
+      <article class="group transition-colors hover:bg-stone-50 dark:hover:bg-stone-900/30 p-6 -mx-6 rounded-sm">
         {{/* Meta info */}}
         <div class="flex items-center gap-4 text-xs font-mono tracking-widest text-stone-500 dark:text-stone-500 mb-6 uppercase">
           <time datetime="{{ .date }}">
