@@ -1,4 +1,4 @@
 ---
 title: "Anna Weber"
-description: "Künstlerin aus Düsseldorf"
+description: "Anna Weber ist eine zeitgenössische Künstlerin aus Düsseldorf. Entdecken Sie ihre Gemälde und Skulpturen in Öl, Acryl und verschiedenen Materialien."
 ---

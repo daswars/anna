@@ -37,6 +37,7 @@
 {{ else }}
 <a
   href="{{ $linkUrl | relLangURL }}"
+  title="{{ $title }} – {{ if eq $lang "de" }}Kunstwerk von Anna Weber{{ else }}Artwork by Anna Weber{{ end }}"
   class="group flex flex-col gap-5 text-left w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 dark:focus-visible:ring-stone-600 focus-visible:ring-offset-4 focus-visible:ring-offset-white dark:focus-visible:ring-offset-stone-950 rounded"
 >
 {{ end }}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  <title>{{ if .IsHome }}{{ .Site.Title }} – {{ i18n "seo_title_suffix" }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.artist.name }} - {{ with .Site.Language.Params.subtitle }}{{ . }}{{ end }}{{ end }}">
 
   {{/* Canonical URL */}}

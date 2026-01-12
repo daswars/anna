@@ -12,6 +12,7 @@
         {{ range .Site.Menus.main.ByWeight }}
         <a
           href="{{ .URL | relLangURL }}"
+          title="{{ .Name }} – Anna Weber"
           class="h-16 flex items-center text-sm font-medium transition-colors border-b-2 {{ if $.IsMenuCurrent "main" . }}border-stone-900 text-stone-900 dark:border-stone-100 dark:text-stone-100{{ else }}border-transparent text-stone-600 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-300{{ end }}"
         >
           {{ .Name }}
@@ -75,6 +76,7 @@
       {{ range .Site.Menus.main.ByWeight }}
       <a
         href="{{ .URL | relLangURL }}"
+        title="{{ .Name }} – Anna Weber"
         class="block w-full px-3 py-2 rounded-md text-base font-medium transition-colors {{ if $.IsMenuCurrent "main" . }}bg-stone-100 dark:bg-stone-800 text-stone-900 dark:text-stone-100{{ else }}text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800{{ end }}"
       >
         {{ .Name }}

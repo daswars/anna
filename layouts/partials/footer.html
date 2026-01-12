@@ -5,11 +5,13 @@
       <p>&copy; {{ now.Year }} {{ .Site.Params.artist.name }}</p>
       <span class="hidden sm:inline text-stone-300 dark:text-stone-700">&middot;</span>
       <a href="/{{ .Site.Language.Lang }}/imprint/"
+         title="{{ if eq .Site.Language.Lang "de" }}Impressum und rechtliche Hinweise{{ else }}Imprint and legal information{{ end }}"
          class="hover:text-stone-900 dark:hover:text-stone-100 transition-colors">
         {{ if eq .Site.Language.Lang "de" }}Impressum{{ else }}Imprint{{ end }}
       </a>
       <span class="hidden sm:inline text-stone-300 dark:text-stone-700">&middot;</span>
       <a href="/{{ .Site.Language.Lang }}/privacy/"
+         title="{{ if eq .Site.Language.Lang "de" }}Datenschutzerklärung{{ else }}Privacy Policy{{ end }}"
          class="hover:text-stone-900 dark:hover:text-stone-100 transition-colors">
         {{ if eq .Site.Language.Lang "de" }}Datenschutz{{ else }}Privacy{{ end }}
       </a>
