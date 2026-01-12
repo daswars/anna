@@ -1,0 +1,80 @@
+/* Local Font Declarations - Self-hosted for privacy and CSP compliance */
+
+/* Cormorant Garamond - Headlines */
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/Cormorant_Garamond/CormorantGaramond-Light.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Cormorant_Garamond/CormorantGaramond-Regular.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/Cormorant_Garamond/CormorantGaramond-Medium.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/Cormorant_Garamond/CormorantGaramond-LightItalic.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Cormorant_Garamond/CormorantGaramond-Italic.woff2")
+    format("woff2");
+}
+
+/* Lora - Body Text */
+@font-face {
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Lora/Lora-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/Lora/Lora-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/Lora/Lora-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Lora";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Lora/Lora-Italic.woff2") format("woff2");
+}

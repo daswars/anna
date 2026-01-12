@@ -1,4 +1,5 @@
 /* Main CSS - Tailwind CSS v4 with Hugo */
+@import "fonts.css";
 @import "tailwindcss";
 
 /* Enable class-based dark mode (required for Tailwind v4) */
