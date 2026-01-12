@@ -106,9 +106,11 @@
     .text-6xl{font-size:3.75rem;line-height:1}.tracking-tighter{letter-spacing:-0.05em}
     .tracking-wide{letter-spacing:0.025em}.font-medium{font-weight:500}.font-light{font-weight:300}
     .font-mono{font-family:ui-monospace,SFMono-Regular,monospace}.uppercase{text-transform:uppercase}
-    /* Colors */
+    /* Colors - light mode base */
     .bg-white{background-color:#fff}.text-stone-900{color:#1c1917}.text-stone-400{color:#a8a29e}.text-stone-500{color:#78716c}
-    .dark .bg-stone-950{background-color:#0c0a09}.dark .text-stone-50{color:#fafaf9}.dark .text-stone-400{color:#a8a29e}.dark .text-stone-500{color:#78716c}
+    /* Dark mode - using Tailwind v4 escaped class names */
+    .dark .dark\:bg-stone-950{background-color:#0c0a09}.dark .dark\:text-stone-50{color:#fafaf9}
+    .dark .dark\:text-stone-400{color:#a8a29e}.dark .dark\:border-stone-900{border-color:#1c1917}
     .bg-lime-500{background-color:#84cc16}
     /* Hero line */
     .h-px{height:1px}.w-24{width:6rem}
@@ -116,7 +118,7 @@
     @media(min-width:768px){.md\:py-40{padding-top:10rem;padding-bottom:10rem}.md\:text-8xl{font-size:6rem;line-height:1}.md\:text-2xl{font-size:1.5rem;line-height:2rem}}
     @media(min-width:1024px){.lg\:py-48{padding-top:12rem;padding-bottom:12rem}.lg\:text-9xl{font-size:8rem;line-height:1}}
     /* Border for hero */
-    .border-b{border-bottom-width:1px}.border-stone-100{border-color:#f5f5f4}.dark .border-stone-900{border-color:#1c1917}
+    .border-b{border-bottom-width:1px}.border-stone-100{border-color:#f5f5f4}
     /* Inline-block for badge */
     .inline-block{display:inline-block}
   </style>
