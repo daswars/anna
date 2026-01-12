@@ -3,14 +3,14 @@
 <div class="w-full min-h-screen bg-white dark:bg-stone-950 text-stone-900 dark:text-stone-50 selection:bg-lime-200 dark:selection:bg-lime-900">
 
   {{/* Hero Section - using header instead of section to avoid H1UserAgentFontSizeInSection deprecation */}}
-  <header class="relative flex flex-col items-center justify-center px-6 py-24 md:py-40 lg:py-48 text-center border-b border-stone-100 dark:border-stone-900 overflow-hidden">
+  <header class="hero-section relative flex flex-col items-center justify-center px-6 text-center border-b border-stone-100 dark:border-stone-900 overflow-hidden">
     {{/* Background gradients */}}
     <div class="absolute inset-0 pointer-events-none opacity-30 dark:opacity-10">
       <div class="absolute top-0 left-1/4 w-96 h-96 bg-stone-100 dark:bg-stone-800 rounded-full blur-3xl -translate-y-1/2"></div>
       <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-stone-50 dark:bg-stone-900 rounded-full blur-3xl translate-y-1/2"></div>
     </div>
 
-    <div class="relative z-10 max-w-4xl mx-auto">
+    <div class="relative z-10 section-hero-content mx-auto">
       <span class="inline-block mb-6 text-xs font-mono tracking-[0.2em] text-stone-400 dark:text-stone-500 uppercase">
         Portfolio {{ .Site.Params.portfolio_years }}
       </span>
@@ -25,7 +25,7 @@
   </header>
 
   {{/* Artist Introduction - SEO Text */}}
-  <section class="px-6 py-16 max-w-3xl mx-auto text-center border-b border-stone-100 dark:border-stone-900">
+  <section class="px-6 py-16 section-narrow mx-auto text-center border-b border-stone-100 dark:border-stone-900">
     <p class="text-lg text-stone-600 dark:text-stone-400 leading-relaxed">
       {{ if eq .Site.Language.Lang "de" }}
       Anna Weber ist eine zeitgenössische Künstlerin mit Atelier in Düsseldorf. Sie studierte an der <a href="https://www.kunstakademie-duesseldorf.de" target="_blank" rel="noopener" title="Kunstakademie Düsseldorf – Hochschule für Bildende Künste" class="underline hover:text-stone-900 dark:hover:text-stone-200 transition-colors">Kunstakademie Düsseldorf</a>. Ihre Arbeiten bewegen sich zwischen abstrakter und figurativer Malerei, wobei sie verschiedene Techniken wie Öl auf Leinwand, Acryl und Lack kombiniert. Die Werke zeichnen sich durch eine reduzierte Farbpalette und eine meditative Bildsprache aus.
@@ -38,7 +38,7 @@
   {{/* Featured Works Section */}}
   {{ $paintings := .Site.Data.paintings.paintings }}
   {{ if $paintings }}
-  <section class="px-6 py-24 md:py-32 max-w-[1400px] mx-auto">
+  <section class="px-6 py-24 md:py-32 section-featured mx-auto">
     <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 border-b border-stone-100 dark:border-stone-900 pb-8">
       <h2 class="text-3xl md:text-5xl tracking-tight">
         {{ if eq .Site.Language.Lang "de" }}Ausgewählte Arbeiten{{ else }}Selected Works{{ end }}
@@ -84,7 +84,7 @@
       <div class="w-full h-full bg-gradient-to-br from-stone-300 to-stone-100 dark:from-stone-700 dark:to-stone-900"></div>
     </div>
 
-    <div class="relative px-6 max-w-4xl mx-auto text-center">
+    <div class="relative px-6 section-hero-content mx-auto text-center">
       <span class="inline-block px-3 py-1 mb-8 border border-stone-200 dark:border-stone-800 rounded-full font-mono text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400 bg-white dark:bg-stone-900">
         {{ if eq .Site.Language.Lang "de" }}Letzte Ausstellung{{ else }}Recent Exhibition{{ end }}
       </span>
@@ -114,7 +114,7 @@
 
   {{/* CTA Cards Section */}}
   <section class="px-6 py-24 md:py-40 bg-white dark:bg-stone-950">
-    <div class="max-w-6xl mx-auto">
+    <div class="section-cta mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
         {{/* About Card */}}
         <div class="group">

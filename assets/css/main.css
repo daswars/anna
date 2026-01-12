@@ -6,8 +6,8 @@
 
 /* Custom font-face for DM Sans Variable (self-hosted) */
 @font-face {
-  font-family: 'DM Sans';
-  src: url('/fonts/DM_Sans/DMSans-Variable.woff2') format('woff2');
+  font-family: "DM Sans";
+  src: url("/fonts/DM_Sans/DMSans-Variable.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: optional; /* Prevents CLS - font only used if already cached */
@@ -15,7 +15,7 @@
 
 /* Theme customization */
 @theme {
-  --font-family-sans: 'DM Sans', system-ui, sans-serif;
+  --font-family-sans: "DM Sans", system-ui, sans-serif;
 }
 
 /* Base styles */
@@ -55,15 +55,200 @@ body {
   }
 }
 
-/* Width variants */
-.section-wide { max-width: 80rem; } /* max-w-7xl */
-.section-standard { max-width: 56rem; } /* max-w-4xl */
-.section-narrow { max-width: 42rem; } /* max-w-2xl */
+/* Width variants - responsive for large screens */
+.section-wide {
+  max-width: 80rem;
+} /* max-w-7xl = 1280px */
+.section-standard {
+  max-width: 56rem;
+} /* max-w-4xl = 896px */
+.section-narrow {
+  max-width: 42rem;
+} /* max-w-2xl = 672px */
+
+/* Large desktop (1920px+) - slightly wider containers */
+@media (min-width: 1920px) {
+  .section-wide {
+    max-width: 90rem;
+  } /* 1440px */
+  .section-standard {
+    max-width: 64rem;
+  } /* 1024px */
+  .section-narrow {
+    max-width: 48rem;
+  } /* 768px */
+}
+
+/* Ultra-wide / 4K displays (2560px+) - scale proportionally */
+@media (min-width: 2560px) {
+  .section-wide {
+    max-width: 110rem;
+  } /* 1760px */
+  .section-standard {
+    max-width: 80rem;
+  } /* 1280px */
+  .section-narrow {
+    max-width: 60rem;
+  } /* 960px */
+
+  .section-content {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+}
+
+/* 4K displays (3840px+) - even wider for proper proportions */
+@media (min-width: 3840px) {
+  .section-wide {
+    max-width: 140rem;
+  } /* 2240px */
+  .section-standard {
+    max-width: 100rem;
+  } /* 1600px */
+  .section-narrow {
+    max-width: 75rem;
+  } /* 1200px */
+
+  .section-content {
+    padding-left: 6rem;
+    padding-right: 6rem;
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+}
+
+/* Header & Footer width - matches section-wide */
+.section-header,
+.section-footer {
+  max-width: 80rem;
+}
+
+/* Footer content layout - horizontal on desktop */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.footer-separator {
+  display: none;
+}
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  .footer-separator {
+    display: inline;
+  }
+}
+@media (min-width: 1920px) {
+  .section-header,
+  .section-footer {
+    max-width: 90rem;
+  }
+}
+@media (min-width: 2560px) {
+  .section-header,
+  .section-footer {
+    max-width: 110rem;
+  }
+}
+@media (min-width: 3840px) {
+  .section-header,
+  .section-footer {
+    max-width: 140rem;
+  }
+}
+
+/* Hero section - reduced padding on large screens */
+.hero-section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+@media (min-width: 768px) {
+  .hero-section {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-section {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+}
+/* On large screens, reduce hero padding for better proportions */
+@media (min-width: 1920px) {
+  .hero-section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+@media (min-width: 2560px) {
+  .hero-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Homepage sections - responsive width */
+.section-hero-content {
+  max-width: 56rem;
+}
+.section-featured {
+  max-width: 87.5rem; /* 1400px */
+}
+.section-cta {
+  max-width: 72rem; /* max-w-6xl */
+}
+
+@media (min-width: 1920px) {
+  .section-hero-content {
+    max-width: 64rem;
+  }
+  .section-featured {
+    max-width: 100rem;
+  }
+  .section-cta {
+    max-width: 84rem;
+  }
+}
+@media (min-width: 2560px) {
+  .section-hero-content {
+    max-width: 80rem;
+  }
+  .section-featured {
+    max-width: 120rem;
+  }
+  .section-cta {
+    max-width: 100rem;
+  }
+}
+@media (min-width: 3840px) {
+  .section-hero-content {
+    max-width: 100rem;
+  }
+  .section-featured {
+    max-width: 160rem;
+  }
+  .section-cta {
+    max-width: 130rem;
+  }
+}
 
 /* Lightbox animations */
 @keyframes lightboxFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes lightboxZoomFadeIn {
