@@ -11,6 +11,7 @@
       "linkUrl" "/paintings" // required if type is "link"
       "showDimensions" true  // optional, default true
       "priority" false       // optional, use thumbnail-priority for LCP
+      "headingLevel" 3       // optional, default 3 (h3). Use 2 for h2 when no year sections
     ) }}
 */}}
 
@@ -22,6 +23,7 @@
 {{ $linkUrl := .linkUrl | default "" }}
 {{ $showDimensions := .showDimensions | default true }}
 {{ $priority := .priority | default false }}
+{{ $headingLevel := .headingLevel | default 3 }}
 
 {{ $title := cond (eq $lang "de") $artwork.title_de $artwork.title_en }}
 {{ $medium := cond (eq $lang "de") $artwork.medium_de $artwork.medium_en }}
@@ -85,9 +87,15 @@
 
   {{/* Metadata */}}
   <div class="flex flex-col gap-2 w-full px-2">
+    {{ if eq $headingLevel 2 }}
+    <h2 class="text-xl md:text-2xl leading-tight group-hover:text-stone-600 dark:group-hover:text-stone-300 transition-colors">
+      {{ $title }}
+    </h2>
+    {{ else }}
     <h3 class="text-xl md:text-2xl leading-tight group-hover:text-stone-600 dark:group-hover:text-stone-300 transition-colors">
       {{ $title }}
     </h3>
+    {{ end }}
     <div class="flex items-center gap-3 text-sm text-stone-500 dark:text-stone-400 font-mono tracking-wide border-t border-stone-100 dark:border-stone-800 pt-2 mt-1 w-full">
       {{ with $artwork.year }}<span class="font-medium">{{ . }}</span>{{ end }}
       {{ if and $artwork.year $medium }}<span class="w-1 h-1 rounded-full bg-stone-300 dark:bg-stone-700"></span>{{ end }}
