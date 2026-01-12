@@ -4,7 +4,3 @@ description: "Texts, artist statements and publications by Anna Weber. Written w
 type: "texts"
 layout: "list"
 ---
-
-*This page is under construction.*
-
-Texts, artist statements and publications will appear here soon.
