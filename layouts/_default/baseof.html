@@ -153,17 +153,11 @@
 
   {{ block "scripts" . }}{{ end }}
 
-  <!-- Dark Mode Toggle Handler -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.getElementById('theme-toggle');
-      if (toggle) {
-        toggle.addEventListener('click', () => {
-          const isDark = document.documentElement.classList.toggle('dark');
-          localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-      }
-    });
-  </script>
+  {{/* Dark Mode Toggle Handler - external JS for better SEO */}}
+  {{ $themeToggle := resources.Get "js/theme-toggle.js" }}
+  {{ if hugo.IsProduction }}
+    {{ $themeToggle = $themeToggle | minify | fingerprint }}
+  {{ end }}
+  <script src="{{ $themeToggle.RelPermalink }}" defer {{ if hugo.IsProduction }}integrity="{{ $themeToggle.Data.Integrity }}"{{ end }}></script>
 </body>
 </html>

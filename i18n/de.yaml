@@ -60,6 +60,7 @@ contact_title: Kontakt zu Anna Weber aufnehmen
 exhibitions_total: Ausstellungen gesamt
 
 # Biography
+artist_location: Düsseldorf, Deutschland
 born_in: geboren in
 lives_and_works_in: Lebt und arbeitet in
 residencies_and_scholarships: Residenzen & Stipendien
@@ -142,4 +143,4 @@ artist_description: Künstlerin für Malerei und Skulptur aus Düsseldorf
 painting: Malerei
 sculpture: Skulptur
 fine_art: Bildende Kunst
-seo_intro: 'Anna Weber ist eine zeitgenössische Künstlerin mit Atelier in Düsseldorf. Sie studierte an der <a href="https://www.kunstakademie-duesseldorf.de" target="_blank" rel="noopener" title="Kunstakademie Düsseldorf – Hochschule für Bildende Künste" class="underline hover:text-stone-900 dark:hover:text-stone-200 transition-colors">Kunstakademie Düsseldorf</a>. Ihre Arbeiten bewegen sich zwischen abstrakter und figurativer Malerei, wobei sie verschiedene Techniken wie Öl auf Leinwand, Acryl und Lack kombiniert. Die Werke zeichnen sich durch eine reduzierte Farbpalette und eine meditative Bildsprache aus.'
+seo_intro: '<p class="mb-4">Anna Weber ist eine zeitgenössische Künstlerin mit Atelier in Düsseldorf. Sie studierte an der <a href="https://www.kunstakademie-duesseldorf.de" target="_blank" rel="noopener" title="Kunstakademie Düsseldorf – Hochschule für Bildende Künste" class="underline hover:text-stone-900 dark:hover:text-stone-200 transition-colors">Kunstakademie Düsseldorf</a>. Ihre Arbeiten bewegen sich zwischen abstrakter und figurativer Malerei, wobei sie verschiedene Techniken wie Öl auf Leinwand, Acryl und Lack kombiniert.</p><p class="mb-4">Die Werke zeichnen sich durch eine reduzierte Farbpalette und eine meditative Bildsprache aus. Weber arbeitet vorwiegend mit Öl auf Leinwand, kombiniert aber auch Acryl und Lack zu vielschichtigen Kompositionen. Die Farbgebung reicht von monochromen Studien bis hin zu subtilen Farbverläufen.</p><p>Seit 2015 zeigt sie ihre Arbeiten in Einzel- und Gruppenausstellungen in Deutschland und international. Ihr künstlerischer Fokus liegt auf der Auseinandersetzung mit Farbe, Form und der Beziehung zwischen Betrachter und Werk.</p>'

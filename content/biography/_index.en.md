@@ -1,6 +1,6 @@
 ---
-title: "Biography"
-description: "Biography of artist Anna Weber. Education, artistic career and residencies. Contemporary painting and sculpture from Düsseldorf, Germany."
+title: "Biography – Education and Career"
+description: "Biography of Anna Weber. Education at Kunstakademie Düsseldorf, residencies and artistic career."
 type: "biography"
 layout: "list"
 ---

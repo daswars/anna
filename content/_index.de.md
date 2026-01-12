@@ -1,4 +1,4 @@
 ---
 title: "Anna Weber"
-description: "Anna Weber ist eine zeitgenössische Künstlerin aus Düsseldorf. Entdecken Sie ihre Gemälde und Skulpturen in Öl, Acryl und verschiedenen Materialien."
+description: "Anna Weber – zeitgenössische Künstlerin aus Düsseldorf. Gemälde und Skulpturen in Öl, Acryl und Mixed Media."
 ---

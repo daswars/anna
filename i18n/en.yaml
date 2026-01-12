@@ -60,6 +60,7 @@ contact_title: Contact Anna Weber
 exhibitions_total: exhibitions total
 
 # Biography
+artist_location: Düsseldorf, Germany
 born_in: born in
 lives_and_works_in: Lives and works in
 residencies_and_scholarships: Residencies & Scholarships
@@ -142,4 +143,4 @@ artist_description: Artist for Painting and Sculpture from Düsseldorf
 painting: Painting
 sculpture: Sculpture
 fine_art: Fine Art
-seo_intro: 'Anna Weber is a contemporary artist based in Düsseldorf, Germany. She studied at the <a href="https://www.kunstakademie-duesseldorf.de" target="_blank" rel="noopener" title="Kunstakademie Düsseldorf – Academy of Fine Arts" class="underline hover:text-stone-900 dark:hover:text-stone-200 transition-colors">Kunstakademie Düsseldorf</a>. Her work moves between abstract and figurative painting, combining various techniques such as oil on canvas, acrylic and varnish. The works are characterized by a reduced color palette and a meditative visual language.'
+seo_intro: '<p class="mb-4">Anna Weber is a contemporary artist based in Düsseldorf, Germany. She studied at the <a href="https://www.kunstakademie-duesseldorf.de" target="_blank" rel="noopener" title="Kunstakademie Düsseldorf – Academy of Fine Arts" class="underline hover:text-stone-900 dark:hover:text-stone-200 transition-colors">Kunstakademie Düsseldorf</a>. Her work moves between abstract and figurative painting, combining various techniques such as oil on canvas, acrylic and varnish.</p><p class="mb-4">The works are characterized by a reduced color palette and a meditative visual language. Weber works primarily with oil on canvas, but also combines acrylic and varnish into multi-layered compositions. The color palette ranges from monochromatic studies to subtle gradients.</p><p>Since 2015, she has been showing her work in solo and group exhibitions in Germany and internationally. Her artistic focus lies in the exploration of color, form, and the relationship between viewer and artwork.</p>'

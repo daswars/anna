@@ -14,12 +14,12 @@
       <span class="inline-block mb-6 text-xs font-mono tracking-[0.2em] text-stone-500 dark:text-stone-400 uppercase">
         Portfolio {{ .Site.Params.portfolio_years }}
       </span>
-      <h1 class="text-6xl md:text-8xl lg:text-9xl tracking-tighter mb-8 font-medium text-stone-900 dark:text-stone-50">
-        {{ .Site.Params.artist.name }}
+      <h1 class="text-4xl md:text-6xl lg:text-7xl tracking-tighter mb-8 font-medium text-stone-900 dark:text-stone-50">
+        {{ .Site.Params.artist.name }} – {{ if eq .Site.Language.Lang "de" }}{{ .Site.Params.artist.tagline_de }}{{ else }}{{ .Site.Params.artist.tagline_en }}{{ end }}
       </h1>
       <div class="h-px w-24 bg-lime-500 mx-auto mb-8"></div>
       <p class="text-xl md:text-2xl text-stone-500 dark:text-stone-400 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
-        {{ if eq .Site.Language.Lang "de" }}{{ .Site.Params.artist.tagline_de }}{{ else }}{{ .Site.Params.artist.tagline_en }}{{ end }}
+        {{ i18n "artist_location" }}
       </p>
     </div>
   </header>
