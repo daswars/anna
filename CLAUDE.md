@@ -102,11 +102,57 @@ Files: `painting-YYYY-NNN-slug.jpg`
 ## Technical Notes
 
 - **Dark mode**: Class-based via `@custom-variant dark (&:where(.dark, .dark *))` in CSS, toggle in header, persisted to localStorage
-- **Fonts**: Self-hosted DM Sans Variable in `static/fonts/`, with `font-display: optional` to prevent CLS
+- **Fonts**: Self-hosted in `static/fonts/` - see details below
 - **Forms**: Formspree integration (ID in `hugo.yaml` params)
 - **Hosting**: Cloudflare Pages (config in `wrangler.toml`)
 - **CSS**: Tailwind v4 with `@theme` inline pattern in `assets/css/main.css` - no tailwind.config.js
 - **Linting**: Biome for CSS and JSON files only (see `biome.json`)
+
+## Style Guide
+
+### Design-Prinzipien
+
+**Grundsatz**: Künstlerisch ("artsy"), nicht technisch ("techie"). Die Website ist ein Portfolio für eine bildende Künstlerin, kein Tech-Startup.
+
+**Typografie-Entscheidungen**:
+- **Cormorant Garamond** (Headlines): Klassisch-elegant, inspiriert von Renaissance-Typografie, feine Strichstärke
+- **Lora** (Body): Kalligrafische Wurzeln, weiche Kurven, wärmer als Sans-Serif
+- Keine Monospace-Fonts (`font-mono`) - wirkt zu technisch
+- Stattdessen: `tracking-[0.2em]` für Metadaten und Labels
+
+**Hierarchie**:
+- Headlines müssen sich klar vom Bodytext abheben
+- Modular Scale für harmonische Größenverhältnisse
+- Überschriften: `font-serif` (Cormorant Garamond), Light 300
+- Body/Navigation: `font-sans` (Lora), Regular 400
+
+**Layout-Regeln**:
+- Konsistente Ausrichtung: Wenn Headline linksbündig, dann auch Unterelemente
+- Kein Wechsel zwischen Mittelachse und Linksbündig innerhalb einer Sektion
+- Active States für Navigation immer sichtbar (Unterstrich, dunklere Farbe)
+
+**Vermeiden**:
+- Grüne/farbige Akzente (wirkt techie)
+- Dekorative Linien unter Headlines
+- Zentrierte Filter unter linksbündigen Headlines
+
+### Fonts (Self-Hosted)
+
+**WICHTIG**: Fonts müssen lokal gehostet werden, nicht von Google Fonts oder anderen CDNs laden. Die Content Security Policy (CSP) blockiert externe Font-Quellen.
+
+**Aktuelle Fonts**:
+- **Cormorant Garamond** (Headlines): `static/fonts/Cormorant_Garamond/`
+- **Lora** (Body): `static/fonts/Lora/`
+
+**Font-Dateien**: Nur `.woff2` Format (beste Kompression, breite Browser-Unterstützung)
+
+**Bei Font-Änderungen**:
+1. Neue Fonts als `.woff2` in `static/fonts/[FontName]/` ablegen
+2. `@font-face` Deklarationen in `assets/css/fonts.css` aktualisieren
+3. CSS-Variablen in `assets/css/main.css` unter `@theme` anpassen
+4. Preloads in `layouts/_default/baseof.html` aktualisieren (nur kritische Weights)
+
+**Font-Quellen**: [google-webfonts-helper](https://gwfh.mranftl.com/fonts) zum Download von Google Fonts als woff2
 
 ## Content Management via GitHub Issues
 

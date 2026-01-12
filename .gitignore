@@ -2,7 +2,6 @@
 public/
 
 # Hugo cache
-resources/_gen/
 .hugo_build.lock
 
 # OS files
