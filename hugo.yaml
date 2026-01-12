@@ -8,6 +8,7 @@ defaultContentLanguageInSubdir: false
 # Languages
 languages:
   de:
+    lang: de
     languageName: Deutsch
     weight: 1
     params:
@@ -44,6 +45,7 @@ languages:
           weight: 6
 
   en:
+    lang: en
     languageName: English
     weight: 2
     params:
