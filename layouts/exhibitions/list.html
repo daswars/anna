@@ -17,7 +17,7 @@
     {{ $sortedYears := sort $years "value" "desc" }}
 
     {{/* Separator with stats */}}
-    {{ $metaText := printf "%d %s · %d–%d" (len $allExhibitions) (cond (eq .Site.Language.Lang "de") "Ausstellungen" "exhibitions") (index $sortedYears (sub (len $sortedYears) 1)) (index $sortedYears 0) }}
+    {{ $metaText := printf "%d %s · %d–%d" (len $allExhibitions) (i18n "exhibitions") (index $sortedYears (sub (len $sortedYears) 1)) (index $sortedYears 0) }}
     {{ partial "_section-separator.html" (dict "text" $metaText) }}
 
     {{/* Exhibitions by year */}}
@@ -37,11 +37,11 @@
                 <div class="min-w-[6rem]">
                   {{ if eq .type "solo" }}
                   <span class="text-xs px-2 py-0.5 rounded-full border border-lime-300 dark:border-lime-700 text-lime-700 dark:text-lime-400 uppercase tracking-widest bg-lime-50 dark:bg-lime-900/20">
-                    {{ if eq $.Site.Language.Lang "de" }}Solo{{ else }}Solo{{ end }}
+                    {{ i18n "solo" }}
                   </span>
                   {{ else }}
                   <span class="text-xs px-2 py-0.5 rounded-full border border-stone-200 dark:border-stone-700 text-stone-500 dark:text-stone-400 uppercase tracking-widest">
-                    {{ if eq $.Site.Language.Lang "de" }}Gruppe{{ else }}Group{{ end }}
+                    {{ i18n "group" }}
                   </span>
                   {{ end }}
                 </div>
@@ -49,7 +49,7 @@
                 <div class="flex-1">
                   {{/* Title */}}
                   <h3 class="text-xl md:text-2xl font-medium text-stone-900 dark:text-stone-100 group-hover:text-stone-600 dark:group-hover:text-stone-400 transition-colors mb-2">
-                    {{ if .title }}"{{ .title }}"{{ else }}{{ if eq $.Site.Language.Lang "de" }}Ausstellung{{ else }}Exhibition{{ end }}{{ end }}
+                    {{ if .title }}"{{ .title }}"{{ else }}{{ i18n "exhibitions" }}{{ end }}
                   </h3>
 
                   {{/* Location */}}
@@ -68,7 +68,7 @@
     {{/* Footer */}}
     <footer class="mt-32 pt-8 border-t border-stone-200 dark:border-stone-800">
       <p class="text-sm text-stone-400 dark:text-stone-600 tracking-wider">
-        {{ len $allExhibitions }} {{ if eq .Site.Language.Lang "de" }}Ausstellungen gesamt{{ else }}exhibitions total{{ end }}
+        {{ len $allExhibitions }} {{ i18n "exhibitions_total" }}
       </p>
     </footer>
   </main>

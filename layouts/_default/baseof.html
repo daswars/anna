@@ -47,8 +47,8 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "{{ .Site.Params.artist.name }}",
-    "jobTitle": "{{ if eq .Site.Language.Lang "de" }}Künstlerin{{ else }}Artist{{ end }}",
-    "description": "{{ if eq .Site.Language.Lang "de" }}Künstlerin für Malerei und Skulptur aus Düsseldorf{{ else }}Artist for Painting and Sculpture from Düsseldorf{{ end }}",
+    "jobTitle": "{{ i18n "job_title" }}",
+    "description": "{{ i18n "artist_description" }}",
     "url": "{{ .Site.BaseURL }}",
     "image": "{{ "images/og-image.jpg" | absURL }}",
     "address": {
@@ -56,7 +56,7 @@
       "addressLocality": "Düsseldorf",
       "addressCountry": "DE"
     },
-    "knowsAbout": ["{{ if eq .Site.Language.Lang "de" }}Malerei{{ else }}Painting{{ end }}", "{{ if eq .Site.Language.Lang "de" }}Skulptur{{ else }}Sculpture{{ end }}", "{{ if eq .Site.Language.Lang "de" }}Bildende Kunst{{ else }}Fine Art{{ end }}"]
+    "knowsAbout": ["{{ i18n "painting" }}", "{{ i18n "sculpture" }}", "{{ i18n "fine_art" }}"]
   }
   </script>
   {{ end }}

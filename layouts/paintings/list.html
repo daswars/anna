@@ -18,7 +18,7 @@
     {{ $sortedYears := sort $years "value" "desc" }}
 
     {{/* Gallery Meta - Stats & Separator */}}
-    {{ $metaText := printf "%d %s · %d–%d" (len $allPaintings) (cond (eq .Site.Language.Lang "de") "Werke" "works") (index $sortedYears (sub (len $sortedYears) 1)) (index $sortedYears 0) }}
+    {{ $metaText := printf "%d %s · %d–%d" (len $allPaintings) (i18n "works") (index $sortedYears (sub (len $sortedYears) 1)) (index $sortedYears 0) }}
     {{ partial "_section-separator.html" (dict "text" $metaText) }}
 
     {{/* Year Sections */}}
@@ -59,7 +59,7 @@
     {{/* Gallery Footer */}}
     <footer class="mt-32 pt-8 border-t border-stone-200 dark:border-stone-800">
       <p class="text-sm text-stone-400 dark:text-stone-600 tracking-wider">
-        {{ len $allPaintings }} {{ if eq $.Site.Language.Lang "de" }}Werke{{ else }}works{{ end }} · {{ $.Site.Params.portfolio_years }}
+        {{ len $allPaintings }} {{ i18n "works" }} · {{ $.Site.Params.portfolio_years }}
       </p>
     </footer>
 

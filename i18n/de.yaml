@@ -1,3 +1,4 @@
+# Navigation
 paintings: Gemälde
 sculptures: Skulpturen
 texts: Texte
@@ -5,13 +6,139 @@ biography: Biografie
 about: Über die Künstlerin
 exhibitions: Ausstellungen
 contact: Kontakt
+
+# Metadata
 year: Jahr
 medium: Medium
 dimensions: Maße
+
+# Exhibition types
 solo_exhibition: Einzelausstellung
 group_exhibition: Gruppenausstellung
+solo: Solo
+group: Gruppe
+
+# Education
 education: Ausbildung
+
+# Navigation actions
 back_to_gallery: Zurück zur Galerie
 
-# SEO
+# Header
+home_title: "Startseite – Anna Weber"
+toggle_dark_mode: Farbschema wechseln
+toggle_menu: Menü öffnen
+switch_language: Sprache wechseln
+switch_to_other_language: Switch to English
+
+# Artwork
+view_artwork: Ansehen
+artwork_by_artist: Kunstwerk von Anna Weber
+artwork_viewer: Bildansicht
+close_lightbox: Schließen
+previous_artwork: Vorheriges Werk
+next_artwork: Nächstes Werk
+works: Werke
+
+# Homepage
+featured_works: Ausgewählte Arbeiten
+all_paintings: Alle Malereien
+all_sculptures: Alle Skulpturen
+all_exhibitions: Alle Ausstellungen
+recent_exhibition: Letzte Ausstellung
+location: Ort
+paintings_gallery_title: Zur Gemälde-Galerie von Anna Weber
+sculptures_gallery_title: Zur Skulpturen-Galerie von Anna Weber
+all_exhibitions_title: Alle Ausstellungen von Anna Weber ansehen
+about_description: Erfahren Sie mehr über Anna Livia Webers Werdegang, Ausstellungen und künstlerischen Ansatz.
+read_biography: Biografie lesen
+biography_title: Biografie von Anna Weber lesen
+contact_description: Für Anfragen zu verfügbaren Werken, Atelierbesuche oder Kooperationen.
+send_inquiry: Anfrage senden
+contact_title: Kontakt zu Anna Weber aufnehmen
+exhibitions_total: Ausstellungen gesamt
+
+# Biography
+born_in: geboren in
+lives_and_works_in: Lebt und arbeitet in
+residencies_and_scholarships: Residenzen & Stipendien
+
+# Contact Form
+contact_intro: Ich freue mich über Anfragen von Galerien, Sammlern und Interessierten. Bitte nutzen Sie das folgende Formular.
+name_label: Name
+name_placeholder: Ihr Name
+email_label: E-Mail
+email_placeholder: ihre@email.com
+message_label: Nachricht
+message_placeholder: Ihre Nachricht
+send_message: Nachricht senden
+sending: Wird gesendet...
+form_success: Vielen Dank für Ihre Nachricht! Ich werde mich so schnell wie möglich bei Ihnen melden.
+form_error: Leider ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.
+privacy_agreement: Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß unserer
+privacy_agreement_link: Datenschutzerklärung
+privacy_agreement_suffix: zu.
+social_media: Social Media
+
+# Texts page
+artist_statement: Künstlerstatement
+essay: Essay
+by_author: von
+read_more: Weiterlesen
+full_texts: Vollständige Texte
+no_texts: Noch keine Texte vorhanden.
+
+# Footer
+imprint: Impressum
+imprint_title: Impressum und rechtliche Hinweise
+privacy: Datenschutz
+privacy_title: Datenschutzerklärung
+instagram_title: Instagram @anna_livia_weber
+
+# Imprint page
+legal_info_heading: Angaben gemäß § 5 DDG
+liability_for_content: Haftung für Inhalte
+liability_for_links: Haftung für Links
+copyright: Urheberrecht
+javascript_required: "[JavaScript erforderlich]"
+contact_form_label: "Kontaktformular:"
+inquiry_response_time: Anfragen werden in der Regel innerhalb von 24 Stunden beantwortet.
+
+liability_content_text: Als Diensteanbieter bin ich gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+liability_links_text: Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+copyright_text: Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+
+# Privacy page
+data_controller_heading: 1. Verantwortlicher
+general_information_heading: 2. Allgemeine Hinweise
+hosting_heading: 3. Hosting
+contact_form_heading: 4. Kontaktformular
+formspree_processing_heading: Datenverarbeitung durch Formspree
+formspree_privacy_policy: Formspree Datenschutzerklärung
+your_rights_heading: 5. Ihre Rechte
+right_to_complain_heading: 6. Beschwerderecht
+ssl_encryption_heading: 7. SSL-Verschlüsselung
+last_updated: "Stand: Januar 2025"
+
+general_information_text: Diese Datenschutzerklärung informiert Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten auf dieser Website.
+hosting_text: Diese Website wird bei Cloudflare Pages gehostet. Beim Besuch der Website werden automatisch technische Informationen erfasst (z.B. IP-Adresse, Browsertyp, Zugriffszeitpunkt). Diese Daten werden für den technischen Betrieb der Website benötigt.
+contact_form_text: Wenn Sie das Kontaktformular nutzen, werden Ihre Angaben zur Bearbeitung der Anfrage verarbeitet. Die Daten werden gelöscht, sobald sie für die Bearbeitung Ihrer Anfrage nicht mehr benötigt werden.
+formspree_text: Das Kontaktformular nutzt den Dienst Formspree (Formspree, Inc., USA) zur Übermittlung Ihrer Nachricht. Formspree verarbeitet Ihre Daten gemäß ihrer Datenschutzrichtlinie.
+gdpr_rights_intro: Sie haben das Recht auf
+gdpr_right_access: Auskunft über die Sie betreffenden personenbezogenen Daten
+gdpr_right_rectification: Berichtigung unrichtiger Daten
+gdpr_right_erasure: Löschung Ihrer Daten
+gdpr_right_restriction: Einschränkung der Verarbeitung
+gdpr_right_portability: Datenübertragbarkeit
+gdpr_right_objection: Widerspruch gegen die Verarbeitung
+complaint_rights_text: Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten zu beschweren.
+ssl_encryption_text: Diese Website nutzt aus Sicherheitsgründen eine SSL-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt.
+
+# SEO & Schema
 seo_title_suffix: "Künstlerin für Malerei und Skulptur, Düsseldorf"
+job_title: Künstlerin
+artist_description: Künstlerin für Malerei und Skulptur aus Düsseldorf
+painting: Malerei
+sculpture: Skulptur
+fine_art: Bildende Kunst
+seo_intro: 'Anna Weber ist eine zeitgenössische Künstlerin mit Atelier in Düsseldorf. Sie studierte an der <a href="https://www.kunstakademie-duesseldorf.de" target="_blank" rel="noopener" title="Kunstakademie Düsseldorf – Hochschule für Bildende Künste" class="underline hover:text-stone-900 dark:hover:text-stone-200 transition-colors">Kunstakademie Düsseldorf</a>. Ihre Arbeiten bewegen sich zwischen abstrakter und figurativer Malerei, wobei sie verschiedene Techniken wie Öl auf Leinwand, Acryl und Lack kombiniert. Die Werke zeichnen sich durch eine reduzierte Farbpalette und eine meditative Bildsprache aus.'

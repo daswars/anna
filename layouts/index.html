@@ -27,11 +27,7 @@
   {{/* Artist Introduction - SEO Text */}}
   <section class="px-6 py-16 section-narrow mx-auto text-center border-b border-stone-100 dark:border-stone-900">
     <p class="text-lg text-stone-600 dark:text-stone-400 leading-relaxed">
-      {{ if eq .Site.Language.Lang "de" }}
-      Anna Weber ist eine zeitgenössische Künstlerin mit Atelier in Düsseldorf. Sie studierte an der <a href="https://www.kunstakademie-duesseldorf.de" target="_blank" rel="noopener" title="Kunstakademie Düsseldorf – Hochschule für Bildende Künste" class="underline hover:text-stone-900 dark:hover:text-stone-200 transition-colors">Kunstakademie Düsseldorf</a>. Ihre Arbeiten bewegen sich zwischen abstrakter und figurativer Malerei, wobei sie verschiedene Techniken wie Öl auf Leinwand, Acryl und Lack kombiniert. Die Werke zeichnen sich durch eine reduzierte Farbpalette und eine meditative Bildsprache aus.
-      {{ else }}
-      Anna Weber is a contemporary artist based in Düsseldorf, Germany. She studied at the <a href="https://www.kunstakademie-duesseldorf.de" target="_blank" rel="noopener" title="Kunstakademie Düsseldorf – Academy of Fine Arts" class="underline hover:text-stone-900 dark:hover:text-stone-200 transition-colors">Kunstakademie Düsseldorf</a>. Her work moves between abstract and figurative painting, combining various techniques such as oil on canvas, acrylic and varnish. The works are characterized by a reduced color palette and a meditative visual language.
-      {{ end }}
+      {{ i18n "seo_intro" | safeHTML }}
     </p>
   </section>
 
@@ -41,16 +37,16 @@
   <section class="px-6 py-24 md:py-32 section-featured mx-auto">
     <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 border-b border-stone-100 dark:border-stone-900 pb-8">
       <h2 class="text-3xl md:text-5xl tracking-tight">
-        {{ if eq .Site.Language.Lang "de" }}Ausgewählte Arbeiten{{ else }}Selected Works{{ end }}
+        {{ i18n "featured_works" }}
       </h2>
       <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm font-mono tracking-wider text-stone-500">
-        <a href="{{ "paintings" | relLangURL }}" title="{{ if eq .Site.Language.Lang "de" }}Zur Gemälde-Galerie von Anna Weber{{ else }}View Anna Weber's painting gallery{{ end }}" class="hover:text-stone-900 dark:hover:text-stone-100 transition-colors uppercase group flex items-center gap-2">
+        <a href="{{ "paintings" | relLangURL }}" title="{{ i18n "paintings_gallery_title" }}" class="hover:text-stone-900 dark:hover:text-stone-100 transition-colors uppercase group flex items-center gap-2">
           <span class="w-1.5 h-1.5 bg-transparent group-hover:bg-lime-500 rounded-full transition-colors"></span>
-          {{ if eq .Site.Language.Lang "de" }}Alle Malereien{{ else }}All Paintings{{ end }}
+          {{ i18n "all_paintings" }}
         </a>
-        <a href="{{ "sculptures" | relLangURL }}" title="{{ if eq .Site.Language.Lang "de" }}Zur Skulpturen-Galerie von Anna Weber{{ else }}View Anna Weber's sculpture gallery{{ end }}" class="hover:text-stone-900 dark:hover:text-stone-100 transition-colors uppercase group flex items-center gap-2">
+        <a href="{{ "sculptures" | relLangURL }}" title="{{ i18n "sculptures_gallery_title" }}" class="hover:text-stone-900 dark:hover:text-stone-100 transition-colors uppercase group flex items-center gap-2">
           <span class="w-1.5 h-1.5 bg-transparent group-hover:bg-lime-500 rounded-full transition-colors"></span>
-          {{ if eq .Site.Language.Lang "de" }}Alle Skulpturen{{ else }}All Sculptures{{ end }}
+          {{ i18n "all_sculptures" }}
         </a>
       </div>
     </div>
@@ -86,7 +82,7 @@
 
     <div class="relative px-6 section-hero-content mx-auto text-center">
       <span class="inline-block px-3 py-1 mb-8 border border-stone-200 dark:border-stone-800 rounded-full font-mono text-xs uppercase tracking-widest text-stone-500 dark:text-stone-400 bg-white dark:bg-stone-900">
-        {{ if eq .Site.Language.Lang "de" }}Letzte Ausstellung{{ else }}Recent Exhibition{{ end }}
+        {{ i18n "recent_exhibition" }}
       </span>
 
       <h2 class="text-5xl md:text-7xl mb-8 leading-none">
@@ -95,17 +91,17 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-2xl mx-auto border-t border-b border-stone-200 dark:border-stone-800 py-8">
         <div class="text-center md:text-right md:pr-8 md:border-r border-stone-200 dark:border-stone-800">
-          <span class="block font-mono text-xs uppercase text-stone-400 mb-2">{{ if eq .Site.Language.Lang "de" }}Ort{{ else }}Location{{ end }}</span>
+          <span class="block font-mono text-xs uppercase text-stone-400 mb-2">{{ i18n "location" }}</span>
           <span class="text-lg">{{ $latestExhibition.venue }}, {{ $latestExhibition.city }}</span>
         </div>
         <div class="text-center md:text-left md:pl-8">
-          <span class="block font-mono text-xs uppercase text-stone-400 mb-2">{{ if eq .Site.Language.Lang "de" }}Jahr{{ else }}Year{{ end }}</span>
+          <span class="block font-mono text-xs uppercase text-stone-400 mb-2">{{ i18n "year" }}</span>
           <span class="text-lg">{{ $latestExhibition.year }}</span>
         </div>
       </div>
 
-      <a href="{{ "exhibitions" | relLangURL }}" title="{{ if eq .Site.Language.Lang "de" }}Alle Ausstellungen von Anna Weber ansehen{{ else }}View all exhibitions by Anna Weber{{ end }}" class="group inline-flex items-center gap-3 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-lime-600 dark:hover:bg-lime-400 transition-all duration-300">
-        {{ if eq .Site.Language.Lang "de" }}Alle Ausstellungen{{ else }}All Exhibitions{{ end }}
+      <a href="{{ "exhibitions" | relLangURL }}" title="{{ i18n "all_exhibitions_title" }}" class="group inline-flex items-center gap-3 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-lime-600 dark:hover:bg-lime-400 transition-all duration-300">
+        {{ i18n "all_exhibitions" }}
         <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
       </a>
     </div>
@@ -118,18 +114,18 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
         {{/* About Card */}}
         <div class="group">
-          <a href="{{ "biography" | relLangURL }}" title="{{ if eq .Site.Language.Lang "de" }}Biografie von Anna Weber lesen{{ else }}Read Anna Weber's biography{{ end }}" class="block text-left w-full p-8 md:p-12 border border-stone-100 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/20 hover:border-stone-300 dark:hover:border-stone-700 hover:shadow-lg transition-all duration-300">
+          <a href="{{ "biography" | relLangURL }}" title="{{ i18n "biography_title" }}" class="block text-left w-full p-8 md:p-12 border border-stone-100 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/20 hover:border-stone-300 dark:hover:border-stone-700 hover:shadow-lg transition-all duration-300">
             <div class="mb-6 w-12 h-12 rounded-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center group-hover:bg-lime-200 dark:group-hover:bg-lime-900 transition-colors">
               <span class="text-2xl">A</span>
             </div>
             <h3 class="text-4xl mb-4 group-hover:text-stone-600 dark:group-hover:text-stone-300 transition-colors">
-              {{ if eq .Site.Language.Lang "de" }}Über die Künstlerin{{ else }}About the Artist{{ end }}
+              {{ i18n "about" }}
             </h3>
             <p class="text-stone-500 dark:text-stone-400 font-light text-lg leading-relaxed mb-8">
-              {{ if eq .Site.Language.Lang "de" }}Erfahren Sie mehr über Anna Livia Webers Werdegang, Ausstellungen und künstlerischen Ansatz.{{ else }}Learn more about Anna Livia Weber's background, exhibitions, and artistic approach.{{ end }}
+              {{ i18n "about_description" }}
             </p>
             <span class="font-mono text-sm uppercase tracking-wider border-b border-stone-300 pb-0.5 group-hover:border-stone-900 dark:group-hover:border-stone-100 transition-colors inline-flex items-center gap-2">
-              {{ if eq .Site.Language.Lang "de" }}Biografie lesen{{ else }}Read Biography{{ end }}
+              {{ i18n "read_biography" }}
               <span class="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all">&rarr;</span>
             </span>
           </a>
@@ -137,18 +133,18 @@
 
         {{/* Contact Card */}}
         <div class="group">
-          <a href="{{ "contact" | relLangURL }}" title="{{ if eq .Site.Language.Lang "de" }}Kontakt zu Anna Weber aufnehmen{{ else }}Contact Anna Weber{{ end }}" class="block text-left w-full p-8 md:p-12 border border-stone-100 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/20 hover:border-stone-300 dark:hover:border-stone-700 hover:shadow-lg transition-all duration-300">
+          <a href="{{ "contact" | relLangURL }}" title="{{ i18n "contact_title" }}" class="block text-left w-full p-8 md:p-12 border border-stone-100 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/20 hover:border-stone-300 dark:hover:border-stone-700 hover:shadow-lg transition-all duration-300">
             <div class="mb-6 w-12 h-12 rounded-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center group-hover:bg-lime-200 dark:group-hover:bg-lime-900 transition-colors">
               <span class="text-2xl">@</span>
             </div>
             <h3 class="text-4xl mb-4 group-hover:text-stone-600 dark:group-hover:text-stone-300 transition-colors">
-              {{ if eq .Site.Language.Lang "de" }}Kontakt{{ else }}Contact{{ end }}
+              {{ i18n "contact" }}
             </h3>
             <p class="text-stone-500 dark:text-stone-400 font-light text-lg leading-relaxed mb-8">
-              {{ if eq .Site.Language.Lang "de" }}Für Anfragen zu verfügbaren Werken, Atelierbesuche oder Kooperationen.{{ else }}For inquiries about available works, studio visits, or collaborations.{{ end }}
+              {{ i18n "contact_description" }}
             </p>
             <span class="font-mono text-sm uppercase tracking-wider border-b border-stone-300 pb-0.5 group-hover:border-stone-900 dark:group-hover:border-stone-100 transition-colors inline-flex items-center gap-2">
-              {{ if eq .Site.Language.Lang "de" }}Anfrage senden{{ else }}Send Inquiry{{ end }}
+              {{ i18n "send_inquiry" }}
               <span class="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all">&rarr;</span>
             </span>
           </a>

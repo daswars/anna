@@ -9,7 +9,7 @@
 
     {{/* Separator with count */}}
     {{ if $texts }}
-      {{ $metaText := printf "%d %s" (len $texts) (cond (eq .Site.Language.Lang "de") "Texte" "texts") }}
+      {{ $metaText := printf "%d %s" (len $texts) (i18n "texts") }}
       {{ partial "_section-separator.html" (dict "text" $metaText) }}
     {{ else }}
       {{ partial "_section-separator.html" }}
@@ -21,18 +21,14 @@
         {{/* Meta info */}}
         <div class="flex items-center gap-4 text-xs font-mono tracking-widest text-stone-500 dark:text-stone-500 mb-6 uppercase">
           <time datetime="{{ .date }}">
-            {{ if eq $.Site.Language.Lang "de" }}
-              {{ dateFormat "January 2006" .date }}
-            {{ else }}
-              {{ dateFormat "January 2006" .date }}
-            {{ end }}
+            {{ dateFormat "January 2006" .date }}
           </time>
           <span>—</span>
           <span>
             {{ if eq .type "artist-statement" }}
-              {{ if eq $.Site.Language.Lang "de" }}Künstlerstatement{{ else }}Artist Statement{{ end }}
+              {{ i18n "artist_statement" }}
             {{ else if eq .type "essay" }}
-              Essay
+              {{ i18n "essay" }}
             {{ else }}
               {{ .type }}
             {{ end }}
@@ -47,7 +43,7 @@
         {{/* Author if not the artist */}}
         {{ if and .author (ne .author "Anna Weber") }}
         <p class="text-sm text-stone-500 dark:text-stone-400 mb-6 font-mono">
-          {{ if eq $.Site.Language.Lang "de" }}von{{ else }}by{{ end }} {{ .author }}
+          {{ i18n "by_author" }} {{ .author }}
         </p>
         {{ end }}
 
@@ -69,7 +65,7 @@
 
         {{/* Read more link */}}
         <a href="#text-{{ .id }}" class="inline-flex items-center gap-3 text-sm font-mono uppercase tracking-widest text-stone-900 dark:text-stone-100 group-hover:text-stone-600 dark:group-hover:text-stone-400 transition-colors">
-          <span>{{ if eq $.Site.Language.Lang "de" }}Weiterlesen{{ else }}Read more{{ end }}</span>
+          <span>{{ i18n "read_more" }}</span>
           <span class="transition-transform group-hover:translate-x-2">&rarr;</span>
         </a>
       </article>
@@ -79,7 +75,7 @@
     {{/* Full texts (expandable sections) */}}
     <div class="mt-32 pt-16 border-t border-stone-200 dark:border-stone-800">
       <h2 class="text-2xl font-light text-stone-900 dark:text-stone-50 mb-16">
-        {{ if eq .Site.Language.Lang "de" }}Vollständige Texte{{ else }}Full Texts{{ end }}
+        {{ i18n "full_texts" }}
       </h2>
 
       {{ range $texts }}
@@ -90,7 +86,7 @@
 
         {{ if and .author (ne .author "Anna Weber") }}
         <p class="text-sm text-stone-500 dark:text-stone-400 mb-8 font-mono">
-          {{ if eq $.Site.Language.Lang "de" }}von{{ else }}by{{ end }} {{ .author }}
+          {{ i18n "by_author" }} {{ .author }}
         </p>
         {{ end }}
 
@@ -108,7 +104,7 @@
     </div>
     {{ else }}
     <p class="text-stone-500 dark:text-stone-400">
-      {{ if eq .Site.Language.Lang "de" }}Noch keine Texte vorhanden.{{ else }}No texts available yet.{{ end }}
+      {{ i18n "no_texts" }}
     </p>
     {{ end }}
   </main>

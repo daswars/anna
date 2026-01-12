@@ -19,7 +19,7 @@
     {{ $sortedYears := sort $years "value" "desc" }}
 
     {{/* Gallery Meta - Stats & Separator */}}
-    {{ $metaText := printf "%d %s" (len $allSculptures) (cond (eq .Site.Language.Lang "de") "Werke" "works") }}
+    {{ $metaText := printf "%d %s" (len $allSculptures) (i18n "works") }}
     {{ if gt (len $sortedYears) 0 }}
       {{ $metaText = printf "%s · %d–%d" $metaText (index $sortedYears (sub (len $sortedYears) 1)) (index $sortedYears 0) }}
     {{ end }}
@@ -44,7 +44,7 @@
     {{/* Gallery Footer */}}
     <footer class="mt-32 pt-8 border-t border-stone-200 dark:border-stone-800">
       <p class="text-sm text-stone-400 dark:text-stone-600 tracking-wider">
-        {{ len $allSculptures }} {{ if eq $.Site.Language.Lang "de" }}Werke{{ else }}works{{ end }}
+        {{ len $allSculptures }} {{ i18n "works" }}
       </p>
     </footer>
 

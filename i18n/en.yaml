@@ -1,3 +1,4 @@
+# Navigation
 paintings: Paintings
 sculptures: Sculptures
 texts: Texts
@@ -5,13 +6,139 @@ biography: Biography
 about: About the Artist
 exhibitions: Exhibitions
 contact: Contact
+
+# Metadata
 year: Year
 medium: Medium
 dimensions: Dimensions
+
+# Exhibition types
 solo_exhibition: Solo Exhibition
 group_exhibition: Group Exhibition
+solo: Solo
+group: Group
+
+# Education
 education: Education
+
+# Navigation actions
 back_to_gallery: Back to Gallery
 
-# SEO
+# Header
+home_title: "Home – Anna Weber"
+toggle_dark_mode: Toggle dark mode
+toggle_menu: Toggle menu
+switch_language: Switch language
+switch_to_other_language: Auf Deutsch wechseln
+
+# Artwork
+view_artwork: View
+artwork_by_artist: Artwork by Anna Weber
+artwork_viewer: Artwork viewer
+close_lightbox: Close
+previous_artwork: Previous artwork
+next_artwork: Next artwork
+works: works
+
+# Homepage
+featured_works: Selected Works
+all_paintings: All Paintings
+all_sculptures: All Sculptures
+all_exhibitions: All Exhibitions
+recent_exhibition: Recent Exhibition
+location: Location
+paintings_gallery_title: View Anna Weber's painting gallery
+sculptures_gallery_title: View Anna Weber's sculpture gallery
+all_exhibitions_title: View all exhibitions by Anna Weber
+about_description: Learn more about Anna Livia Weber's background, exhibitions, and artistic approach.
+read_biography: Read Biography
+biography_title: Read Anna Weber's biography
+contact_description: For inquiries about available works, studio visits, or collaborations.
+send_inquiry: Send Inquiry
+contact_title: Contact Anna Weber
+exhibitions_total: exhibitions total
+
+# Biography
+born_in: born in
+lives_and_works_in: Lives and works in
+residencies_and_scholarships: Residencies & Scholarships
+
+# Contact Form
+contact_intro: I welcome inquiries from galleries, collectors, and those interested. Please use the form below.
+name_label: Name
+name_placeholder: Your name
+email_label: Email
+email_placeholder: your@email.com
+message_label: Message
+message_placeholder: Your message
+send_message: Send message
+sending: Sending...
+form_success: Thank you for your message! I will get back to you as soon as possible.
+form_error: An error occurred. Please try again later.
+privacy_agreement: By submitting, you agree to the processing of your data according to our
+privacy_agreement_link: Privacy Policy
+privacy_agreement_suffix: "."
+social_media: Social Media
+
+# Texts page
+artist_statement: Artist Statement
+essay: Essay
+by_author: by
+read_more: Read more
+full_texts: Full Texts
+no_texts: No texts available yet.
+
+# Footer
+imprint: Imprint
+imprint_title: Imprint and legal information
+privacy: Privacy
+privacy_title: Privacy Policy
+instagram_title: Instagram @anna_livia_weber
+
+# Imprint page
+legal_info_heading: Information according to § 5 DDG
+liability_for_content: Liability for Content
+liability_for_links: Liability for Links
+copyright: Copyright
+javascript_required: "[JavaScript required]"
+contact_form_label: "Contact form:"
+inquiry_response_time: Inquiries are typically answered within 24 hours.
+
+liability_content_text: As a service provider, I am responsible for my own content on these pages in accordance with general laws pursuant to § 7 para. 1 DDG. According to §§ 8 to 10 DDG, however, I am not obligated as a service provider to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.
+liability_links_text: This website contains links to external third-party websites over whose content I have no control. Therefore, I cannot accept any liability for this third-party content. The respective provider or operator of the linked pages is always responsible for the content of the linked pages.
+copyright_text: The content and works on these pages created by the site operator are subject to German copyright law. Reproduction, editing, distribution, and any kind of use outside the limits of copyright law require the written consent of the respective author or creator.
+
+# Privacy page
+data_controller_heading: 1. Data Controller
+general_information_heading: 2. General Information
+hosting_heading: 3. Hosting
+contact_form_heading: 4. Contact Form
+formspree_processing_heading: Data Processing by Formspree
+formspree_privacy_policy: Formspree Privacy Policy
+your_rights_heading: 5. Your Rights
+right_to_complain_heading: 6. Right to Complain
+ssl_encryption_heading: 7. SSL Encryption
+last_updated: "Last updated: January 2025"
+
+general_information_text: This privacy policy informs you about the nature, scope, and purpose of the processing of personal data on this website.
+hosting_text: This website is hosted on Cloudflare Pages. When visiting the website, technical information is automatically collected (e.g., IP address, browser type, access time). This data is required for the technical operation of the website.
+contact_form_text: When you use the contact form, your information will be processed to handle your inquiry. The data will be deleted as soon as it is no longer needed to process your request.
+formspree_text: The contact form uses the Formspree service (Formspree, Inc., USA) to transmit your message. Formspree processes your data in accordance with their privacy policy.
+gdpr_rights_intro: You have the right to
+gdpr_right_access: Access information about your personal data
+gdpr_right_rectification: Rectification of inaccurate data
+gdpr_right_erasure: Erasure of your data
+gdpr_right_restriction: Restriction of processing
+gdpr_right_portability: Data portability
+gdpr_right_objection: Object to processing
+complaint_rights_text: You have the right to lodge a complaint with a data protection supervisory authority regarding the processing of your personal data.
+ssl_encryption_text: This website uses SSL encryption for security reasons. You can recognize an encrypted connection by the fact that the address line of the browser changes from "http://" to "https://".
+
+# SEO & Schema
 seo_title_suffix: "Artist for Painting and Sculpture, Düsseldorf"
+job_title: Artist
+artist_description: Artist for Painting and Sculpture from Düsseldorf
+painting: Painting
+sculpture: Sculpture
+fine_art: Fine Art
+seo_intro: 'Anna Weber is a contemporary artist based in Düsseldorf, Germany. She studied at the <a href="https://www.kunstakademie-duesseldorf.de" target="_blank" rel="noopener" title="Kunstakademie Düsseldorf – Academy of Fine Arts" class="underline hover:text-stone-900 dark:hover:text-stone-200 transition-colors">Kunstakademie Düsseldorf</a>. Her work moves between abstract and figurative painting, combining various techniques such as oil on canvas, acrylic and varnish. The works are characterized by a reduced color palette and a meditative visual language.'

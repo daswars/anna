@@ -12,7 +12,7 @@
     {{/* Biography Section */}}
     <section class="mb-32">
       <h2 class="text-3xl font-light text-stone-900 dark:text-stone-50 mb-12 pb-6 border-b border-stone-200 dark:border-stone-800">
-        {{ if eq $.Site.Language.Lang "de" }}Biografie{{ else }}Biography{{ end }}
+        {{ i18n "biography" }}
       </h2>
 
       <div class="space-y-6">
@@ -26,10 +26,10 @@
               {{ .name }}
             </h3>
             <p class="text-stone-600 dark:text-stone-400 font-light">
-              {{ if eq $.Site.Language.Lang "de" }}geboren in{{ else }}born in{{ end }} {{ .birthplace }}
+              {{ i18n "born_in" }} {{ .birthplace }}
             </p>
             <p class="text-stone-500 dark:text-stone-500 mt-2">
-              {{ if eq $.Site.Language.Lang "de" }}Lebt und arbeitet in{{ else }}Lives and works in{{ end }} {{ .location }}
+              {{ i18n "lives_and_works_in" }} {{ .location }}
             </p>
           </div>
         </div>
@@ -39,7 +39,7 @@
     {{/* Education Section */}}
     <section class="mb-32">
       <h2 class="text-3xl font-light text-stone-900 dark:text-stone-50 mb-12 pb-6 border-b border-stone-200 dark:border-stone-800">
-        {{ if eq $.Site.Language.Lang "de" }}Ausbildung{{ else }}Education{{ end }}
+        {{ i18n "education" }}
       </h2>
 
       <div class="space-y-8">
@@ -63,7 +63,7 @@
     {{ with .Site.Data.biography.residencies }}
     <section class="mb-32">
       <h2 class="text-3xl font-light text-stone-900 dark:text-stone-50 mb-12 pb-6 border-b border-stone-200 dark:border-stone-800">
-        {{ if eq $.Site.Language.Lang "de" }}Residenzen & Stipendien{{ else }}Residencies & Scholarships{{ end }}
+        {{ i18n "residencies_and_scholarships" }}
       </h2>
 
       <div class="space-y-8">
