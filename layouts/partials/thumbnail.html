@@ -5,6 +5,7 @@
     {{ partial "thumbnail.html" (dict
       "src" "/images/paintings/2022/painting.jpg"
       "alt" "Artwork title"
+      "title" "Artwork title"
       "class" "optional-css-classes"
     ) }}
 
@@ -13,6 +14,7 @@
 
 {{- $src := .src -}}
 {{- $alt := .alt | default "" -}}
+{{- $title := .title | default "" -}}
 {{- $class := .class | default "" -}}
 
 {{/* Convert /images/ path to assets path */}}
@@ -32,6 +34,7 @@
     srcset="{{ $thumb300.RelPermalink }} 300w, {{ $thumb400.RelPermalink }} 400w, {{ $thumb600.RelPermalink }} 600w"
     sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 400px"
     alt="{{ $alt }}"
+    {{ with $title }}title="{{ . }}"{{ end }}
     width="{{ $thumb400.Width }}"
     height="{{ $thumb400.Height }}"
     loading="lazy"
@@ -40,5 +43,5 @@
   >
 {{- else -}}
   {{/* Fallback if image not found */}}
-  <img src="{{ $src }}" alt="{{ $alt }}" {{ with $class }}class="{{ . }}"{{ end }} loading="lazy">
+  <img src="{{ $src }}" alt="{{ $alt }}" {{ with $title }}title="{{ . }}"{{ end }} {{ with $class }}class="{{ . }}"{{ end }} loading="lazy">
 {{- end -}}

@@ -52,12 +52,14 @@
       {{ partial "thumbnail-priority.html" (dict
         "src" $artwork.image
         "alt" $title
+        "title" $title
         "class" "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
       ) }}
     {{ else }}
       {{ partial "thumbnail.html" (dict
         "src" $artwork.image
         "alt" $title
+        "title" $title
         "class" "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
       ) }}
     {{ end }}
