@@ -61,8 +61,10 @@
   </script>
   {{ end }}
 
-  {{/* Preload critical fonts to avoid render-blocking chain */}}
-  <link rel="preload" href="/fonts/DM_Sans/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  {{/* Google Fonts: Cormorant Garamond (headlines) + Inter (body) */}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   {{/* Preload LCP image on homepage for faster paint */}}
   {{ if .IsHome }}
@@ -86,8 +88,7 @@
 
   {{/* Critical CSS inline - expanded for hero section to prevent CLS */}}
   <style>
-    @font-face{font-family:'DM Sans';src:url('/fonts/DM_Sans/DMSans-Variable.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:optional}
-    :root{--font-family-sans:'DM Sans',system-ui,sans-serif}
+    :root{--font-family-serif:'Cormorant Garamond',Georgia,serif;--font-family-sans:'Inter',system-ui,sans-serif}
     html{scroll-behavior:smooth}
     body{font-family:var(--font-family-sans);margin:0;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
     .dark{color-scheme:dark}
@@ -111,7 +112,8 @@
     /* Dark mode - using Tailwind v4 escaped class names */
     .dark .dark\:bg-stone-950{background-color:#0c0a09}.dark .dark\:text-stone-50{color:#fafaf9}
     .dark .dark\:text-stone-400{color:#a8a29e}.dark .dark\:border-stone-900{border-color:#1c1917}
-    .bg-lime-500{background-color:#84cc16}
+    .bg-stone-400{background-color:#a8a29e}
+    .font-serif{font-family:var(--font-family-serif)}
     /* Hero line */
     .h-px{height:1px}.w-24{width:6rem}
     /* Responsive hero text */
