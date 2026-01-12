@@ -23,9 +23,9 @@
 
 {{- if $image -}}
   {{/* Generate responsive thumbnails */}}
-  {{- $thumb300 := $image.Resize "300x webp q65" -}}
-  {{- $thumb400 := $image.Resize "400x webp q65" -}}
-  {{- $thumb600 := $image.Resize "600x webp q65" -}}
+  {{- $thumb300 := $image.Resize "300x webp q55" -}}
+  {{- $thumb400 := $image.Resize "400x webp q55" -}}
+  {{- $thumb600 := $image.Resize "600x webp q55" -}}
 
   <img
     src="{{ $thumb400.RelPermalink }}"
