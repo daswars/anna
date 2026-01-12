@@ -1,5 +1,5 @@
 {{/*
-  Page Title Partial - Large, subtle heading style
+  Page Title Partial - Bold, prominent heading style (Homepage design)
 
   Usage:
     {{ partial "_page-title.html" (dict
@@ -11,16 +11,15 @@
 {{ $title := .title }}
 {{ $size := .size | default "large" }}
 
-<div class="relative mb-12 md:mb-16">
+<div class="mb-8 md:mb-12">
   {{ if eq $size "large" }}
-  <h1 class="text-7xl md:text-8xl lg:text-9xl font-extralight text-stone-200/80 dark:text-stone-800/80 leading-none select-none -ml-1 md:-ml-2">
+  <h1 class="text-5xl md:text-7xl lg:text-8xl tracking-tighter font-medium text-stone-900 dark:text-stone-50 leading-tight">
     {{ $title }}
   </h1>
   {{ else }}
-  <h1 class="text-5xl md:text-7xl font-extralight text-stone-200/80 dark:text-stone-800/80 leading-none select-none">
+  <h1 class="text-4xl md:text-5xl tracking-tight font-medium text-stone-900 dark:text-stone-50 leading-tight">
     {{ $title }}
   </h1>
   {{ end }}
-  {{/* Subtle accent line */}}
-  <div class="absolute bottom-2 left-0 w-16 h-px bg-stone-300 dark:bg-stone-700"></div>
+  <div class="h-px w-16 bg-lime-500 mt-6"></div>
 </div>

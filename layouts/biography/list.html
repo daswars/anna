@@ -11,9 +11,7 @@
     {{ with .Site.Data.biography }}
     {{/* Biography Section */}}
     <section class="mb-32">
-      <h2 class="text-3xl font-light text-stone-900 dark:text-stone-50 mb-12 pb-6 border-b border-stone-200 dark:border-stone-800">
-        {{ i18n "biography" }}
-      </h2>
+      {{ partial "_section-heading.html" (dict "title" (i18n "biography")) }}
 
       <div class="space-y-6">
         {{/* Artist basic info */}}
@@ -38,9 +36,7 @@
 
     {{/* Education Section */}}
     <section class="mb-32">
-      <h2 class="text-3xl font-light text-stone-900 dark:text-stone-50 mb-12 pb-6 border-b border-stone-200 dark:border-stone-800">
-        {{ i18n "education" }}
-      </h2>
+      {{ partial "_section-heading.html" (dict "title" (i18n "education")) }}
 
       <div class="space-y-8">
         {{ range .education }}
@@ -62,9 +58,7 @@
     {{/* Residency Section - from data/biography.yaml */}}
     {{ with .Site.Data.biography.residencies }}
     <section class="mb-32">
-      <h2 class="text-3xl font-light text-stone-900 dark:text-stone-50 mb-12 pb-6 border-b border-stone-200 dark:border-stone-800">
-        {{ i18n "residencies_and_scholarships" }}
-      </h2>
+      {{ partial "_section-heading.html" (dict "title" (i18n "residencies_and_scholarships")) }}
 
       <div class="space-y-8">
         {{ range . }}

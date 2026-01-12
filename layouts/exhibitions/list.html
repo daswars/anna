@@ -33,16 +33,12 @@
             {{ range where $allExhibitions "year" $year }}
             <div class="group p-6 -mx-6 hover:bg-stone-50 dark:hover:bg-stone-900/30 transition-colors rounded-sm">
               <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-12">
-                {{/* Solo badge if applicable */}}
+                {{/* Solo/Group badge */}}
                 <div class="min-w-[6rem]">
                   {{ if eq .type "solo" }}
-                  <span class="text-xs px-2 py-0.5 rounded-full border border-lime-300 dark:border-lime-700 text-lime-700 dark:text-lime-400 uppercase tracking-widest bg-lime-50 dark:bg-lime-900/20">
-                    {{ i18n "solo" }}
-                  </span>
+                    {{ partial "_badge.html" (dict "type" "solo" "text" (i18n "solo")) }}
                   {{ else }}
-                  <span class="text-xs px-2 py-0.5 rounded-full border border-stone-200 dark:border-stone-700 text-stone-500 dark:text-stone-400 uppercase tracking-widest">
-                    {{ i18n "group" }}
-                  </span>
+                    {{ partial "_badge.html" (dict "type" "group" "text" (i18n "group")) }}
                   {{ end }}
                 </div>
 

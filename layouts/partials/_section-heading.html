@@ -1,0 +1,12 @@
+{{/*
+  Section Heading Partial - Consistent h2 styling (Homepage design)
+
+  Usage:
+    {{ partial "_section-heading.html" (dict "title" (i18n "education")) }}
+*/}}
+
+{{ $title := .title }}
+
+<h2 class="text-3xl md:text-5xl tracking-tight font-medium text-stone-900 dark:text-stone-50 mb-8 pb-4 border-b border-stone-100 dark:border-stone-900">
+  {{ $title }}
+</h2>

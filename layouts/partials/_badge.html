@@ -1,0 +1,24 @@
+{{/*
+  Badge Partial - Solo/Group exhibition badges with lime hover
+
+  Usage:
+    {{ partial "_badge.html" (dict "type" "solo" "text" (i18n "solo")) }}
+    {{ partial "_badge.html" (dict "type" "group" "text" (i18n "group")) }}
+
+  Types:
+    - "solo": Lime-colored badge (highlighted)
+    - "group" or default: Stone-colored badge with lime hover
+*/}}
+
+{{ $type := .type | default "group" }}
+{{ $text := .text }}
+
+{{ if eq $type "solo" }}
+<span class="text-xs px-2 py-0.5 rounded-full border border-lime-300 dark:border-lime-700 text-lime-700 dark:text-lime-400 uppercase tracking-widest bg-lime-50 dark:bg-lime-900/20 transition-colors group-hover:bg-lime-100 dark:group-hover:bg-lime-900/40">
+  {{ $text }}
+</span>
+{{ else }}
+<span class="text-xs px-2 py-0.5 rounded-full border border-stone-200 dark:border-stone-700 text-stone-500 dark:text-stone-400 uppercase tracking-widest transition-colors group-hover:border-lime-300 dark:group-hover:border-lime-700 group-hover:text-lime-600 dark:group-hover:text-lime-400">
+  {{ $text }}
+</span>
+{{ end }}
