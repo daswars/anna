@@ -50,10 +50,10 @@
           href="{{ $targetPage.RelPermalink }}"
           title="{{ i18n "switch_to_other_language" }}"
           class="group flex items-center border border-stone-200 dark:border-stone-700 rounded-full overflow-hidden cursor-pointer transition-colors hover:border-stone-400 dark:hover:border-stone-500"
-          aria-label="{{ i18n "switch_language" }}"
+          aria-label="{{ i18n "switch_language" }}: DE / EN"
         >
-          <span class="px-3 py-1 text-sm transition-colors {{ if eq .Page.Language.Lang "de" }}bg-stone-200 dark:bg-stone-700 font-bold text-stone-900 dark:text-stone-100{{ else }}bg-white dark:bg-stone-900 font-normal text-stone-400 dark:text-stone-500 group-hover:text-stone-600 dark:group-hover:text-stone-300{{ end }}">DE</span>
-          <span class="px-3 py-1 text-sm transition-colors {{ if eq .Page.Language.Lang "en" }}bg-stone-200 dark:bg-stone-700 font-bold text-stone-900 dark:text-stone-100{{ else }}bg-white dark:bg-stone-900 font-normal text-stone-400 dark:text-stone-500 group-hover:text-stone-600 dark:group-hover:text-stone-300{{ end }}">EN</span>
+          <span class="px-3 py-1 text-sm transition-colors {{ if eq .Page.Language.Lang "de" }}bg-stone-200 dark:bg-stone-700 font-bold text-stone-900 dark:text-stone-100{{ else }}bg-white dark:bg-stone-900 font-normal text-stone-500 dark:text-stone-400 group-hover:text-stone-600 dark:group-hover:text-stone-300{{ end }}">DE</span>
+          <span class="px-3 py-1 text-sm transition-colors {{ if eq .Page.Language.Lang "en" }}bg-stone-200 dark:bg-stone-700 font-bold text-stone-900 dark:text-stone-100{{ else }}bg-white dark:bg-stone-900 font-normal text-stone-500 dark:text-stone-400 group-hover:text-stone-600 dark:group-hover:text-stone-300{{ end }}">EN</span>
         </a>
 
         <!-- Mobile Menu Button -->
