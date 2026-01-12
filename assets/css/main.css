@@ -6,10 +6,10 @@
 
 /* Theme customization - Typography System
    Cormorant Garamond: elegant serif for headlines
-   Inter: clean sans-serif for body text */
+   Lora: artistic serif for body text */
 @theme {
   --font-family-serif: "Cormorant Garamond", Georgia, serif;
-  --font-family-sans: "Inter", system-ui, sans-serif;
+  --font-family-sans: "Lora", Georgia, serif;
 }
 
 /* Base styles */

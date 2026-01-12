@@ -5,21 +5,42 @@
     {{ partial "_page-title.html" (dict
       "title" "Exhibitions"
       "size" "large"  // "large" or "medium" (default: large)
+      "showGalleryNav" true  // optional: show paintings/sculptures navigation
+      "activeSection" "paintings"  // "paintings" or "sculptures"
+      "context" $  // required for gallery nav links
     ) }}
 */}}
 
 {{ $title := .title }}
 {{ $size := .size | default "large" }}
+{{ $showGalleryNav := .showGalleryNav | default false }}
+{{ $activeSection := .activeSection | default "" }}
+{{ $context := .context }}
 
-<div class="mb-8 md:mb-12">
-  {{ if eq $size "large" }}
-  <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl tracking-tight font-light text-stone-900 dark:text-stone-50 leading-tight">
-    {{ $title }}
-  </h1>
-  {{ else }}
-  <h1 class="font-serif text-3xl md:text-4xl tracking-tight font-light text-stone-900 dark:text-stone-50 leading-tight">
-    {{ $title }}
-  </h1>
-  {{ end }}
-  <div class="h-px w-16 bg-stone-400 mt-6"></div>
+<div class="mb-8 md:mb-12 border-b border-stone-200 dark:border-stone-800 pb-6">
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+    {{ if eq $size "large" }}
+    <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl tracking-tight font-light text-stone-900 dark:text-stone-50 leading-tight">
+      {{ $title }}
+    </h1>
+    {{ else }}
+    <h1 class="font-serif text-3xl md:text-4xl tracking-tight font-light text-stone-900 dark:text-stone-50 leading-tight">
+      {{ $title }}
+    </h1>
+    {{ end }}
+
+    {{/* Optional Gallery Navigation with Active States */}}
+    {{ if $showGalleryNav }}
+    <nav class="flex flex-wrap gap-x-8 gap-y-2 text-sm tracking-[0.15em]" aria-label="{{ i18n "gallery_navigation" | default "Gallery navigation" }}">
+      <a href="{{ "paintings/" | relLangURL }}"
+         class="uppercase transition-colors {{ if eq $activeSection "paintings" }}text-stone-900 dark:text-stone-100 border-b border-current pb-0.5{{ else }}text-stone-500 hover:text-stone-900 dark:hover:text-stone-100{{ end }}">
+        {{ i18n "all_paintings" }}
+      </a>
+      <a href="{{ "sculptures/" | relLangURL }}"
+         class="uppercase transition-colors {{ if eq $activeSection "sculptures" }}text-stone-900 dark:text-stone-100 border-b border-current pb-0.5{{ else }}text-stone-500 hover:text-stone-900 dark:hover:text-stone-100{{ end }}">
+        {{ i18n "all_sculptures" }}
+      </a>
+    </nav>
+    {{ end }}
+  </div>
 </div>

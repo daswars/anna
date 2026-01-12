@@ -3,8 +3,13 @@
 <div class="section-page">
   <main class="section-content section-wide">
 
-    {{/* Page Title */}}
-    {{ partial "_page-title.html" (dict "title" (i18n "sculptures")) }}
+    {{/* Page Title with Gallery Navigation */}}
+    {{ partial "_page-title.html" (dict
+      "title" (i18n "sculptures")
+      "showGalleryNav" true
+      "activeSection" "sculptures"
+      "context" $
+    ) }}
 
     {{ $allSculptures := .Site.Data.sculptures.sculptures }}
 

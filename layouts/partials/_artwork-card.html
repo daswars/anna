@@ -79,7 +79,7 @@
 
     {{/* "View" button - slides up on hover */}}
     <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-      <span class="inline-block bg-white/90 dark:bg-stone-950/90 backdrop-blur px-4 py-2 text-stone-900 dark:text-stone-100 font-mono text-xs uppercase tracking-widest shadow-sm">
+      <span class="inline-block bg-white/90 dark:bg-stone-950/90 backdrop-blur px-4 py-2 text-stone-900 dark:text-stone-100 text-xs uppercase tracking-[0.2em] shadow-sm">
         {{ $viewText }}
       </span>
     </div>
@@ -96,7 +96,7 @@
       {{ $title }}
     </h3>
     {{ end }}
-    <div class="flex items-center gap-3 text-sm text-stone-500 dark:text-stone-400 font-mono tracking-wide border-t border-stone-100 dark:border-stone-800 pt-2 mt-1 w-full">
+    <div class="flex items-center gap-3 text-sm text-stone-500 dark:text-stone-400 tracking-wide border-t border-stone-100 dark:border-stone-800 pt-2 mt-1 w-full">
       {{ with $artwork.year }}<span class="font-medium">{{ . }}</span>{{ end }}
       {{ if and $artwork.year $medium }}<span class="w-1 h-1 rounded-full bg-stone-300 dark:bg-stone-700"></span>{{ end }}
       <span>{{ $medium }}</span>

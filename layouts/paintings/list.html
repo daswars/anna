@@ -3,8 +3,13 @@
 <div class="section-page">
   <main class="section-content section-wide">
 
-    {{/* Page Title */}}
-    {{ partial "_page-title.html" (dict "title" (i18n "paintings")) }}
+    {{/* Page Title with Gallery Navigation */}}
+    {{ partial "_page-title.html" (dict
+      "title" (i18n "paintings")
+      "showGalleryNav" true
+      "activeSection" "paintings"
+      "context" $
+    ) }}
 
     {{/* Get unique years and sort descending */}}
     {{ $allPaintings := .Site.Data.paintings.paintings }}

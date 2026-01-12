@@ -61,10 +61,10 @@
   </script>
   {{ end }}
 
-  {{/* Google Fonts: Cormorant Garamond (headlines) + Inter (body) */}}
+  {{/* Google Fonts: Cormorant Garamond (headlines) + Lora (body) */}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
   {{/* Preload LCP image on homepage for faster paint */}}
   {{ if .IsHome }}
@@ -88,7 +88,7 @@
 
   {{/* Critical CSS inline - expanded for hero section to prevent CLS */}}
   <style>
-    :root{--font-family-serif:'Cormorant Garamond',Georgia,serif;--font-family-sans:'Inter',system-ui,sans-serif}
+    :root{--font-family-serif:'Cormorant Garamond',Georgia,serif;--font-family-sans:'Lora',Georgia,serif}
     html{scroll-behavior:smooth}
     body{font-family:var(--font-family-sans);margin:0;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
     .dark{color-scheme:dark}
