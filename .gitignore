@@ -22,4 +22,4 @@ node_modules/
 # FewWord context plugin
 .fewword/
 
-# resources/_gen/
+resources/_gen/
