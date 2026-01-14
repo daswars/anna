@@ -181,6 +181,28 @@
     // Update navigation visibility
     prevBtn.style.display = currentIndex > 0 ? 'block' : 'none';
     nextBtn.style.display = currentIndex < artworks.length - 1 ? 'block' : 'none';
+
+    // Preload adjacent images for smoother navigation
+    preloadAdjacentImages();
+  }
+
+  // Preload next and previous images
+  function preloadAdjacentImages() {
+    const preloadImage = (artwork) => {
+      if (!artwork) return;
+      const img = new Image();
+      // Preload the 1200px version (most commonly displayed)
+      img.src = artwork.image_1200 || artwork.image;
+    };
+
+    // Preload next image
+    if (currentIndex < artworks.length - 1) {
+      preloadImage(artworks[currentIndex + 1]);
+    }
+    // Preload previous image
+    if (currentIndex > 0) {
+      preloadImage(artworks[currentIndex - 1]);
+    }
   }
 
   // Event listeners

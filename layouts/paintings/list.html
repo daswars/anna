@@ -82,9 +82,9 @@
       {{- $assetPath := replace .image "/images/" "images/" -}}
       {{- $img := resources.Get $assetPath -}}
       {{- if $img -}}
-      {{- $img800 := $img.Resize "800x webp q85" -}}
-      {{- $img1200 := $img.Resize "1200x webp q85" -}}
-      {{- $img1600 := $img.Resize "1600x webp q90" -}}
+      {{- $img800 := $img.Resize "800x webp q80" -}}
+      {{- $img1200 := $img.Resize "1200x webp q80" -}}
+      {{- $img1400 := $img.Resize "1400x webp q80" -}}
       {
         id: "{{ .id }}",
         title_de: "{{ .title_de }}",
@@ -95,7 +95,7 @@
         dimensions: "{{ .dimensions }}",
         image_800: "{{ $img800.RelPermalink }}",
         image_1200: "{{ $img1200.RelPermalink }}",
-        image_1600: "{{ $img1600.RelPermalink }}",
+        image_1600: "{{ $img1400.RelPermalink }}",
         image: "{{ $img1200.RelPermalink }}"
       },
       {{- end -}}

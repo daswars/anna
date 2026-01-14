@@ -49,10 +49,11 @@
     {{- end -}}
   {{- end -}}
 
-  {{/* Add original size to srcset */}}
+  {{/* Add original size to srcset (resized to avoid copying raw originals) */}}
   {{- $originalWebp := $image.Resize (printf "%dx webp q85" $image.Width) -}}
+  {{- $originalJpeg := $image.Resize (printf "%dx jpg q85" $image.Width) -}}
   {{- $webpSrcset = $webpSrcset | append (printf "%s %dw" $originalWebp.RelPermalink $image.Width) -}}
-  {{- $jpegSrcset = $jpegSrcset | append (printf "%s %dw" $image.RelPermalink $image.Width) -}}
+  {{- $jpegSrcset = $jpegSrcset | append (printf "%s %dw" $originalJpeg.RelPermalink $image.Width) -}}
 
   {{/* Generate small placeholder for blur-up effect */}}
   {{- $placeholder := $image.Resize "20x webp q20" -}}
@@ -70,9 +71,9 @@
       srcset="{{ delimit $jpegSrcset ", " }}"
       sizes="{{ $sizes }}"
     >
-    {{/* Fallback img */}}
+    {{/* Fallback img - use optimized WebP version */}}
     <img
-      src="{{ $image.RelPermalink }}"
+      src="{{ $originalWebp.RelPermalink }}"
       alt="{{ $alt }}"
       width="{{ $image.Width }}"
       height="{{ $image.Height }}"
