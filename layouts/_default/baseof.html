@@ -124,8 +124,9 @@
     .inline-block{display:inline-block}
   </style>
 
-  {{/* Load CSS synchronously - CLS prevention is more important than render-blocking */}}
-  <link rel="stylesheet" href="{{ $css.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $css.Data.Integrity }}"{{ end }}>
+  {{/* Async CSS loading - Critical CSS is inlined above, full CSS loads async */}}
+  <link rel="preload" href="{{ $css.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'" {{ if hugo.IsProduction }}integrity="{{ $css.Data.Integrity }}"{{ end }}>
+  <noscript><link rel="stylesheet" href="{{ $css.RelPermalink }}"></noscript>
 
   {{/* Theme Script (must be in head to prevent flash and CLS) */}}
   <script>
